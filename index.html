@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<link rel="stylesheet" href="/dist/output.css" />
+		<script
+			defer
+			src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+		></script>
+		<script type="module" src="/main.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+	</head>
+	<body>
+		<div
+			x-data="{show: false}"
+			class="w-2/3 flex flex-col justify-center mx-auto h-screen items-center"
+		>
+			<button
+				@click="show = ! show"
+				class="
+					w-full
+					bg-gradient-to-tr
+					from-blue-200
+					to-blue-100
+					shadow-blue-200/50 shadow-xl
+					rounded-full
+					p-3
+					font-bold
+					hover:shadow-lg hover:shadow-blue-200/50
+					transition-all
+					duration-300
+					ease-in-out
+					uppercase
+				"
+			>
+				tanner click this button
+			</button>
+			<p x-show="show" class="mt-8">i made a website from scratch</p>
+		</div>
+	</body>
+</html>
