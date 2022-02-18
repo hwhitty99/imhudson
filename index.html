@@ -19,11 +19,11 @@
       <div class="w-2/3 max-w-sm p-8 bg-white rounded-xl">
         <button
           @click="show = ! show"
-          class="w-full p-3 font-bold text-white uppercase transition-all duration-300 ease-in-out rounded-full shadow-xl bg-gradient-to-tr from-blue-500 to-blue-400 shadow-blue-200/50 hover:shadow-lg hover:shadow-blue-200/50 animate-pulse"
+          class="w-full p-3 font-bold text-white uppercase transition-all rounded-full shadow-xl bg-gradient-to-tr from-blue-500 to-blue-400 shadow-blue-200/50 hover:shadow-lg hover:shadow-blue-200/50"
         >
           click me!
         </button>
-        <p x-show="show" class="mt-8 text-center" style="display: none">
+        <p class="mt-8 text-center transition" :class="show ? 'opacity-100 scale-100' : 'opacity-0 scale-50'">
           I made a website from scratch!
         </p>
       </div>
