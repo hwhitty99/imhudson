@@ -78,7 +78,8 @@
         >
           <h1 class="flex w-full text-6xl font-black">hello<span class="animate-bounce">.</span><span class="animation-delay-200 animate-bounce">.</span><span class="animation-delay-400 animate-bounce">.</span></h1>
           <form
-            action="/"
+            id="contact-form"
+            action="https://formspree.io/f/xyyowvan"
             method="POST"
             @submit.prevent="submitData"
             x-data="contactForm()"
@@ -146,10 +147,11 @@
         
         
         submitData() {
+          var form = document.getElementById('contact-form')
           this.submitLabel = "Sending..."
           this.submitting = true,
 
-          fetch('https://formsubmit.co/ajax/f325bb1980fd7f5592805c11eca0aaeb', {
+          fetch(event.target.action, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -158,21 +160,26 @@
             body: JSON.stringify(this.formData)
           })
           .then(res => {
-            res.json()
-          })
-          .then(data => {
-            console.log("data: " + data)
-            this.submitLabel = 'Got it, thanks!'
+            if(res.ok) {
+              this.submitLabel = 'Got it, thanks!'
+              form.reset()
+            }
+            else {
+              res.json()
+              .then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                  this.submitLabel = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  this.submitLabel = 'Ope...try again'
+                }
+              })
+            }
           })
           .catch(error => {
-            console.log("ERROR; " + error)
             this.submitLabel = 'Ope...try again'
           })
           .finally(() => {
             this.submitting = false
-            this.formData.name = ''
-            this.formData.email = ''
-            this.formData.message = ''
           })
         }        
       }
