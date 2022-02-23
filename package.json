@@ -19,6 +19,7 @@
   "dependencies": {
     "alpinejs": "^3.9.0",
     "gh-pages": "^3.2.3",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "tailwindcss-animation-delay": "^1.0.7"
   }
 }

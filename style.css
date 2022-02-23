@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .form-field-input {
+        @apply px-4 py-2 placeholder-transparent transition-all bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 focus:ring-offset-2 w-full
+    }
+    .form-field-label {
+        @apply absolute left-0 text-sm font-semibold text-black transition-all -top-6 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-placeholder-shown:left-4 peer-focus:left-0 peer-focus:text-sm peer-focus:text-black peer-focus:-top-6 peer-focus:font-semibold peer-placeholder-shown:font-normal
+    }
+}
