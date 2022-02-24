@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches}" :class="darkMode ? 'dark' : ''">
+<html
+  lang="en"
+  x-data="{darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches}"
+  :class="darkMode ? 'dark' : ''"
+>
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/style.css" />
-    <link rel="icon" href="/favicon.svg">
+    <link rel="icon" href="/favicon.svg" />
     <script src="/main.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hudson's Playground</title>
   </head>
   <body>
-    <section class="flex flex-col justify-center h-auto min-h-screen transition-colors bg-gray-100 dark:bg-slate-800 lg:flex-row lg:items-center dark:text-white" x-data="{activeTab: 'simpleButton'}">
-
+    <section
+      class="flex h-auto min-h-screen flex-col justify-center bg-gray-100 transition-colors dark:bg-slate-800 dark:text-white lg:flex-row lg:items-center"
+      x-data="{activeTab: 'simpleButton'}"
+    >
       <!-- dark mode toggle -->
-      <button @click="darkMode = !darkMode" class="fixed z-10 bottom-20 right-8">
-        <div class="relative flex items-center h-8 transition-colors bg-black rounded-full w-14 dark:bg-white">
-          <div class="absolute flex items-center justify-center w-6 h-6 transition-all duration-300 ease-in-out bg-white rounded-full dark:bg-slate-800" :class="darkMode ? 'left-7' : 'left-1'">
-            <img src="/dark-mode.svg" alt="" class="w-4 h-4 transition-all duration-1000 rotate-0 dark:filter dark:invert dark:rotate-180">
+      <button
+        @click="darkMode = !darkMode"
+        class="fixed bottom-20 right-8 z-10"
+      >
+        <div
+          class="relative flex h-8 w-14 items-center rounded-full bg-black transition-colors dark:bg-white"
+        >
+          <div
+            class="absolute flex h-6 w-6 items-center justify-center rounded-full bg-white transition-all duration-300 ease-in-out dark:bg-slate-800"
+            :class="darkMode ? 'left-7' : 'left-1'"
+          >
+            <img
+              src="/dark-mode.svg"
+              alt=""
+              class="h-4 w-4 rotate-0 transition-all duration-1000 dark:rotate-180 dark:invert dark:filter"
+            />
           </div>
         </div>
       </button>
 
       <!-- tabs -->
-      <div class="fixed bottom-0 z-10 flex w-full font-bold uppercase transition-colors lg:w-1/3 lg:relative lg:flex-col lg:justify-start lg:mr-8 lg:space-y-4 lg:bg-white lg:h-2/3 lg:rounded-r-3xl lg:p-8 xl:mr-16 2xl:mr-32 dark:lg:bg-slate-700">
+      <div
+        class="fixed bottom-0 z-10 flex w-full font-bold uppercase transition-colors lg:relative lg:mr-8 lg:h-2/3 lg:w-1/3 lg:flex-col lg:justify-start lg:space-y-4 lg:rounded-r-3xl lg:bg-white lg:p-8 dark:lg:bg-slate-700 xl:mr-16 2xl:mr-32"
+      >
         <a
           href="#"
           @click.prevent="activeTab = 'simpleButton'"
-          class="w-full p-4 text-center transition bg-white lg:rounded-xl dark:bg-slate-700 dark:lg:bg-slate-800"
+          class="w-full bg-white p-4 text-center transition dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
           x-bind:class="activeTab == 'simpleButton' ? 'border-b-4 border-b-blue-500 lg:bg-blue-100 text-blue-400 dark:text-white lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 text-black'"
         >
           Simple Button
@@ -33,7 +53,7 @@
         <a
           href="#"
           @click.prevent="activeTab = 'formField'"
-          class="w-full p-4 text-center transition-colors bg-white lg:rounded-xl dark:bg-slate-700 dark:lg:bg-slate-800"
+          class="w-full bg-white p-4 text-center transition-colors dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
           x-bind:class="activeTab == 'formField' ? 'border-b-4 border-b-blue-500 lg:bg-blue-100 text-blue-400 dark:text-white lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 text-black'"
         >
           Contact form
@@ -41,39 +61,40 @@
       </div>
 
       <!-- tab views -->
-      <div class="flex justify-center w-3/4 p-8 mx-auto mt-16 mb-32 overflow-hidden transition-colors bg-white min-h-max lg:my-0 dark:bg-slate-700 rounded-3xl h-2/3 lg:w-2/3 lg:rounded-r-none lg:rounded-l-3xl">
-
+      <div
+        class="mx-auto mt-16 mb-32 flex h-2/3 min-h-max w-3/4 justify-center overflow-hidden rounded-3xl bg-white p-8 transition-colors dark:bg-slate-700 lg:my-0 lg:w-2/3 lg:rounded-r-none lg:rounded-l-3xl"
+      >
         <!-- simple button -->
         <div
           x-data="{show: false}"
-          class="flex flex-col items-center justify-center w-full h-full max-w-sm"
+          class="flex h-full w-full max-w-sm flex-col items-center justify-center"
           x-show="activeTab == 'simpleButton'"
           x-transition.in.opacity
           x-transition:enter.duration.500ms
         >
-          <div class="flex items-center h-full justify-items-center">
+          <div class="flex h-full items-center justify-items-center">
             <p
-              class="my-16 text-center transition scale-50 opacity-0 lg:text-xl 2xl:text-2xl"
-              :class="show ? 'opacity-100 scale-100' : 'opacity-0 scale-50'">
+              class="my-16 scale-50 text-center opacity-0 transition lg:text-xl 2xl:text-2xl"
+              :class="show ? 'opacity-100 scale-100' : 'opacity-0 scale-50'"
+            >
               Hey, nice click.
             </p>
           </div>
-          <button
-            @click="show = ! show"
-            class="btn-primary"
-          >
-            click me!
-          </button>
+          <button @click="show = ! show" class="btn-primary">click me!</button>
         </div>
 
         <!-- contact form -->
         <div
-          class="flex flex-col items-center justify-between w-full h-full max-w-sm"
+          class="flex h-full w-full max-w-sm flex-col items-center justify-between"
           x-show="activeTab == 'formField'"
           x-transition.in.opacity
           x-transition:enter.duration.500ms
         >
-          <h1 class="flex w-full mb-8 text-6xl font-black">hello<span class="animate-bounce">.</span><span class="animation-delay-200 animate-bounce">.</span><span class="animation-delay-400 animate-bounce">.</span></h1>
+          <h1 class="mb-8 flex w-full text-6xl font-black">
+            hello<span class="animate-bounce">.</span
+            ><span class="animate-bounce animation-delay-200">.</span
+            ><span class="animate-bounce animation-delay-400">.</span>
+          </h1>
           <form
             id="contact-form"
             action="https://formspree.io/f/xyyowvan"
@@ -84,29 +105,51 @@
           >
             <div class="space-y-8">
               <div class="relative">
-                <input type="text" id="name" name="name" placeholder="Name:" autocomplete="name" x-model="formData.name" class="form-field-input peer">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name:"
+                  autocomplete="name"
+                  x-model="formData.name"
+                  class="form-field-input peer"
+                />
                 <label for="name" class="form-field-label">Name:</label>
               </div>
-  
+
               <div class="relative">
-                <input type="email" id="email" name="email" placeholder="Email:" autocomplete="email" x-model="formData.email" class="form-field-input peer">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email:"
+                  autocomplete="email"
+                  x-model="formData.email"
+                  class="form-field-input peer"
+                />
                 <label for="email" class="form-field-label">Email:</label>
               </div>
-  
+
               <div class="relative">
-                <textarea type="text" rows="5" id="message" name="message" placeholder="Write a message..." x-model="formData.message" class="w-full resize-none form-field-input peer"></textarea>
+                <textarea
+                  type="text"
+                  rows="5"
+                  id="message"
+                  name="message"
+                  placeholder="Write a message..."
+                  x-model="formData.message"
+                  class="form-field-input peer w-full resize-none"
+                ></textarea>
                 <label for="message" class="form-field-label">Message:</label>
               </div>
             </div>
 
             <!-- "catches" the bots -->
-            <input type="text" name="_honey" class="hidden">
+            <input type="text" name="_honey" class="hidden" />
 
-            <button class="mt-4 btn-primary" x-text="submitLabel"></button>
-
-          </form> 
+            <button class="btn-primary mt-4" x-text="submitLabel"></button>
+          </form>
         </div>
-
       </div>
     </section>
 
@@ -131,57 +174,54 @@
         2xl
       </span>
     </b> -->
-
   </body>
   <script>
     function contactForm() {
       return {
         formData: {
-          name: '',
-          email: '',
-          message: ''
+          name: "",
+          email: "",
+          message: "",
         },
         submitting: false,
         submitLabel: "Say wassup",
-        
-        
-        submitData() {
-          var form = document.getElementById('contact-form')
-          this.submitLabel = "Sending..."
-          this.submitting = true,
 
-          fetch(event.target.action, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(this.formData)
-          })
-          .then(res => {
-            if(res.ok) {
-              this.submitLabel = 'Got it, thanks!'
-              form.reset()
-            }
-            else {
-              res.json()
-              .then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                  this.submitLabel = data["errors"].map(error => error["message"]).join(", ")
+        submitData() {
+          var form = document.getElementById("contact-form");
+          this.submitLabel = "Sending...";
+          (this.submitting = true),
+            fetch(event.target.action, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(this.formData),
+            })
+              .then((res) => {
+                if (res.ok) {
+                  this.submitLabel = "Got it, thanks!";
+                  form.reset();
                 } else {
-                  this.submitLabel = 'Ope...try again'
+                  res.json().then((data) => {
+                    if (Object.hasOwn(data, "errors")) {
+                      this.submitLabel = data["errors"]
+                        .map((error) => error["message"])
+                        .join(", ");
+                    } else {
+                      this.submitLabel = "Ope...try again";
+                    }
+                  });
                 }
               })
-            }
-          })
-          .catch(error => {
-            this.submitLabel = 'Ope...try again'
-          })
-          .finally(() => {
-            this.submitting = false
-          })
-        }        
-      }
+              .catch((error) => {
+                this.submitLabel = "Ope...try again";
+              })
+              .finally(() => {
+                this.submitting = false;
+              });
+        },
+      };
     }
   </script>
 </html>
