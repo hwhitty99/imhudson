@@ -17,22 +17,22 @@
       class="selection:bg-black selection:text-white dark:selection:bg-slate-800"
     >
       <div
-        class="bg-slate-stars fixed inset-0 -z-10 bg-slate-50 transition-colors duration-500 dark:bg-slate-800"
+        class="fixed inset-0 transition-colors duration-500 bg-slate-stars -z-10 bg-slate-50 dark:bg-slate-800"
       ></div>
       <div
-        class="flex w-full flex-col items-center justify-center dark:text-white lg:flex-row"
+        class="flex flex-col items-center justify-center w-full dark:text-white lg:flex-row"
         x-data="{activeTab: 'simpleButton', home: true}"
       >
         <!-- home button -->
         <button
-          class="group fixed bottom-20 left-6 z-20 rounded-full bg-black/20 p-3 backdrop-blur transition-colors dark:bg-white/10"
+          class="fixed z-20 p-3 transition-colors rounded-full group bottom-20 left-6 bg-black/20 backdrop-blur dark:bg-white/10"
           @click="home = true"
           x-show="!home"
           x-transition
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 transition-transform group-hover:-rotate-90"
+            class="w-5 h-5 transition-transform group-hover:-rotate-90"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -45,21 +45,21 @@
         <!-- dark mode toggle -->
         <button
           @click="darkMode = !darkMode"
-          class="fixed bottom-20 right-6 z-20"
+          class="fixed z-20 bottom-20 right-6"
           x-show="!home"
           x-transition
         >
           <div
-            class="relative flex h-8 w-14 items-center rounded-full bg-black/20 backdrop-blur transition-colors duration-300 dark:bg-white/10"
+            class="relative flex items-center h-8 transition-colors duration-300 rounded-full w-14 bg-black/20 backdrop-blur dark:bg-white/10"
           >
             <div
-              class="absolute flex h-6 w-6 items-center justify-center rounded-full bg-black transition-all duration-300 ease-in-out dark:bg-white"
+              class="absolute flex items-center justify-center w-6 h-6 transition-all duration-300 ease-in-out bg-black rounded-full dark:bg-white"
               :class="darkMode ? 'left-7' : 'left-1'"
             >
               <img
                 src="/dark-mode.svg"
                 alt=""
-                class="h-4 w-4 rotate-0 invert filter transition-all duration-300 dark:rotate-180 dark:invert-0"
+                class="w-4 h-4 transition-all duration-300 rotate-0 invert filter dark:rotate-180 dark:invert-0"
               />
             </div>
           </div>
@@ -77,7 +77,7 @@
           <a
             href="#"
             @click.prevent="activeTab = 'simpleButton'"
-            class="w-full bg-white p-4 text-center transition-all duration-300 dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
+            class="w-full p-4 text-center transition-all duration-300 bg-white dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
             x-bind:class="activeTab == 'simpleButton' ?
             'text-blue-400 border-b-4 border-b-blue-500 dark:text-white lg:bg-blue-100 lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'border-transparent border-b-4 bg-gray-200 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 lg:border-none'"
           >
@@ -86,7 +86,7 @@
           <a
             href="#"
             @click.prevent="activeTab = 'formField'"
-            class="w-full bg-white p-4 text-center transition-all duration-300 dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
+            class="w-full p-4 text-center transition-all duration-300 bg-white dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
             x-bind:class="activeTab == 'formField' ?
             'text-blue-400 border-b-4 border-b-blue-500 dark:text-white lg:bg-blue-100 lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'border-transparent border-b-4 bg-gray-200 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 lg:border-none'"
           >
@@ -101,40 +101,40 @@
         >
           <!-- home -->
           <div
-            class="flex max-w-sm flex-col items-center"
+            class="flex flex-col items-center max-w-sm"
             x-show="home"
             x-transition.in.opacity
             x-transition:enter.duration.500ms
           >
-            <img src="/favicon.svg" alt="" class="h-16 w-16" />
+            <img src="/favicon.svg" alt="" class="w-16 h-16" />
             <div
-              class="mt-4 text-center text-lg font-bold leading-5 text-blue-400 dark:text-slate-300"
+              class="mt-4 text-lg font-bold leading-5 text-center text-blue-400 dark:text-slate-300"
             >
               Welcome to<br />Hudson's Playground!
             </div>
             <p class="mt-4 text-sm leading-7">
-              This is where I mess around with fun web dev stuff. Current I'm
+              This is where I mess around with fun web dev stuff. Currently, I'm
               using
               <a
                 href="https://alpinejs.dev/"
-                class="mr-1 rounded-md bg-slate-800/10 p-1 font-mono text-xs font-semibold hover:underline dark:bg-slate-800/50"
+                class="p-1 mr-1 font-mono text-xs font-semibold rounded-md bg-slate-800/10 hover:underline dark:bg-slate-800/50"
                 >Alpine.js</a
               >,
               <a
                 href="https://tailwindcss.com/"
-                class="mr-1 rounded-md bg-slate-800/10 p-1 font-mono text-xs font-semibold hover:underline dark:bg-slate-800/50"
+                class="p-1 mr-1 font-mono text-xs font-semibold rounded-md bg-slate-800/10 hover:underline dark:bg-slate-800/50"
                 >tailwindcss</a
               >, and
               <a
                 href="https://vitejs.dev/"
-                class="mr-1 rounded-md bg-slate-800/10 p-1 font-mono text-xs font-semibold hover:underline dark:bg-slate-800/50"
+                class="p-1 mr-1 font-mono text-xs font-semibold rounded-md bg-slate-800/10 hover:underline dark:bg-slate-800/50"
                 >Vite</a
               >.
             </p>
-            <button class="btn-primary group mt-8" @click="home = false">
+            <button class="mt-8 btn-primary group" @click="home = false">
               check it out
               <svg
-                class="ml-2 h-5 w-5 fill-current transition-all group-hover:translate-x-4"
+                class="w-5 h-5 ml-2 transition-all fill-current group-hover:translate-x-4"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
               >
@@ -148,7 +148,7 @@
           <!-- simple button -->
           <div
             x-data="{show: false}"
-            class="flex w-full max-w-sm flex-col items-center self-end"
+            class="flex flex-col items-center self-end w-full max-w-sm"
             x-show="activeTab == 'simpleButton' && !home"
             x-transition.in.opacity
             x-transition:enter.duration.500ms
@@ -160,22 +160,22 @@
             >
               Hey, nice click.
             </p>
-            <button @click="show = ! show" class="btn-primary mt-8">
+            <button @click="show = ! show" class="mt-8 btn-primary">
               click me!
             </button>
           </div>
 
           <!-- contact form -->
           <div
-            class="flex h-full w-full max-w-sm flex-col items-center justify-between"
+            class="flex flex-col items-center justify-between w-full h-full max-w-sm"
             x-show="activeTab == 'formField' && !home"
             x-transition.in.opacity
             x-transition:enter.duration.500ms
           >
             <h1 class="flex w-full text-6xl font-black">
               hello<span class="animate-bounce">.</span
-              ><span class="animate-bounce animation-delay-200">.</span
-              ><span class="animate-bounce animation-delay-400">.</span>
+              ><span class="animation-delay-200 animate-bounce">.</span
+              ><span class="animation-delay-400 animate-bounce">.</span>
             </h1>
             <form
               id="contact-form"
@@ -183,7 +183,7 @@
               method="POST"
               @submit.prevent="submitData"
               x-data="contactForm()"
-              class="mt-8 w-full"
+              class="w-full mt-8"
             >
               <div class="space-y-8">
                 <div class="relative">
@@ -220,7 +220,7 @@
                     name="message"
                     placeholder="Write a message..."
                     x-model="formData.message"
-                    class="form-field-input peer w-full resize-none"
+                    class="w-full resize-none form-field-input peer"
                   ></textarea>
                   <label for="message" class="form-field-label">Message:</label>
                 </div>
@@ -229,7 +229,7 @@
               <!-- "catches" the bots -->
               <input type="text" name="_honey" class="hidden" />
 
-              <button class="btn-primary mt-4" x-text="submitLabel"></button>
+              <button class="mt-4 btn-primary" x-text="submitLabel"></button>
             </form>
           </div>
         </div>
