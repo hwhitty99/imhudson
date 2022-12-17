@@ -1,3 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
 <!DOCTYPE html>
 <html
   lang="en"
@@ -9,6 +14,10 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="icon" href="/favicon.svg" />
     <script src="/main.js" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/b12c42c201.js"
+      crossorigin="anonymous"
+    ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hudson's Playground</title>
   </head>
@@ -25,25 +34,20 @@
       >
         <!-- home button -->
         <button
-          class="fixed z-20 p-3 transition-colors rounded-full group bottom-20 left-6 bg-black/20 backdrop-blur dark:bg-white/10"
+          type="button"
+          class="fixed z-20 w-8 h-8 transition rounded-full group bottom-20 left-6 bg-black/20 backdrop-blur hover:-rotate-90 dark:bg-white/10"
+          aria-label="Navigate to home page"
           @click="home = true"
           x-show="!home"
           x-transition
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5 transition-transform group-hover:-rotate-90"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-            />
-          </svg>
+          <i class="fa-solid fa-house"></i>
         </button>
 
         <!-- dark mode toggle -->
         <button
+          type="button"
+          :aria-label="`Toggle dark mode ${darkMode ? 'off' : 'on'}`"
           @click="darkMode = !darkMode"
           class="fixed z-20 bottom-20 right-6"
           x-show="!home"
@@ -52,16 +56,9 @@
           <div
             class="relative flex items-center h-8 transition-colors duration-300 rounded-full w-14 bg-black/20 backdrop-blur dark:bg-white/10"
           >
-            <div
-              class="absolute flex items-center justify-center w-6 h-6 transition-all duration-300 ease-in-out bg-black rounded-full dark:bg-white"
-              :class="darkMode ? 'left-7' : 'left-1'"
-            >
-              <img
-                src="/dark-mode.svg"
-                alt=""
-                class="w-4 h-4 transition-all duration-300 rotate-0 invert filter dark:rotate-180 dark:invert-0"
-              />
-            </div>
+            <i
+              class="absolute transition-all duration-300 ease-in-out fa-solid fa-circle-half-stroke left-2 dark:left-8 dark:rotate-180"
+            ></i>
           </div>
         </button>
 
@@ -74,6 +71,7 @@
           x-transition:leave-start="ml-0"
           x-transition:leave-end="-bottom-16 lg:-ml-[33.33%] lg:bottom-0 lg:mr-0 xl:mr-0 2xl:mr-0"
         >
+          <div id="like_button_container"></div>
           <a
             href="#"
             @click.prevent="activeTab = 'simpleButton'"
@@ -172,11 +170,11 @@
             x-transition.in.opacity
             x-transition:enter.duration.500ms
           >
-            <h1 class="flex w-full text-6xl font-black">
+            <h2 class="flex w-full text-6xl font-black">
               hello<span class="animate-bounce">.</span
               ><span class="animation-delay-200 animate-bounce">.</span
               ><span class="animation-delay-400 animate-bounce">.</span>
-            </h1>
+            </h2>
             <form
               id="contact-form"
               action="https://formspree.io/f/xyyowvan"
@@ -247,6 +245,7 @@
       <span class="hidden xl:inline 2xl:hidden"> xl </span>
       <span class="hidden 2xl:inline"> 2xl </span>
     </b> -->
+
   </body>
   <script>
     function contactForm() {
