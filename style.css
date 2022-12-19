@@ -1,15 +1,13 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   .form-field-input {
-    @apply w-full rounded-lg bg-gray-100 px-4 py-2 placeholder-transparent transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 focus:ring-offset-2 dark:bg-opacity-5 dark:ring-slate-800 dark:ring-offset-slate-700;
+    @apply w-full rounded-lg bg-gray-100 px-4 py-2 placeholder-transparent transition focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 dark:bg-opacity-5 dark:ring-white/50 dark:ring-offset-black;
   }
   .form-field-label {
-    @apply absolute left-0 -top-6 text-sm font-semibold text-black transition-all duration-200 ease-out peer-placeholder-shown:top-2 peer-placeholder-shown:left-4 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:left-0 peer-focus:-top-6 peer-focus:text-sm peer-focus:font-semibold peer-focus:text-black dark:text-white dark:peer-focus:text-white;
+    @apply absolute left-0 -top-6 text-sm font-semibold text-black transition-all duration-200 ease-out peer-placeholder-shown:top-2 peer-placeholder-shown:left-4 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-white/70 peer-focus:left-0 peer-focus:-top-6 peer-focus:text-sm peer-focus:font-semibold peer-focus:text-black dark:text-white dark:peer-focus:text-white;
   }
   .btn-primary {
     @apply flex w-full items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-blue-400 py-3 px-6 font-bold uppercase text-white shadow-lg shadow-blue-200 ring-slate-800 transition-all ease-out hover:scale-105 hover:shadow-xl hover:shadow-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-2 active:scale-95 dark:from-slate-900 dark:to-slate-800 dark:shadow-xl dark:ring-offset-slate-700  dark:focus:ring-slate-900;

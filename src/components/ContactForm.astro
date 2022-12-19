@@ -1,0 +1,112 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="flex flex-col w-full max-w-sm">
+  <h2 class="text-lg font-bold mb-4">{title}</h2>
+  <slot />
+  <form
+    id="contact-form"
+    action="https://formspree.io/f/xyyowvan"
+    method="POST"
+    @submit.prevent="submitData"
+    x-data="contactForm()"
+    class="mt-8"
+  >
+    <div class="space-y-8">
+      <div class="relative">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name:"
+          autocomplete="name"
+          x-model="formData.name"
+          class="form-field-input peer"
+        />
+        <label for="name" class="form-field-label">Name:</label>
+      </div>
+
+      <div class="relative">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email:"
+          autocomplete="email"
+          x-model="formData.email"
+          class="form-field-input peer"
+        />
+        <label for="email" class="form-field-label">Email:</label>
+      </div>
+
+      <div class="relative">
+        <textarea
+          type="text"
+          rows="5"
+          id="message"
+          name="message"
+          placeholder="Write a message..."
+          x-model="formData.message"
+          class="w-full resize-none form-field-input peer"></textarea>
+        <label for="message" class="form-field-label">Message:</label>
+      </div>
+    </div>
+    <!-- "catches" the bots -->
+    <input type="text" name="_honey" class="hidden" />
+
+    <button
+      class="w-full rounded-full bg-white text-black p-3 uppercase font-bold mt-4"
+      x-text="submitLabel"></button>
+  </form>
+</div>
+
+<script is:inline>
+  function contactForm() {
+    return {
+      formData: {
+        name: "",
+        email: "",
+        message: "",
+      },
+      submitting: false,
+      submitLabel: "Send",
+
+      submitData() {
+        var form = document.getElementById("contact-form");
+        this.submitLabel = "Sending...";
+        (this.submitting = true),
+          fetch(event.target.action, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(this.formData),
+          })
+            .then((res) => {
+              if (res.ok) {
+                this.submitLabel = "Got it, thanks!";
+                form.reset();
+              } else {
+                res.json().then((data) => {
+                  if (Object.hasOwn(data, "errors")) {
+                    this.submitLabel = data["errors"]
+                      .map((error) => error["message"])
+                      .join(", ");
+                  } else {
+                    this.submitLabel = "Ope...try again";
+                  }
+                });
+              }
+            })
+            .catch((error) => {
+              this.submitLabel = "Ope...try again";
+            })
+            .finally(() => {
+              this.submitting = false;
+            });
+      },
+    };
+  }
+</script>
