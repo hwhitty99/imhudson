@@ -5,7 +5,7 @@ import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Layout title="Hudson Whittaker's Portfolio Website">
-  <div class="p-6 pt-0 space-y-12 flex flex-col max-w-screen-lg mx-auto md:p-0">
+  <div class="p-6 pt-0 flex flex-col max-w-screen-lg mx-auto md:p-0">
     <div class="h-screen flex flex-col">
       <div class="my-auto">
         <h1 class="font-bold text-2xl mb-2">
@@ -19,46 +19,49 @@ import ContactForm from "../components/ContactForm.astro";
         </p>
       </div>
     </div>
-    <Card title="Web Development" link="/webdev">
-      <p>
-        I have a degree in software engineering from Olivet Nazarene University.
-        To earn that piece of paper I wrote a lot of Java, a little bit of C++,
-        and spent way too much time writing papers about thermofluids that never
-        got graded (I'm still salty, <a
-          href="https://www.ratemyprofessors.com/professor?tid=1554171"
-          class="text-slate-400 underline"
-          target="_blank">Schroeder</a
-        >). Those were all boring so, instead of trying my senior year, I did
-        graphic design and web development on the side. Since graduating, I've
-        been conning Mirus Research into thinking I know Python for over a year.
-      </p>
-    </Card>
-    <Card title="Film Photography" link="/film">
-      <p>
-        This interest has only developed (get it?) recently. In May 2022 I went
-        to Iceland for a week and my friend let my shoot a roll in his Cannon
-        A-1. Obviously I was hooked. I got my own Nikon FE and have been
-        shooting everywhere I go since.
-      </p>
-    </Card>
-    <Card title="Free Clout" link="/free-clout">
-      <p>
-        There are a lot of people, software, and resources that I have found
-        over the years that I don't hate. I've decided to curate and organize
-        them here. Definitely check this list out because there's nothing there
-        for you.
-      </p>
-    </Card>
-    <Card title="The Playground" link="/playground">
-      <p>
-        A place for me to vomit code and see if it does anything cool. Initially
-        started to prove to myself that I could 'make a website from scratch'.
-        If I found a new JS framework that's less terrible than the 21,345,987
-        other ones this is where I test run it.
-      </p>
-    </Card>
-    <ContactForm title="Contact Form">
-      <p>If you made it here we'd probably get along well. Let's chat.</p>
-    </ContactForm>
+    <div class="space-y-12 xl:space-y-32">
+      <Card title="Web Development" link="/webdev">
+        <p>
+          I have a degree in software engineering from Olivet Nazarene
+          University. To earn that piece of paper I wrote a lot of Java, a
+          little bit of C++, and spent way too much time writing papers about
+          thermofluids that never got graded (I'm still salty, <a
+            href="https://www.ratemyprofessors.com/professor?tid=1554171"
+            class="text-slate-400 underline"
+            target="_blank">Schroeder</a
+          >). Those were all boring so, instead of trying my senior year, I did
+          graphic design and web development on the side. Since graduating, I've
+          been conning Mirus Research into thinking I know Python for over a
+          year.
+        </p>
+      </Card>
+      <Card title="Film Photography" link="/film">
+        <p>
+          This interest has only developed (get it?) recently. In May 2022 I
+          went to Iceland for a week and my friend let my shoot a roll in his
+          Cannon A-1. Obviously I was hooked. I got my own Nikon FE and have
+          been shooting everywhere I go since.
+        </p>
+      </Card>
+      <Card title="Free Clout" link="/free-clout">
+        <p>
+          There are a lot of people, software, and resources that I have found
+          over the years that I don't hate. I've decided to curate and organize
+          them here. Definitely check this list out because there's nothing
+          there for you.
+        </p>
+      </Card>
+      <Card title="The Playground" link="/playground">
+        <p>
+          A place for me to vomit code and see if it does anything cool.
+          Initially started to prove to myself that I could 'make a website from
+          scratch'. If I found a new JS framework that's less terrible than the
+          21,345,987 other ones this is where I test run it.
+        </p>
+      </Card>
+      <ContactForm title="Contact Form">
+        <p>If you made it here we'd probably get along well. Let's chat.</p>
+      </ContactForm>
+    </div>
   </div>
 </Layout>

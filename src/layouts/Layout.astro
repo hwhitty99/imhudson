@@ -4,7 +4,8 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
-import Nav from "../components/Nav.astro";
+import Nav from "../layouts/Nav.astro";
+import Footer from "../layouts/Footer.astro";
 import favicon from "../assets/favicon.svg";
 import "../styles/style.css";
 
@@ -36,9 +37,10 @@ const devMode = import.meta.env.DEV;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col justify-between">
     <Nav />
     <slot />
+    <Footer />
   </body>
   <b
     x-show="devMode"
