@@ -1,50 +1,41 @@
-# Welcome to [Astro](https://astro.build)
+<h1 align="center">Welcome to imhudson 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <a href="https://twitter.com/budsonbro" target="_blank">
+    <img alt="Twitter: budsonbro" src="https://img.shields.io/twitter/follow/budsonbro.svg?style=social" />
+  </a>
+</p>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+> My personal website. Originally created so I could say &#34;yes&#34; when asked &#34;have you ever made a website from scratch?&#34; or &#34;could you make me a website?&#34;. Learned about hosting and creating a workflow for production and development and now have a place where I can add anything I want, whenever I want, and make it look however I want. Pretty fun.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 🏠 [Homepage](imhudson.ml)
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+### ✨ [Demo](])
 
+## Install
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+ 
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Usage
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+ 
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Author
 
-## 🧞 Commands
+👤 **Hudson Whittaker**
 
-All commands are run from the root of the project, from a terminal:
+* Website: imhudson.ml
+* Twitter: [@budsonbro](https://twitter.com/budsonbro)
+* Github: [@hwhitty99](https://github.com/hwhitty99)
+* LinkedIn: [@hudsonwhittaker](https://linkedin.com/in/hudsonwhittaker)
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+## Show your support
 
-## 👀 Want to learn more?
+Give a ⭐️ if this project helped you!
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
