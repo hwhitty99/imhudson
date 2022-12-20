@@ -6,6 +6,7 @@ import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
 import Nav from "../components/Nav.astro";
 import favicon from "../assets/favicon.svg";
+import "../styles/style.css";
 
 export interface Props {
   title: string;
@@ -25,7 +26,6 @@ const devMode = import.meta.env.DEV;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <link rel="stylesheet" href="/style.css" />
     <link rel="icon" type="image/svg+xml" href={favicon} />
 
     <script
