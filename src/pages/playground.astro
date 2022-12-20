@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PGContactForm from "../playground/PGContactForm.astro";
+import pgFavicon from "../assets/playground-favicon.svg";
 ---
 
 <Layout title="Hudson's Playground">
@@ -84,7 +85,7 @@ import PGContactForm from "../playground/PGContactForm.astro";
         x-transition.in.opacity
         x-transition:enter.duration.500ms
       >
-        <img src="/favicon.svg" alt="" class="w-16 h-16" />
+        <img src={pgFavicon} alt="" class="w-16 h-16" />
         <div
           class="mt-4 text-lg font-bold leading-5 text-center text-blue-400 dark:text-slate-300"
         >
