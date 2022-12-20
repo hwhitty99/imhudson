@@ -7,6 +7,15 @@
 
 > My personal website. Originally created so I could say &#34;yes&#34; when asked &#34;have you ever made a website from scratch?&#34; or &#34;could you make me a website?&#34;. Learned about hosting and creating a workflow for production and development and now have a place where I can add anything I want, whenever I want, and make it look however I want. Pretty fun.
 
+## The Stack
+
+- [Astro](https://astro.build)
+- [Alpinejs](https://alpinejs.dev)
+- [tailwindcss](https://tailwindcss.com)
+- [Formspree](https://formspree.io/)
+- [Hostinger](https://hostinger.com)
+- [gh-pages](https://www.npmjs.com/package/gh-pages)
+
 ## Author
 
 👤 **Hudson Whittaker**
