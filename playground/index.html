@@ -1,367 +1,192 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  x-data="{darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches, devMode: false}"
-  :class="darkMode ? 'dark bg-black text-white' : ''"
->
+<html lang="en" x-data="{darkMode: $persist(window.matchMedia('(prefers-color-scheme: dark)').matches), inPlayground: window.location.pathname == '/playground', devMode: false}" class="bg-black text-white" :class="{ 'dark': darkMode || !inPlayground }">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
 
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.edc8c107.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.edc8c107.svg">
 
-    <script
-      src="https://kit.fontawesome.com/b12c42c201.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script>
 
-    <meta name="generator" content="Astro v1.7.1" />
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+    <meta name="generator" content="Astro v1.7.1">
     <title>Hudson&#39;s Playground</title>
-    <link rel="stylesheet" href="/assets/404.64ca28a0.css" />
-    <script type="module" src="/page.721c8a4f.js"></script>
-  </head>
-  <body class="flex min-h-screen flex-col justify-between">
-    <nav
-      class="fixed bottom-2 right-2 h-20 w-20 rounded-xl bg-black-900 md:top-0 md:-left-1.5 md:h-32 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-white dark:md:from-black"
-      x-data="{ open: false, active: window.location.pathname }"
-      :class="{ 'h-64 w-40': open, 'draggable': !open}"
-      @click.outside="open = false"
-    >
-      <div
-        @click="open = !open"
-        class="absolute bottom-0 right-0 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"
-      >
-        <i
-          class="fa-solid fa-caret-up fa-2x"
-          :class="{ 'rotate-180': open }"
-        ></i>
+  <link rel="stylesheet" href="/assets/404.811eb6c0.css" /><script type="module" src="/page.721c8a4f.js"></script></head>
+  <body class="min-h-screen flex flex-col justify-between">
+    <nav class="fixed bottom-2 right-2 rounded-xl bg-black-900 h-20 w-20 md:h-32 md:top-0 md:-left-1.5 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b dark:md:from-black md:from-white text-black dark:text-white" x-data="{ open: false, active: window.location.pathname }" :class="{ 'h-64 w-40': open, 'draggable': !open}" @click.outside="open = false">
+  <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 absolute bottom-0 right-0 md:hidden">
+    <i class="fa-solid fa-caret-up fa-2x" :class="{ 'rotate-180': open }"></i>
+  </div>
+  <ul x-show="open" class="text-xl font-semibold space-y-2 left-4 top-4 absolute md:w-full md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:left-auto md:right-1/2 md:translate-x-1/2 md:top-6" role="menubar">
+    <li role="menuitem">
+      <a href="/" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Home</a>
+    </li>
+    <li role="menuitem">
+      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/webdev' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Web Dev</a>
+    </li>
+    <li role="menuitem">
+      <a href="/film" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/film' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Film</a>
+    </li>
+    <li role="menuitem">
+      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/free-clout' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Free Clout</a>
+    </li>
+    <li role="menuitem">
+      <a href="/playground" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/playground' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Playground</a>
+    </li>
+  </ul>
+</nav>
+    <div class="fixed inset-0 transition-colors duration-500 bg-slate-stars -z-10 bg-slate-50 dark:bg-slate-800">
+  </div><div class="flex flex-col items-center justify-center w-full dark:text-white text-slate-900 lg:flex-row" x-data="{activeTab: 'simpleButton', home: true}">
+    <!-- home button -->
+    <button type="button" class="fixed z-20 w-8 h-8 transition rounded-full group bottom-20 left-6 bg-black/20 backdrop-blur hover:-rotate-90 dark:bg-white/10" aria-label="Navigate to home page" @click="home = true" x-show="!home" x-transition>
+      <i class="fa-solid fa-house"></i>
+    </button>
+
+    <!-- dark mode toggle -->
+    <button type="button" :aria-label="`Toggle dark mode ${darkMode ? 'off' : 'on'}`" @click="darkMode = !darkMode" class="fixed z-20 bottom-20 right-6" x-show="!home" x-transition>
+      <div class="relative flex items-center h-8 transition-colors duration-300 rounded-full w-14 bg-black/20 backdrop-blur dark:bg-white/10">
+        <i class="absolute transition-all duration-300 ease-in-out fa-solid fa-circle-half-stroke left-2 dark:left-8 dark:rotate-180"></i>
       </div>
-      <ul
-        x-show="open"
-        class="absolute left-4 top-4 space-y-2 text-xl font-semibold md:left-auto md:right-1/2 md:top-6 md:!flex md:w-full md:max-w-screen-lg md:translate-x-1/2 md:justify-end md:space-y-0 md:space-x-2 md:text-base"
-        role="menubar"
-      >
-        <li role="menuitem">
-          <a
-            href="/"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Home</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/webdev"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/webdev' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Web Dev</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/film"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/film' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Film</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/free-clout"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/free-clout' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Free Clout</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/playground"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/playground' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Playground</a
-          >
-        </li>
-      </ul>
-    </nav>
-    <div
-      class="bg-slate-stars fixed inset-0 -z-10 bg-slate-50 transition-colors duration-500 dark:bg-slate-800"
-    ></div>
-    <div
-      class="flex w-full flex-col items-center justify-center dark:text-white lg:flex-row"
-      x-data="{activeTab: 'simpleButton', home: true}"
-    >
-      <!-- home button -->
-      <button
-        type="button"
-        class="group fixed bottom-20 left-6 z-20 h-8 w-8 rounded-full bg-black/20 backdrop-blur transition hover:-rotate-90 dark:bg-white/10"
-        aria-label="Navigate to home page"
-        @click="home = true"
-        x-show="!home"
-        x-transition
-      >
-        <i class="fa-solid fa-house"></i>
-      </button>
+    </button>
 
-      <!-- dark mode toggle -->
-      <button
-        type="button"
-        :aria-label="`Toggle dark mode ${darkMode ? 'off' : 'on'}`"
-        @click="darkMode = !darkMode"
-        class="fixed bottom-20 right-6 z-20"
-        x-show="!home"
-        x-transition
-      >
-        <div
-          class="relative flex h-8 w-14 items-center rounded-full bg-black/20 backdrop-blur transition-colors duration-300 dark:bg-white/10"
-        >
-          <i
-            class="fa-solid fa-circle-half-stroke absolute left-2 transition-all duration-300 ease-in-out dark:left-8 dark:rotate-180"
-          ></i>
+    <!-- tabs -->
+    <div class="fixed bottom-0 z-10 m-0 flex w-full font-bold uppercase transition-all duration-300 ease-out lg:relative lg:mr-8 lg:h-[66.66vh] lg:w-1/3 lg:flex-col lg:justify-start lg:space-y-4 lg:rounded-r-3xl lg:bg-white lg:p-8 dark:lg:bg-slate-700 xl:mr-16 2xl:mr-32" x-show="!home" x-transition:enter-start="-bottom-16 lg:-ml-[33.33%] lg:bottom-0 lg:mr-0 xl:mr-0 2xl:mr-0" x-transition:enter-end="ml-0" x-transition:leave-start="ml-0" x-transition:leave-end="-bottom-16 lg:-ml-[33.33%] lg:bottom-0 lg:mr-0 xl:mr-0 2xl:mr-0">
+      <div id="like_button_container"></div>
+      <a href="#" @click.prevent="activeTab = 'simpleButton'" class="w-full p-4 text-center transition-all duration-300 bg-white dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800" x-bind:class="activeTab == 'simpleButton' ?
+            'text-blue-400 border-b-4 border-b-blue-500 dark:text-white lg:bg-blue-100 lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'border-transparent border-b-4 bg-gray-200 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 lg:border-none'">
+        Simple Button
+      </a>
+      <a href="#" @click.prevent="activeTab = 'formField'" class="w-full p-4 text-center transition-all duration-300 bg-white dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800" x-bind:class="activeTab == 'formField' ?
+            'text-blue-400 border-b-4 border-b-blue-500 dark:text-white lg:bg-blue-100 lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'border-transparent border-b-4 bg-gray-200 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 lg:border-none'">
+        Contact form
+      </a>
+    </div>
+
+    <!-- tab views -->
+    <div class="mx-auto mt-16 mb-32 flex min-h-[66.66vh] w-3/4 items-center justify-center overflow-hidden rounded-3xl bg-white p-8 transition-all duration-300 ease-out dark:bg-slate-700 lg:mt-32 lg:w-2/3 lg:justify-center lg:rounded-3xl" x-bind:class="!home ? 'lg:rounded-r-none' : 'mt-32'">
+      <!-- home -->
+      <div class="flex flex-col items-center max-w-sm" x-show="home" x-transition.in.opacity x-transition:enter.duration.500ms>
+        <img src="/assets/playground-favicon.b6751e64.svg" alt="" class="w-16 h-16">
+        <div class="mt-4 text-lg font-bold leading-5 text-center text-blue-400 dark:text-slate-300">
+          Welcome to<br>Hudson's Playground!
         </div>
-      </button>
-
-      <!-- tabs -->
-      <div
-        class="fixed bottom-0 z-10 m-0 flex w-full font-bold uppercase transition-all duration-300 ease-out lg:relative lg:mr-8 lg:h-[66.66vh] lg:w-1/3 lg:flex-col lg:justify-start lg:space-y-4 lg:rounded-r-3xl lg:bg-white lg:p-8 dark:lg:bg-slate-700 xl:mr-16 2xl:mr-32"
-        x-show="!home"
-        x-transition:enter-start="-bottom-16 lg:-ml-[33.33%] lg:bottom-0 lg:mr-0 xl:mr-0 2xl:mr-0"
-        x-transition:enter-end="ml-0"
-        x-transition:leave-start="ml-0"
-        x-transition:leave-end="-bottom-16 lg:-ml-[33.33%] lg:bottom-0 lg:mr-0 xl:mr-0 2xl:mr-0"
-      >
-        <div id="like_button_container"></div>
-        <a
-          href="#"
-          @click.prevent="activeTab = 'simpleButton'"
-          class="w-full bg-white p-4 text-center transition-all duration-300 dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
-          x-bind:class="activeTab == 'simpleButton' ?
-            'text-blue-400 border-b-4 border-b-blue-500 dark:text-white lg:bg-blue-100 lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'border-transparent border-b-4 bg-gray-200 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 lg:border-none'"
-        >
-          Simple Button
-        </a>
-        <a
-          href="#"
-          @click.prevent="activeTab = 'formField'"
-          class="w-full bg-white p-4 text-center transition-all duration-300 dark:bg-slate-700 lg:rounded-xl dark:lg:bg-slate-800"
-          x-bind:class="activeTab == 'formField' ?
-            'text-blue-400 border-b-4 border-b-blue-500 dark:text-white lg:bg-blue-100 lg:border-none dark:lg:bg-slate-900 dark:border-b-slate-800' : 'border-transparent border-b-4 bg-gray-200 text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-900 dark:text-slate-500 lg:border-none'"
-        >
-          Contact form
-        </a>
+        <p class="mt-4 text-sm leading-7">
+          This is where I mess around with fun web dev stuff. Currently, I'm
+          using
+          <a href="https://alpinejs.dev/" class="p-1 mr-1 font-mono text-xs font-semibold rounded-md bg-slate-800/10 hover:underline dark:bg-slate-800/50">Alpine.js</a>,
+          <a href="https://tailwindcss.com/" class="p-1 mr-1 font-mono text-xs font-semibold rounded-md bg-slate-800/10 hover:underline dark:bg-slate-800/50">tailwindcss</a>, and
+          <a href="https://vitejs.dev/" class="p-1 mr-1 font-mono text-xs font-semibold rounded-md bg-slate-800/10 hover:underline dark:bg-slate-800/50">Vite</a>.
+        </p>
+        <button class="mt-8 btn-primary group" @click="home = false">
+          check it out
+          <svg class="w-5 h-5 ml-2 transition-all fill-current group-hover:translate-x-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M9.981,6.675l9.325,9.325c0,0 -9.325,9.325 -9.325,9.325c-0.499,0.499 -0.499,1.309 0,1.808c0.499,0.499 1.31,0.499 1.809,0l10.229,-10.229c0.499,-0.499 0.499,-1.309 -0,-1.808l-10.229,-10.229c-0.499,-0.499 -1.31,-0.499 -1.809,-0c-0.499,0.499 -0.499,1.309 0,1.808Z "></path>
+          </svg>
+        </button>
       </div>
 
-      <!-- tab views -->
-      <div
-        class="mx-auto mt-16 mb-32 flex min-h-[66.66vh] w-3/4 items-center justify-center overflow-hidden rounded-3xl bg-white p-8 transition-all duration-300 ease-out dark:bg-slate-700 lg:mt-32 lg:w-2/3 lg:justify-center lg:rounded-3xl"
-        x-bind:class="!home ? 'lg:rounded-r-none' : 'mt-32'"
-      >
-        <!-- home -->
-        <div
-          class="flex max-w-sm flex-col items-center"
-          x-show="home"
-          x-transition.in.opacity
-          x-transition:enter.duration.500ms
-        >
-          <img
-            src="/assets/playground-favicon.b6751e64.svg"
-            alt=""
-            class="h-16 w-16"
-          />
-          <div
-            class="mt-4 text-center text-lg font-bold leading-5 text-blue-400 dark:text-slate-300"
-          >
-            Welcome to<br />Hudson's Playground!
-          </div>
-          <p class="mt-4 text-sm leading-7">
-            This is where I mess around with fun web dev stuff. Currently, I'm
-            using
-            <a
-              href="https://alpinejs.dev/"
-              class="mr-1 rounded-md bg-slate-800/10 p-1 font-mono text-xs font-semibold hover:underline dark:bg-slate-800/50"
-              >Alpine.js</a
-            >,
-            <a
-              href="https://tailwindcss.com/"
-              class="mr-1 rounded-md bg-slate-800/10 p-1 font-mono text-xs font-semibold hover:underline dark:bg-slate-800/50"
-              >tailwindcss</a
-            >, and
-            <a
-              href="https://vitejs.dev/"
-              class="mr-1 rounded-md bg-slate-800/10 p-1 font-mono text-xs font-semibold hover:underline dark:bg-slate-800/50"
-              >Vite</a
-            >.
-          </p>
-          <button class="btn-primary group mt-8" @click="home = false">
-            check it out
-            <svg
-              class="ml-2 h-5 w-5 fill-current transition-all group-hover:translate-x-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-            >
-              <path
-                d="M9.981,6.675l9.325,9.325c0,0 -9.325,9.325 -9.325,9.325c-0.499,0.499 -0.499,1.309 0,1.808c0.499,0.499 1.31,0.499 1.809,0l10.229,-10.229c0.499,-0.499 0.499,-1.309 -0,-1.808l-10.229,-10.229c-0.499,-0.499 -1.31,-0.499 -1.809,-0c-0.499,0.499 -0.499,1.309 0,1.808Z "
-              ></path>
-            </svg>
-          </button>
-        </div>
+      <!-- simple button -->
+      <div x-data="{show: false}" class="flex flex-col items-center self-end w-full max-w-sm" x-show="activeTab == 'simpleButton' && !home" x-transition.in.opacity x-transition:enter.duration.500ms>
+        <p class="text-center lg:text-xl 2xl:text-2xl" x-show="show" x-transition>
+          Hey, nice click.
+        </p>
+        <button @click="show = ! show" class="mt-8 btn-primary">
+          click me!
+        </button>
+      </div>
 
-        <!-- simple button -->
-        <div
-          x-data="{show: false}"
-          class="flex w-full max-w-sm flex-col items-center self-end"
-          x-show="activeTab == 'simpleButton' && !home"
-          x-transition.in.opacity
-          x-transition:enter.duration.500ms
-        >
-          <p
-            class="text-center lg:text-xl 2xl:text-2xl"
-            x-show="show"
-            x-transition
-          >
-            Hey, nice click.
-          </p>
-          <button @click="show = ! show" class="btn-primary mt-8">
-            click me!
-          </button>
-        </div>
+      <div class="w-full h-full flex justify-center" x-show="activeTab == 'formField' && !home" x-transition.in.opacity x-transition:enter.duration.>
+        <div class="flex flex-col items-center justify-between w-full h-full max-w-sm text-black dark:text-white">
+  <h2 class="flex w-full text-6xl font-extrabold">
+    hello<span class="animate-bounce">.</span><span class="animation-delay-200 animate-bounce">.</span><span class="animation-delay-400 animate-bounce">.</span>
+  </h2>
+  <form id="contact-form" action="https://formspree.io/f/xyyowvan" method="POST" @submit.prevent="submitData" x-data="contactForm()" class="w-full mt-8">
+    <div class="space-y-8">
+      <div class="relative">
+        <input type="text" id="name" name="name" placeholder="Name:" autocomplete="name" x-model="formData.name" class="form-field-input peer">
+        <label for="name" class="form-field-label">Name:</label>
+      </div>
 
-        <div
-          class="flex h-full w-full justify-center"
-          x-show="activeTab == 'formField' && !home"
-          x-transition.in.opacity
-          x-transition:enter.duration.
-        >
-          <div
-            class="flex h-full w-full max-w-sm flex-col items-center justify-between"
-          >
-            <h2 class="flex w-full text-6xl font-extrabold">
-              hello<span class="animate-bounce">.</span
-              ><span class="animation-delay-200 animate-bounce">.</span
-              ><span class="animation-delay-400 animate-bounce">.</span>
-            </h2>
-            <form
-              id="contact-form"
-              action="https://formspree.io/f/xyyowvan"
-              method="POST"
-              @submit.prevent="submitData"
-              x-data="contactForm()"
-              class="mt-8 w-full"
-            >
-              <div class="space-y-8">
-                <div class="relative">
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name:"
-                    autocomplete="name"
-                    x-model="formData.name"
-                    class="form-field-input peer"
-                  />
-                  <label for="name" class="form-field-label">Name:</label>
-                </div>
+      <div class="relative">
+        <input type="email" id="email" name="email" placeholder="Email:" autocomplete="email" x-model="formData.email" class="form-field-input peer">
+        <label for="email" class="form-field-label">Email:</label>
+      </div>
 
-                <div class="relative">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email:"
-                    autocomplete="email"
-                    x-model="formData.email"
-                    class="form-field-input peer"
-                  />
-                  <label for="email" class="form-field-label">Email:</label>
-                </div>
-
-                <div class="relative">
-                  <textarea
-                    type="text"
-                    rows="5"
-                    id="message"
-                    name="message"
-                    placeholder="Write a message..."
-                    x-model="formData.message"
-                    class="form-field-input peer w-full resize-none"
-                  ></textarea>
-                  <label for="message" class="form-field-label">Message:</label>
-                </div>
-              </div>
-              <!-- "catches" the bots -->
-              <input type="text" name="_honey" class="hidden" />
-
-              <button class="btn-primary mt-4" x-text="submitLabel"></button>
-            </form>
-          </div>
-
-          <script>
-            function contactForm() {
-              return {
-                formData: {
-                  name: "",
-                  email: "",
-                  message: "",
-                },
-                submitting: false,
-                submitLabel: "Say wassup",
-
-                submitData() {
-                  var form = document.getElementById("contact-form");
-                  this.submitLabel = "Sending...";
-                  (this.submitting = true),
-                    fetch(event.target.action, {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                      },
-                      body: JSON.stringify(this.formData),
-                    })
-                      .then((res) => {
-                        if (res.ok) {
-                          this.submitLabel = "Got it, thanks!";
-                          form.reset();
-                        } else {
-                          res.json().then((data) => {
-                            if (Object.hasOwn(data, "errors")) {
-                              this.submitLabel = data["errors"]
-                                .map((error) => error["message"])
-                                .join(", ");
-                            } else {
-                              this.submitLabel = "Ope...try again";
-                            }
-                          });
-                        }
-                      })
-                      .catch((error) => {
-                        this.submitLabel = "Ope...try again";
-                      })
-                      .finally(() => {
-                        this.submitting = false;
-                      });
-                },
-              };
-            }
-          </script>
-        </div>
+      <div class="relative">
+        <textarea type="text" rows="5" id="message" name="message" placeholder="Write a message..." x-model="formData.message" class="w-full resize-none form-field-input peer"></textarea>
+        <label for="message" class="form-field-label">Message:</label>
       </div>
     </div>
-    <div
-      class="mt-8 flex w-full justify-between p-4 text-sm md:mt-16 lg:mt-24 xl:mt-32"
-    >
-      <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
-      <span>powered by caffeine</span>
+    <!-- "catches" the bots -->
+    <input type="text" name="_honey" class="hidden">
+
+    <button class="mt-4 btn-primary" x-text="submitLabel"></button>
+  </form>
+</div>
+
+<script>
+  function contactForm() {
+    return {
+      formData: {
+        name: "",
+        email: "",
+        message: "",
+      },
+      submitting: false,
+      submitLabel: "Say wassup",
+
+      submitData() {
+        var form = document.getElementById("contact-form");
+        this.submitLabel = "Sending...";
+        (this.submitting = true),
+          fetch(event.target.action, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(this.formData),
+          })
+            .then((res) => {
+              if (res.ok) {
+                this.submitLabel = "Got it, thanks!";
+                form.reset();
+              } else {
+                res.json().then((data) => {
+                  if (Object.hasOwn(data, "errors")) {
+                    this.submitLabel = data["errors"]
+                      .map((error) => error["message"])
+                      .join(", ");
+                  } else {
+                    this.submitLabel = "Ope...try again";
+                  }
+                });
+              }
+            })
+            .catch((error) => {
+              this.submitLabel = "Ope...try again";
+            })
+            .finally(() => {
+              this.submitting = false;
+            });
+      },
+    };
+  }
+</script>
+      </div>
     </div>
-    <b
-      x-show="devMode"
-      class="fixed top-0 right-0 flex h-12 w-12 items-center justify-center rounded-bl-xl bg-black bg-opacity-50 text-center text-white"
-    >
-      <span class="sm:hidden"> xs</span>
-      <span class="hidden sm:inline md:hidden"> sm</span>
-      <span class="hidden md:inline lg:hidden"> md</span>
-      <span class="hidden lg:inline xl:hidden"> lg</span>
-      <span class="hidden xl:inline 2xl:hidden"> xl</span>
-      <span class="hidden 2xl:inline"> 2xl</span>
-    </b>
-  </body>
-</html>
+  </div>
+    <div class="w-full p-4 mt-8 md:mt-16 lg:mt-24 xl:mt-32 flex justify-between text-sm">
+  <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
+  <span>powered by caffeine</span>
+</div>
+  <b x-show="devMode" class="fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-black bg-opacity-50 rounded-bl-xl">
+    <span class="sm:hidden"> xs</span>
+    <span class="hidden sm:inline md:hidden"> sm</span>
+    <span class="hidden md:inline lg:hidden"> md</span>
+    <span class="hidden lg:inline xl:hidden"> lg</span>
+    <span class="hidden xl:inline 2xl:hidden"> xl</span>
+    <span class="hidden 2xl:inline"> 2xl</span>
+  </b>
+</body></html>

@@ -1,115 +1,56 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  x-data="{darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches, devMode: false}"
-  :class="darkMode ? 'dark bg-black text-white' : ''"
->
+<html lang="en" x-data="{darkMode: $persist(window.matchMedia('(prefers-color-scheme: dark)').matches), inPlayground: window.location.pathname == '/playground', devMode: false}" class="bg-black text-white" :class="{ 'dark': darkMode || !inPlayground }">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
 
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.edc8c107.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.edc8c107.svg">
 
-    <script
-      src="https://kit.fontawesome.com/b12c42c201.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script>
 
-    <meta name="generator" content="Astro v1.7.1" />
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+    <meta name="generator" content="Astro v1.7.1">
     <title></title>
-    <link rel="stylesheet" href="/assets/404.64ca28a0.css" />
-    <script type="module" src="/page.721c8a4f.js"></script>
-  </head>
-  <body class="flex min-h-screen flex-col justify-between">
-    <nav
-      class="fixed bottom-2 right-2 h-20 w-20 rounded-xl bg-black-900 md:top-0 md:-left-1.5 md:h-32 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-white dark:md:from-black"
-      x-data="{ open: false, active: window.location.pathname }"
-      :class="{ 'h-64 w-40': open, 'draggable': !open}"
-      @click.outside="open = false"
-    >
-      <div
-        @click="open = !open"
-        class="absolute bottom-0 right-0 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"
-      >
-        <i
-          class="fa-solid fa-caret-up fa-2x"
-          :class="{ 'rotate-180': open }"
-        ></i>
-      </div>
-      <ul
-        x-show="open"
-        class="absolute left-4 top-4 space-y-2 text-xl font-semibold md:left-auto md:right-1/2 md:top-6 md:!flex md:w-full md:max-w-screen-lg md:translate-x-1/2 md:justify-end md:space-y-0 md:space-x-2 md:text-base"
-        role="menubar"
-      >
-        <li role="menuitem">
-          <a
-            href="/"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Home</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/webdev"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/webdev' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Web Dev</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/film"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/film' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Film</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/free-clout"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/free-clout' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Free Clout</a
-          >
-        </li>
-        <li role="menuitem">
-          <a
-            href="/playground"
-            class="rounded-xl py-2 px-4 transition-colors"
-            :class="active == '/playground' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black-50'"
-            >Playground</a
-          >
-        </li>
-      </ul>
-    </nav>
-    <div
-      class="my-auto flex h-full flex-col items-center justify-center space-y-4"
-    >
-      <h1 class="text-2xl font-black">Error 404</h1>
-      <p>This is not the page you're looking for.</p>
-      <img
-        src="/assets/obi-wave.5df8b9ee.gif"
-        alt="Obi Wan Kenobi waving at you"
-        class="w-1/2 max-w-xs pt-2"
-      />
-    </div>
-    <div
-      class="mt-8 flex w-full justify-between p-4 text-sm md:mt-16 lg:mt-24 xl:mt-32"
-    >
-      <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
-      <span>powered by caffeine</span>
-    </div>
-    <b
-      x-show="devMode"
-      class="fixed top-0 right-0 flex h-12 w-12 items-center justify-center rounded-bl-xl bg-black bg-opacity-50 text-center text-white"
-    >
-      <span class="sm:hidden"> xs</span>
-      <span class="hidden sm:inline md:hidden"> sm</span>
-      <span class="hidden md:inline lg:hidden"> md</span>
-      <span class="hidden lg:inline xl:hidden"> lg</span>
-      <span class="hidden xl:inline 2xl:hidden"> xl</span>
-      <span class="hidden 2xl:inline"> 2xl</span>
-    </b>
-  </body>
-</html>
+  <link rel="stylesheet" href="/assets/404.811eb6c0.css" /><script type="module" src="/page.721c8a4f.js"></script></head>
+  <body class="min-h-screen flex flex-col justify-between">
+    <nav class="fixed bottom-2 right-2 rounded-xl bg-black-900 h-20 w-20 md:h-32 md:top-0 md:-left-1.5 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b dark:md:from-black md:from-white text-black dark:text-white" x-data="{ open: false, active: window.location.pathname }" :class="{ 'h-64 w-40': open, 'draggable': !open}" @click.outside="open = false">
+  <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 absolute bottom-0 right-0 md:hidden">
+    <i class="fa-solid fa-caret-up fa-2x" :class="{ 'rotate-180': open }"></i>
+  </div>
+  <ul x-show="open" class="text-xl font-semibold space-y-2 left-4 top-4 absolute md:w-full md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:left-auto md:right-1/2 md:translate-x-1/2 md:top-6" role="menubar">
+    <li role="menuitem">
+      <a href="/" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Home</a>
+    </li>
+    <li role="menuitem">
+      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/webdev' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Web Dev</a>
+    </li>
+    <li role="menuitem">
+      <a href="/film" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/film' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Film</a>
+    </li>
+    <li role="menuitem">
+      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/free-clout' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Free Clout</a>
+    </li>
+    <li role="menuitem">
+      <a href="/playground" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/playground' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'">Playground</a>
+    </li>
+  </ul>
+</nav>
+    <div class="flex flex-col items-center justify-center space-y-4 h-full my-auto">
+    <h1 class="text-2xl font-black">Error 404</h1>
+    <p>This is not the page you're looking for.</p>
+    <img src="/assets/obi-wave.5df8b9ee.gif" alt="Obi Wan Kenobi waving at you" class="w-1/2 pt-2 max-w-xs">
+  </div>
+    <div class="w-full p-4 mt-8 md:mt-16 lg:mt-24 xl:mt-32 flex justify-between text-sm">
+  <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
+  <span>powered by caffeine</span>
+</div>
+  <b x-show="devMode" class="fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-black bg-opacity-50 rounded-bl-xl">
+    <span class="sm:hidden"> xs</span>
+    <span class="hidden sm:inline md:hidden"> sm</span>
+    <span class="hidden md:inline lg:hidden"> md</span>
+    <span class="hidden lg:inline xl:hidden"> lg</span>
+    <span class="hidden xl:inline 2xl:hidden"> xl</span>
+    <span class="hidden 2xl:inline"> 2xl</span>
+  </b>
+</body></html>
