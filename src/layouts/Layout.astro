@@ -20,8 +20,9 @@ const devMode = import.meta.env.DEV;
 <!DOCTYPE html>
 <html
   lang="en"
-  x-data=`{darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches, devMode: ${devMode}}`
-  :class="darkMode ? 'dark bg-black text-white' : ''"
+  x-data=`{darkMode: $persist(window.matchMedia('(prefers-color-scheme: dark)').matches), inPlayground: window.location.pathname == '/playground', devMode: ${devMode}}`
+  class="bg-black text-white"
+  :class="{ 'dark': darkMode || !inPlayground }"
 >
   <head>
     <meta charset="UTF-8" />
@@ -32,6 +33,11 @@ const devMode = import.meta.env.DEV;
     <script
       src="https://kit.fontawesome.com/b12c42c201.js"
       crossorigin="anonymous"
+    ></script>
+
+    <script
+      defer
+      src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"
     ></script>
 
     <meta name="generator" content={Astro.generator} />
