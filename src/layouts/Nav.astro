@@ -1,5 +1,5 @@
 <nav
-  class="fixed bottom-2 right-2 rounded-xl bg-black-900 h-20 w-20 md:h-32 md:top-0 md:-left-1.5 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b dark:md:from-black md:from-white text-black dark:text-white"
+  class="fixed bottom-2 right-2 rounded-xl bg-black-900 h-20 w-20 md:h-32 md:top-0 md:-left-1.5 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white"
   x-data="{ open: false, active: window.location.pathname }"
   :class="{ 'h-64 w-40': open, 'draggable': !open}"
   @click.outside="open = false"
@@ -19,7 +19,7 @@
       <a
         href="/"
         class="py-2 px-4 rounded-xl transition-colors"
-        :class="active == '/' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'"
+        :class="active == '/' ? 'bg-black text-white' : 'hover:bg-black-800 hover:bg-black/10'"
         >Home</a
       >
     </li>
@@ -27,7 +27,7 @@
       <a
         href="/webdev"
         class="py-2 px-4 rounded-xl transition-colors"
-        :class="active == '/webdev' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'"
+        :class="active == '/webdev' ? 'bg-black text-white' : 'hover:bg-black-800 hover:bg-black/10'"
         >Web Dev</a
       >
     </li>
@@ -35,7 +35,7 @@
       <a
         href="/film"
         class="py-2 px-4 rounded-xl transition-colors"
-        :class="active == '/film' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'"
+        :class="active == '/film' ? 'bg-black text-white' : 'hover:bg-black-800 hover:bg-black/10'"
         >Film</a
       >
     </li>
@@ -43,7 +43,7 @@
       <a
         href="/free-clout"
         class="py-2 px-4 rounded-xl transition-colors"
-        :class="active == '/free-clout' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'"
+        :class="active == '/free-clout' ? 'bg-black text-white' : 'hover:bg-black-800 hover:bg-black/10'"
         >Free Clout</a
       >
     </li>
@@ -51,7 +51,7 @@
       <a
         href="/playground"
         class="py-2 px-4 rounded-xl transition-colors"
-        :class="active == '/playground' ? 'dark:bg-white dark:text-black bg-black text-white' : 'dark:hover:bg-black-800 hover:bg-black/10'"
+        :class="active == '/playground' ? 'bg-black text-white' : 'hover:bg-black-800 hover:bg-black/10'"
         >Playground</a
       >
     </li>

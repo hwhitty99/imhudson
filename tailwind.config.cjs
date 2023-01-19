@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.astro", "./src/**/*.{js,astro}"],
-  darkMode: "class",
+  darkMode: "media",
   theme: {
     extend: {
       fontFamily: {

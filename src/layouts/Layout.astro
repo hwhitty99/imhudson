@@ -20,9 +20,8 @@ const devMode = import.meta.env.DEV;
 <!DOCTYPE html>
 <html
   lang="en"
-  x-data=`{darkMode: $persist(window.matchMedia('(prefers-color-scheme: dark)').matches), inPlayground: window.location.pathname == '/playground', devMode: ${devMode}}`
+  x-data=`{devMode: ${devMode}}`
   class="bg-black text-white"
-  :class="{ 'dark': darkMode || !inPlayground }"
 >
   <head>
     <meta charset="UTF-8" />
