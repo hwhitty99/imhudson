@@ -23,4 +23,4 @@
 - Website: [imhudson.ml](https://imhudson.ml)
 - Github: [@hwhitty99](https://github.com/hwhitty99)
 - LinkedIn: [@hudsonwhittaker](https://linkedin.com/in/hudsonwhittaker)
-- Instagram: [@budsonbro](https://instagram.com/hudsonwhittaker)
+- Instagram: [@hudsonwhittaker](https://instagram.com/hudsonwhittaker)
