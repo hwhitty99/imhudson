@@ -5,7 +5,9 @@ const { title, content, link } = Astro.props;
 <div class="space-y-4 rounded-2xl p-6 bg-black-900">
   <h2 class="text-xl font-bold">{title}</h2>
   <slot />
-  <a href={link} class="inline-block font-bold group hover:text-red-500 transition-colors"
+  <a
+    href={link}
+    class="inline-block font-bold group hover:text-red-500 transition-colors"
     >Learn more <i
       class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"
     ></i>

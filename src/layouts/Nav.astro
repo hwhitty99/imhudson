@@ -1,63 +1,61 @@
 <nav
-  class="fixed bottom-2 right-2 rounded-xl bg-black-900 h-20 w-20 md:h-32 md:top-0 md:-left-1.5 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white"
+  class="fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-900 h-20 w-20 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white"
   x-data="{ open: false, active: window.location.pathname }"
-  :class="{ 'h-64 w-40': open, 'draggable': !open}"
+  :class="{ 'h-auto w-auto': open }"
   @click.outside="open = false"
 >
   <div
     @click="open = !open"
-    class="cursor-pointer items-center justify-center flex h-20 w-20 absolute bottom-0 right-0 md:hidden"
+    class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden"
   >
-    <i class="fa-solid fa-caret-up fa-2x" :class="{ 'rotate-180': open }"></i>
+    <i
+      class="fa-solid fa-caret-up fa-2x transition-transform"
+      :class="open ? 'rotate-180' : 'rotate-0'"></i>
   </div>
   <ul
+    x-cloak
     x-show="open"
-    class="text-xl font-semibold space-y-2 left-4 top-4 absolute md:w-full md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:left-auto md:right-1/2 md:translate-x-1/2 md:top-6"
+    class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto"
     role="menubar"
   >
     <li role="menuitem">
       <a
         href="/"
-        class="py-2 px-4 rounded-xl transition-colors"
+        class="py-2 px-4 rounded-xl transition-colors block"
         :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/' ? 'page' : 'false'"
-        >Home</a
+        :aria-current="active == '/' ? 'page' : 'false'">Home</a
       >
     </li>
     <li role="menuitem">
       <a
         href="/webdev"
-        class="py-2 px-4 rounded-xl transition-colors"
+        class="py-2 px-4 rounded-xl transition-colors block"
         :class="active == '/webdev' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/webdev' ? 'page' : 'false'"
-        >Web Dev</a
+        :aria-current="active == '/webdev' ? 'page' : 'false'">Web Dev</a
       >
     </li>
     <li role="menuitem">
       <a
         href="/film"
-        class="py-2 px-4 rounded-xl transition-colors"
+        class="py-2 px-4 rounded-xl transition-colors block"
         :class="active == '/film' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/film' ? 'page' : 'false'"
-        >Film</a
+        :aria-current="active == '/film' ? 'page' : 'false'">Film</a
       >
     </li>
     <li role="menuitem">
       <a
         href="/free-clout"
-        class="py-2 px-4 rounded-xl transition-colors"
+        class="py-2 px-4 rounded-xl transition-colors block"
         :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/free-clout' ? 'page' : 'false'"
-        >Free Clout</a
+        :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a
       >
     </li>
     <li role="menuitem">
       <a
         href="/playground"
-        class="py-2 px-4 rounded-xl transition-colors"
+        class="py-2 px-4 rounded-xl transition-colors block"
         :class="active == '/playground' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/playground' ? 'page' : 'false'"
-        >Playground</a
+        :aria-current="active == '/playground' ? 'page' : 'false'">Playground</a
       >
     </li>
   </ul>
