@@ -10,29 +10,29 @@
 
     <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
 
-    <meta name="generator" content="Astro v1.9.2">
+    <meta name="generator" content="Astro v1.7.1">
     <title>Hudson&#39;s Playground</title>
-  <link rel="stylesheet" href="/assets/404.bc815693.css" /><script type="module" src="/page.56e71220.js"></script></head>
+  <link rel="stylesheet" href="/assets/404.ccd2dad7.css" /><script type="module" src="/page.721c8a4f.js"></script></head>
   <body class="min-h-screen flex flex-col justify-between">
-    <nav class="fixed bottom-2 right-2 rounded-xl bg-black-900 h-20 w-20 md:h-32 md:top-0 md:-left-1.5 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white" x-data="{ open: false, active: window.location.pathname }" :class="{ 'h-64 w-40': open, 'draggable': !open}" @click.outside="open = false">
-  <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 absolute bottom-0 right-0 md:hidden">
-    <i class="fa-solid fa-caret-up fa-2x" :class="{ 'rotate-180': open }"></i>
+    <nav class="fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-900 h-20 w-20 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white" x-data="{ open: false, active: window.location.pathname }" :class="{ 'h-auto w-auto': open }" @click.outside="open = false">
+  <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
+    <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
   </div>
-  <ul x-show="open" class="text-xl font-semibold space-y-2 left-4 top-4 absolute md:w-full md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:left-auto md:right-1/2 md:translate-x-1/2 md:top-6" role="menubar">
+  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar">
     <li role="menuitem">
-      <a href="/" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'">Home</a>
+      <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
     </li>
     <li role="menuitem">
-      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/webdev' ? 'bg-white text-black' : 'hover:bg-white/10'">Web Dev</a>
+      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/webdev' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/webdev' ? 'page' : 'false'">Web Dev</a>
     </li>
     <li role="menuitem">
-      <a href="/film" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/film' ? 'bg-white text-black' : 'hover:bg-white/10'">Film</a>
+      <a href="/film" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/film' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/film' ? 'page' : 'false'">Film</a>
     </li>
     <li role="menuitem">
-      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'">Free Clout</a>
+      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a>
     </li>
     <li role="menuitem">
-      <a href="/playground" class="py-2 px-4 rounded-xl transition-colors" :class="active == '/playground' ? 'bg-white text-black' : 'hover:bg-white/10'">Playground</a>
+      <a href="/playground" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/playground' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/playground' ? 'page' : 'false'">Playground</a>
     </li>
   </ul>
 </nav>
@@ -170,7 +170,7 @@
       </div>
     </div>
   </div>
-    <div class="w-full p-4 mt-8 md:mt-16 lg:mt-24 xl:mt-32 flex justify-between text-sm">
+    <div class="w-full p-4 mt-8 mb-24 md:mb-0 md:mt-16 lg:mt-24 xl:mt-32 flex justify-between text-sm border-y border-white">
   <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
   <span>powered by caffeine</span>
 </div>
