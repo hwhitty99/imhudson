@@ -16,24 +16,24 @@
 
     <meta name="generator" content="Astro v1.7.1">
     <title>Hudson&#39;s Playground</title>
-  <link rel="stylesheet" href="/assets/404.02cf6451.css" /></head>
+  <link rel="stylesheet" href="/assets/404.ce007408.css" /></head>
   <body class="min-h-screen flex flex-col justify-between">
-    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black" x-data="{ open: false, active: window.location.pathname }" @click.outside="open = false">
+    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black" x-data="{ open: false, active: window.location.pathname.replace('/','') }" @click.outside="open = false">
   <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
     <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
   </div>
   <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!h-auto md:!flex md:!overflow-auto md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar" x-collapse>
     <li role="menuitem">
-      <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
+      <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
     </li>
     <li role="menuitem">
-      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/webdev' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/webdev' ? 'page' : 'false'">Web Dev</a>
+      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors block" :class="active == 'webdev' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'webdev' ? 'page' : 'false'">Web Dev</a>
     </li>
     <li role="menuitem">
-      <a href="/film" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/film' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/film' ? 'page' : 'false'">Film</a>
+      <a href="/film" class="py-2 px-4 rounded-xl transition-colors block" :class="active == 'film' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'film' ? 'page' : 'false'">Film</a>
     </li>
     <li role="menuitem">
-      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a>
+      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == 'free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'free-clout' ? 'page' : 'false'">Free Clout</a>
     </li>
   </ul>
 </nav>
