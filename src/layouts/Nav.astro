@@ -1,7 +1,6 @@
 <nav
-  class="fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-900 h-20 w-20 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white"
-  x-data="{ open: false, active: window.location.pathname }"
-  :class="{ 'h-auto w-auto': open }"
+  class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black"
+  x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }"
   @click.outside="open = false"
 >
   <div
@@ -15,14 +14,15 @@
   <ul
     x-cloak
     x-show="open"
-    class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto"
+    class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!h-auto md:!flex md:!overflow-auto md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto"
     role="menubar"
+    x-collapse
   >
     <li role="menuitem">
       <a
         href="/"
         class="py-2 px-4 rounded-xl transition-colors block"
-        :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'"
+        :class="active == '' ? 'bg-white text-black' : 'hover:bg-white/10'"
         :aria-current="active == '/' ? 'page' : 'false'">Home</a
       >
     </li>
@@ -30,32 +30,24 @@
       <a
         href="/webdev"
         class="py-2 px-4 rounded-xl transition-colors block"
-        :class="active == '/webdev' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/webdev' ? 'page' : 'false'">Web Dev</a
+        :class="active == 'webdev' ? 'bg-white text-black' : 'hover:bg-white/10'"
+        :aria-current="active == 'webdev' ? 'page' : 'false'">Web Dev</a
       >
     </li>
     <li role="menuitem">
       <a
         href="/film"
         class="py-2 px-4 rounded-xl transition-colors block"
-        :class="active == '/film' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/film' ? 'page' : 'false'">Film</a
+        :class="active == 'film' ? 'bg-white text-black' : 'hover:bg-white/10'"
+        :aria-current="active == 'film' ? 'page' : 'false'">Film</a
       >
     </li>
     <li role="menuitem">
       <a
         href="/free-clout"
         class="py-2 px-4 rounded-xl transition-colors block"
-        :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a
-      >
-    </li>
-    <li role="menuitem">
-      <a
-        href="/playground"
-        class="py-2 px-4 rounded-xl transition-colors block"
-        :class="active == '/playground' ? 'bg-white text-black' : 'hover:bg-white/10'"
-        :aria-current="active == '/playground' ? 'page' : 'false'">Playground</a
+        :class="active == 'free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'"
+        :aria-current="active == 'free-clout' ? 'page' : 'false'">Free Clout</a
       >
     </li>
   </ul>

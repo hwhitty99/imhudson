@@ -24,7 +24,7 @@
     "tailwindcss-animation-delay": "^1.0.7"
   },
   "devDependencies": {
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.1.13"
   }
 }

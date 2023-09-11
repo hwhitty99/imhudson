@@ -7,7 +7,7 @@ import "@fontsource/poppins/900.css";
 import Nav from "../layouts/Nav.astro";
 import Footer from "../layouts/Footer.astro";
 import favicon from "../assets/favicon.svg";
-import "../styles/style.css";
+import "../styles/output.css";
 
 export interface Props {
   title: string;
@@ -18,7 +18,11 @@ const devMode = import.meta.env.DEV;
 ---
 
 <!DOCTYPE html>
-<html lang="en" x-data=`{devMode: ${devMode}}` class="bg-black text-white">
+<html
+  lang="en"
+  x-data=`{devMode: ${devMode}}`
+  class="bg-black text-white bg-[url('../img/noise.png')] selection:bg-red-500/50"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -30,9 +34,16 @@ const devMode = import.meta.env.DEV;
       crossorigin="anonymous"
     ></script>
 
+    <!-- Alpine Plugins -->
     <script
       defer
-      src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Alpine Core -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
 
     <meta name="generator" content={Astro.generator} />
@@ -45,7 +56,7 @@ const devMode = import.meta.env.DEV;
   </body>
   <b
     x-show="devMode"
-    class="fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-black bg-opacity-50 rounded-bl-xl"
+    class="z-10 fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-red-500/70 rounded-bl-xl"
   >
     <span class="sm:hidden"> xs</span>
     <span class="hidden sm:inline md:hidden"> sm</span>
