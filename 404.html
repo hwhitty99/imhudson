@@ -18,7 +18,7 @@
     <title></title>
   <link rel="stylesheet" href="/assets/404.ce007408.css" /></head>
   <body class="min-h-screen flex flex-col justify-between">
-    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black" x-data="{ open: false, active: window.location.pathname.replace('/','') }" @click.outside="open = false">
+    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black" x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }" @click.outside="open = false">
   <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
     <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
   </div>
