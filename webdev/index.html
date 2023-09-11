@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{devMode: false}" class="bg-black text-white bg-[url('../img/noise.png')] selection:bg-red-500/50">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.edc8c107.svg">
+
+    <script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script>
+
+    <!-- Alpine Plugins -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <meta name="generator" content="Astro v1.7.1">
+    <title>Hudson Whittaker&#39;s Web Development</title>
+  <link rel="stylesheet" href="/assets/404.ca33566a.css" /></head>
+  <body class="min-h-screen flex flex-col justify-between">
+    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white h-auto w-auto transition" x-data="{ open: false, active: window.location.pathname }" @click.outside="open = false">
+  <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
+    <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
+  </div>
+  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar" x-collapse>
+    <li role="menuitem">
+      <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
+    </li>
+    <li role="menuitem">
+      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/webdev' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/webdev' ? 'page' : 'false'">Web Dev</a>
+    </li>
+    <li role="menuitem">
+      <a href="/film" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/film' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/film' ? 'page' : 'false'">Film</a>
+    </li>
+    <li role="menuitem">
+      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a>
+    </li>
+  </ul>
+</nav>
+    <div class="h-screen w-screen flex justify-center items-center">
+    <div class="flex flex-col items-center">
+      <h1 class="font-bold text-xl">Web Development</h1>
+      <h2 class="font-medium">I'm passionate about it</h2>
+    </div>
+  </div><div class="container px-4 flex flex-col gap-4">
+    <p>
+      It all started in 1999. I was born. That's also when my mom started
+      telling me that I should become and engineer. And rightly so. I liked
+      solving problems, building things, taking things apart, fixing things, I
+      was good at math...you get the picture. She had the best intentions and
+      wanted to encourage me to pursue what I was good at and liked doing.
+    </p>
+    <p>
+      I didn't write a single line of code in highschool. So, when it came to
+      picking a major, the only reason I even considered a CS degree was because
+      I was technologically inclined and my favorite class up to that point had
+      been my highschool's "technology" class (which was essentially Photoshop
+      and Excel for beginners). I had rooted (and bricked and then revived)
+      multiple Androids at that point and would spend ridiculous amounts of time
+      designing my personal mobile software experience through launchers, icon
+      packs, and custom ROMs. I was a UI/UX designer before I knew what that
+      meant, but still thought I was for sure going to be an engineer.
+    </p>
+    <p>
+      So did I pick a CS degree or an engineering degree? Yes. Software
+      Engineering.
+    </p>
+    <p>
+      Software Engineering at ONU, as a major, split ENGR and CSIS courses 50/50
+      and existed for maybe 6 years. Me and my 6 other software engineering
+      majors were the last to graduate from ONU. I don't know what that says
+      about the major but if it says anything it's probably not positive. The
+      engineering half of my college education was arguably useless and the
+      computer science half prepared me to work on microcontrollers and write
+      java...which did not excite me.
+    </p>
+    <p>
+      What did excite me? For my year-long sophomore java course we programmed
+      NXT robots to replicate the Simon game. I completed the project in record
+      time. Then I spent about twice as long designing the monochromatic pixel
+      art that displayed the player's level, their high score, and the
+      navigation menu. That was not required work I just got really passionate
+      about it for some reason. In my Android app development course, I
+      discovered dynamic icons. Fun fact, on Andoird, every app icon can be
+      multiple layers and they react to your scolling in a "rubber band" like
+      way, which is so cool and satisfying. Don't believe me? Go try it. It's
+      fun. I enjoyed creating those silly little icons more than actually
+      programming the apps. Again, we weren't required to create dynamic icons
+      for our apps and our prof never taught us about them; I was just
+      passionate.
+    </p>
+    <p>
+      Finally, senior year rolled around and I could almost graduate a semester
+      early, so I needed some filler classes to be considered a full time
+      student and live on campus. I added a art/programming course to my
+      schedule for my last semester of college and . We developed a 2D scroller
+      game, and 3D kart racing game in Unity, an app prototype in Adobe XD, and
+      two websites: one to sell something that we could offer and one to display
+      all our projects from the course. I was hooked! The game development
+      didn't really speak to me, but I was incredibly excited about app
+      prototyping and web development because they clicked for me. I understood
+      the course material with ease and my projects were miles ahead of my
+      classmates'. That wasn't a very high bar, granted, but I'm still proud of
+      what I created. I was the guy helping my friend instead of the guy asking
+      his friend for help (which was usually me in most classes).
+    </p>
+    <p>
+      The year prior to this class, I went home for spring break and never came
+      back, due to COVID. During that whole "stay at home or you'll die and if
+      you don't die you'll kill someone else" summer of 2020, I started an
+      online clothing store through Shopify. I only mention this because it was
+      a huge part in discovering my passion for web development/design. I loved
+      designing each page of the website, even though it was tedious. I grew
+      passionate about content layout, interaction animations, and user
+      experience through this project. At this point, I still hadn't really
+      written in any web development languages because I could do most of what I
+      wanted through Shopify or their plugins. But, this was my first taste of
+      HTML, CSS, and javascript because every once in a while they were required
+      to get my vision for a page pixel perfect.
+    </p>
+    <p>
+      The rest really is history. Senior year I went deep down the web dev and
+      UI design YouTube rabbit holes and, shortly after graduating, somehow got
+      the job I'm at now where I'm still constantly learning and feel totally
+      incompetnant next to my much more experienced coworkers.
+    </p>
+    <ul class="list-disc list-inside">
+      <span class="font-semibold">Some things I've learned and have used regularly since working at <a href="https://mir.us" target="_blank">Mirus</a>:</span>
+      <li>tailwindcss</li>
+      <li>alpine.js</li>
+      <li>handlebars.js</li>
+      <li>Vue</li>
+      <li>python</li>
+      <li>unit tests</li>
+      <li>django</li>
+      <li>Google Cloud Storage</li>
+      <li>GitLab</li>
+      <li>slackmojis</li>
+    </ul>
+    <p>
+      At this point I'm your average web developer who's obsessed with every new
+      framework and plugin he sees but won't actually spend the time to
+      learn/use them and I'm your average UI/UX designer who has a brilliant eye
+      for design but feels like literally everyone else in the industry is
+      better than me.
+    </p>
+    <p>
+      When I see a massive html file I get excited and want to figure out how
+      the entire structure works. I've wasted time redesigning craiglist in the
+      devTools. I watched the entire talk at Tailwind Connect on YouTube. I made
+      my own VSCode theme. Half the reason I use Arc Browser is for the icon
+      animations. I've spent time and money on two UI design courses taught by a
+      YouTuber who owns a design agency. A decent percentage of my brain's
+      storage is filled with keyboard shortcuts. I have a folder of bookmarks
+      titled "things I want to use one day" that includes Pinia, Oruga, and
+      Penpot. Just yesterday I was geeking out about this <a href="https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23fff,%20white%0D%0A%23000,%20black%0D%0A%23fff8ed,%20orange-50%0D%0A%23feefd6,%20orange-100%0D%0A%23fcdbac,%20orange-200%0D%0A%23fac177,%20orange-300%0D%0A%23f79b40,%20orange-400%0D%0A%23f58220,%20orange-500%0D%0A%23e66410,%20orange-600%0D%0A%23bf4b0f,%20orange-700%0D%0A%23973c15,%20orange-800%0D%0A%237a3314,%20orange-900%0D%0A%23421808,%20orange-950%0D%0A%23f9fafb,%20gray-50%0D%0A%23f3f4f6,%20gray-100%0D%0A%23e5e7eb,%20gray-200%0D%0A%23d1d5db,%20gray-300%0D%0A%239ca3af,%20gray-400%0D%0A%236b7280,%20gray-500%0D%0A%234b5563,%20gray-600%0D%0A%23374151,%20gray-700%0D%0A%231f2937,%20gray-800%0D%0A%23111827,%20gray-900%0D%0A%23FFFFFF,%20red-50%0D%0A%23f9edee,%20red-100%0D%0A%23FBB1B9,%20red-200%0D%0A%23F98691,%20red-300%0D%0A%23F75565,%20red-400%0D%0A%23F20C23,%20red-500%0D%0A%23D62311,%20red-600%0D%0A%23a11b13,%20red-700%0D%0A%23920715,%20red-800%0D%0A%2357040D,%20red-900%0D%0A%23eff6ff,%20blue-50%0D%0A%23dbeafe,%20blue-100%0D%0A%23bfdbfe,%20blue-200%0D%0A%2393c5fd,%20blue-300%0D%0A%2360a5fa,%20blue-400%0D%0A%233b82f6,%20blue-500%0D%0A%232563eb,%20blue-600%0D%0A%231d4ed8,%20blue-700%0D%0A%231e40af,%20blue-800%0D%0A%231e3a8a,%20blue-900&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18" target="_blank">color contrast chart website</a> and want to make a poster out of it.
+    </p>
+    <p>
+      Now you understand why a senior developer I work with and respect once
+      messaged me, "You have problems."
+    </p>
+  </div>
+    <div class="w-full p-4 mt-8 mb-24 md:mb-0 md:mt-16 lg:mt-24 xl:mt-32 flex justify-between text-sm border-y border-white">
+  <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
+  <span>powered by caffeine</span>
+</div>
+  <b x-show="devMode" class="fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-black bg-opacity-50 rounded-bl-xl">
+    <span class="sm:hidden"> xs</span>
+    <span class="hidden sm:inline md:hidden"> sm</span>
+    <span class="hidden md:inline lg:hidden"> md</span>
+    <span class="hidden lg:inline xl:hidden"> lg</span>
+    <span class="hidden xl:inline 2xl:hidden"> xl</span>
+    <span class="hidden 2xl:inline"> 2xl</span>
+  </b>
+</body></html>

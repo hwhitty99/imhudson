@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{devMode: false}" class="bg-black text-white">
+<html lang="en" x-data="{devMode: false}" class="bg-black text-white bg-[url('../img/noise.png')] selection:bg-red-500/50">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -8,17 +8,21 @@
 
     <script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script>
 
-    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine Plugins -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <meta name="generator" content="Astro v1.7.1">
     <title>Hudson Whittaker&#39;s Portfolio Website</title>
-  <link rel="stylesheet" href="/assets/404.ccd2dad7.css" /><script type="module" src="/page.721c8a4f.js"></script></head>
+  <link rel="stylesheet" href="/assets/404.ca33566a.css" /></head>
   <body class="min-h-screen flex flex-col justify-between">
-    <nav class="fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-900 h-20 w-20 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white" x-data="{ open: false, active: window.location.pathname }" :class="{ 'h-auto w-auto': open }" @click.outside="open = false">
+    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white h-auto w-auto transition" x-data="{ open: false, active: window.location.pathname }" @click.outside="open = false">
   <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
     <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
   </div>
-  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar">
+  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar" x-collapse>
     <li role="menuitem">
       <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
     </li>
@@ -31,17 +35,12 @@
     <li role="menuitem">
       <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a>
     </li>
-    <li role="menuitem">
-      <a href="/playground" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/playground' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/playground' ? 'page' : 'false'">Playground</a>
-    </li>
   </ul>
 </nav>
     <div class="p-6 pt-0 flex flex-col max-w-screen-lg mx-auto lg:p-0">
     <div class="h-screen flex flex-col">
       <div class="my-auto">
-        <h1 class="font-bold text-2xl mb-2">
-          Nice Headline about Hudson Whittaker
-        </h1>
+        <h1 class="font-bold text-2xl mb-2">Hudson Whittaker</h1>
         <p>
           I'm a frontend web developer. Scroll this page to get an idea of what
           I'm about or use the <code>nav</code> to skip to your favorite <code>href</code>.
@@ -49,7 +48,7 @@
       </div>
     </div>
     <div class="space-y-12 xl:space-y-32">
-      <div class="space-y-4 rounded-2xl p-6 bg-black-900">
+      <div class="space-y-4 rounded-2xl p-6 bg-black-800">
   <h2 class="text-xl font-bold">Web Development</h2>
   <p>
           I have a degree in software engineering from Olivet Nazarene
@@ -63,7 +62,7 @@
   <a href="/webdev" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
   </a>
 </div>
-      <div class="space-y-4 rounded-2xl p-6 bg-black-900">
+      <div class="space-y-4 rounded-2xl p-6 bg-black-800">
   <h2 class="text-xl font-bold">Film Photography</h2>
   <p>
           This interest has only developed (get it?) recently. In May 2022 I
@@ -74,7 +73,7 @@
   <a href="/film" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
   </a>
 </div>
-      <div class="space-y-4 rounded-2xl p-6 bg-black-900">
+      <div class="space-y-4 rounded-2xl p-6 bg-black-800">
   <h2 class="text-xl font-bold">Free Clout</h2>
   <p>
           There are a lot of people, software, and resources that I have found
@@ -85,20 +84,11 @@
   <a href="/free-clout" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
   </a>
 </div>
-      <div class="space-y-4 rounded-2xl p-6 bg-black-900">
-  <h2 class="text-xl font-bold">The Playground</h2>
-  <p>
-          A place for me to vomit code and see if it does anything cool.
-          Initially started to prove to myself that I could 'make a website from
-          scratch'. If I found a new JS framework that's less terrible than the
-          21,345,987 other ones this is where I test run it.
-        </p>
-  <a href="/playground" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
-  </a>
-</div>
       <div class="flex flex-col w-full max-w-sm mx-auto">
   <h2 class="text-lg font-bold mb-4">Contact Form</h2>
-  <p>If you made it here we'd probably get along well. Let's chat.</p>
+  <p>
+          If you made it this far, then we'd probably get along. Let's chat.
+        </p>
   <form id="contact-form" action="https://formspree.io/f/xyyowvan" method="POST" @submit.prevent="submitData" x-data="contactForm()" class="mt-8">
     <div class="space-y-8">
       <div class="relative">
@@ -119,7 +109,7 @@
     <!-- "catches" the bots -->
     <input type="text" name="_honey" class="hidden">
 
-    <button class="w-full rounded-full bg-white text-black p-3 uppercase font-bold mt-4" x-text="submitLabel"></button>
+    <button class="w-full rounded-full bg-white text-black p-3 uppercase font-bold mt-4 hover:bg-red-500 hover:scale-105 active:scale-100 transition" x-text="submitLabel"></button>
   </form>
 </div>
 

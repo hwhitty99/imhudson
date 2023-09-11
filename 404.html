@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{devMode: false}" class="bg-black text-white">
+<html lang="en" x-data="{devMode: false}" class="bg-black text-white bg-[url('../img/noise.png')] selection:bg-red-500/50">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -8,17 +8,21 @@
 
     <script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script>
 
-    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine Plugins -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <meta name="generator" content="Astro v1.7.1">
     <title></title>
-  <link rel="stylesheet" href="/assets/404.ccd2dad7.css" /><script type="module" src="/page.721c8a4f.js"></script></head>
+  <link rel="stylesheet" href="/assets/404.ca33566a.css" /></head>
   <body class="min-h-screen flex flex-col justify-between">
-    <nav class="fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-900 h-20 w-20 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white" x-data="{ open: false, active: window.location.pathname }" :class="{ 'h-auto w-auto': open }" @click.outside="open = false">
+    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black text-white h-auto w-auto transition" x-data="{ open: false, active: window.location.pathname }" @click.outside="open = false">
   <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
     <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
   </div>
-  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar">
+  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!flex md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar" x-collapse>
     <li role="menuitem">
       <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
     </li>
@@ -30,9 +34,6 @@
     </li>
     <li role="menuitem">
       <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/free-clout' ? 'page' : 'false'">Free Clout</a>
-    </li>
-    <li role="menuitem">
-      <a href="/playground" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '/playground' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/playground' ? 'page' : 'false'">Playground</a>
     </li>
   </ul>
 </nav>
