@@ -16,7 +16,7 @@
 
     <meta name="generator" content="Astro v1.7.1">
     <title>Hudson Whittaker&#39;s Portfolio Website</title>
-  <link rel="stylesheet" href="/assets/404.ce007408.css" /></head>
+  <link rel="stylesheet" href="/assets/404.09a8c0dc.css" /></head>
   <body class="min-h-screen flex flex-col justify-between">
     <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black" x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }" @click.outside="open = false">
   <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
@@ -37,7 +37,7 @@
     </li>
   </ul>
 </nav>
-    <div class="p-6 pt-0 flex flex-col max-w-screen-lg mx-auto lg:p-0">
+    <div class="container p-6 pt-0 flex flex-col mx-auto lg:p-0">
     <div class="h-screen flex flex-col">
       <div class="my-auto">
         <h1 class="font-bold text-2xl mb-2">Hudson Whittaker</h1>
@@ -47,22 +47,21 @@
         </p>
       </div>
     </div>
-    <div class="space-y-12 xl:space-y-32">
-      <div class="space-y-4 rounded-2xl p-6 bg-black-800">
+    <div class="grid grid-cols-1 gap-16 xl:grid-cols-3 mb-16 lg:mb-32">
+      <div class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800">
   <h2 class="text-xl font-bold">Web Development</h2>
   <p>
           I have a degree in software engineering from Olivet Nazarene
           University. To earn that piece of paper I wrote a lot of Java, a
           little bit of C++, and spent way too much time writing papers about
           thermofluids that never got graded (I'm still salty, <a href="https://www.ratemyprofessors.com/professor?tid=1554171" target="_blank">Schroeder</a>). Those were all boring so, instead of trying my senior year, I did
-          graphic design and web development on the side. Since graduating, I've
-          been conning Mirus Research into thinking I know Python for over a
-          year.
+          graphic design and web development on the side. Somehow, shortly after
+          graduating, I got a job at <a href="https://mir.us" target="_blank">Mirus Research</a> and I've been conning them for the past two years. 🤫
         </p>
-  <a href="/webdev" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
+  <a href="/webdev" class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
   </a>
 </div>
-      <div class="space-y-4 rounded-2xl p-6 bg-black-800">
+      <div class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800">
   <h2 class="text-xl font-bold">Film Photography</h2>
   <p>
           This interest has only developed (get it?) recently. In May 2022 I
@@ -70,10 +69,10 @@
           Cannon A-1. Obviously I was hooked. I got my own Nikon FE and have
           been shooting everywhere I go since.
         </p>
-  <a href="/film" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
+  <a href="/film" class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
   </a>
 </div>
-      <div class="space-y-4 rounded-2xl p-6 bg-black-800">
+      <div class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800">
   <h2 class="text-xl font-bold">Free Clout</h2>
   <p>
           There are a lot of people, software, and resources that I have found
@@ -81,14 +80,13 @@
           them here. Definitely check this list out because there's nothing
           there for you.
         </p>
-  <a href="/free-clout" class="inline-block font-bold group hover:text-red-500 transition-colors">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
+  <a href="/free-clout" class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
   </a>
 </div>
-      <div class="flex flex-col w-full max-w-sm mx-auto">
+    </div>
+    <div class="flex flex-col w-full max-w-sm mx-auto">
   <h2 class="text-lg font-bold mb-4">Contact Form</h2>
-  <p>
-          If you made it this far, then we'd probably get along. Let's chat.
-        </p>
+  <p>If you made it this far, then we'd probably get along. Let's chat.</p>
   <form id="contact-form" action="https://formspree.io/f/xyyowvan" method="POST" @submit.prevent="submitData" x-data="contactForm()" class="mt-8">
     <div class="space-y-8">
       <div class="relative">
@@ -162,11 +160,10 @@
     };
   }
 </script>
-    </div>
   </div>
-    <div class="w-full p-4 mt-8 mb-24 md:mb-0 md:mt-16 lg:mt-24 xl:mt-32 flex justify-between text-sm border-y border-white">
-  <a href="https://youtu.be/wpV-gGA4PSk">free bitcoin</a>
-  <span>powered by caffeine</span>
+    <div class="w-full flex justify-between text-sm p-4 mt-8 mb-24 bg-black-800 md:mb-0 md:mt-16 lg:mt-24 xl:mt-32">
+  <a href="https://youtu.be/wpV-gGA4PSk"><strong>free bitcoin</strong></a>
+  <span>powered by <em>caffeine</em></span>
 </div>
   <b x-show="devMode" class="z-10 fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-red-500/70 rounded-bl-xl">
     <span class="sm:hidden"> xs</span>
