@@ -1,17 +1,6 @@
 {
   "name": "@example/basics",
-  "type": "module",
   "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "gh-pages -d dist",
-    "format": "npx prettier --write '{,*/**/}*.{js,jsx,ts,tsx,astro,md}'"
-  },
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.0",
     "@astrojs/tailwind": "^5.0.0",
@@ -23,6 +12,17 @@
     "tailwindcss": "^3.3.3",
     "tailwindcss-animation-delay": "^1.0.7"
   },
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "gh-pages -d dist",
+    "format": "npx prettier --write '{,*/**/}*.{js,jsx,ts,tsx,astro,md}'"
+  },
+  "type": "module",
   "devDependencies": {
     "prettier-plugin-astro": "^0.12.0"
   }
