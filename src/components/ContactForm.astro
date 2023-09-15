@@ -2,64 +2,74 @@
 const { title } = Astro.props;
 ---
 
-<div class="flex flex-col w-full max-w-sm mx-auto">
-  <h2 class="text-lg font-bold mb-4">{title}</h2>
-  <slot />
-  <form
-    id="contact-form"
-    action="https://formspree.io/f/xyyowvan"
-    method="POST"
-    @submit.prevent="submitData"
-    x-data="contactForm()"
-    class="mt-8"
+<section
+  x-data="{ shown: false }"
+  x-intersect.once.full="shown = true"
+  class="min-h-[100px]"
+>
+  <div
+    class="flex flex-col w-full max-w-sm mx-auto"
+    x-show="shown"
+    x-transition.duration.700ms
   >
-    <div class="space-y-8">
-      <div class="relative">
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Name:"
-          autocomplete="name"
-          x-model="formData.name"
-          class="form-field-input peer"
-        />
-        <label for="name" class="form-field-label">Name:</label>
-      </div>
+    <h2 class="text-lg font-bold mb-4">{title}</h2>
+    <slot />
+    <form
+      id="contact-form"
+      action="https://formspree.io/f/xyyowvan"
+      method="POST"
+      @submit.prevent="submitData"
+      x-data="contactForm()"
+      class="mt-8"
+    >
+      <div class="space-y-8">
+        <div class="relative">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name:"
+            autocomplete="name"
+            x-model="formData.name"
+            class="form-field-input peer"
+          />
+          <label for="name" class="form-field-label">Name:</label>
+        </div>
 
-      <div class="relative">
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email:"
-          autocomplete="email"
-          x-model="formData.email"
-          class="form-field-input peer"
-        />
-        <label for="email" class="form-field-label">Email:</label>
-      </div>
+        <div class="relative">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email:"
+            autocomplete="email"
+            x-model="formData.email"
+            class="form-field-input peer"
+          />
+          <label for="email" class="form-field-label">Email:</label>
+        </div>
 
-      <div class="relative">
-        <textarea
-          type="text"
-          rows="5"
-          id="message"
-          name="message"
-          placeholder="Write a message..."
-          x-model="formData.message"
-          class="w-full resize-none form-field-input peer"></textarea>
-        <label for="message" class="form-field-label">Message:</label>
+        <div class="relative">
+          <textarea
+            type="text"
+            rows="5"
+            id="message"
+            name="message"
+            placeholder="Write a message..."
+            x-model="formData.message"
+            class="w-full resize-none form-field-input peer"></textarea>
+          <label for="message" class="form-field-label">Message:</label>
+        </div>
       </div>
-    </div>
-    <!-- "catches" the bots -->
-    <input type="text" name="_honey" class="hidden" />
+      <!-- "catches" the bots -->
+      <input type="text" name="_honey" class="hidden" />
 
-    <button
-      class="w-full rounded-full bg-white text-black p-3 uppercase font-bold mt-4 hover:bg-red-500 hover:scale-105 active:scale-100 transition"
-      x-text="submitLabel"></button>
-  </form>
-</div>
+      <button
+        class="w-full rounded-full bg-white text-black p-3 uppercase font-bold mt-4 hover:bg-red-500 hover:scale-105 active:scale-100 transition"
+        x-text="submitLabel"></button>
+    </form>
+  </div>
+</section>
 
 <script is:inline>
   function contactForm() {
