@@ -8,7 +8,7 @@ const { title, content, link } = Astro.props;
   class="min-h-[100px]"
 >
   <div
-    class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800"
+    class="flex flex-col gap-4 rounded-2xl bg-black-800 p-6"
     x-show="shown"
     x-transition.duration.700ms
   >
@@ -16,9 +16,9 @@ const { title, content, link } = Astro.props;
     <slot />
     <a
       href={link}
-      class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto"
+      class="group mt-auto inline-block font-bold transition-colors hover:text-red-500"
       >Learn more <i
-        class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"
+        class="fa-solid fa-arrow-right pl-1 transition-transform group-hover:translate-x-1"
       ></i>
     </a>
   </div>
