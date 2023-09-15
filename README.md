@@ -9,18 +9,18 @@
 
 ## The Stack
 
-- [Astro](https://astro.build)
-- [Alpinejs](https://alpinejs.dev)
-- [tailwindcss](https://tailwindcss.com)
-- [Formspree](https://formspree.io/)
-- [Hostinger](https://hostinger.com)
-- [gh-pages](https://www.npmjs.com/package/gh-pages)
+-   [Astro](https://astro.build)
+-   [Alpinejs](https://alpinejs.dev)
+-   [tailwindcss](https://tailwindcss.com)
+-   [Formspree](https://formspree.io/)
+-   [Hostinger](https://hostinger.com)
+-   [gh-pages](https://www.npmjs.com/package/gh-pages)
 
 ## Author
 
 👤 **Hudson Whittaker**
 
-- Website: [imhudson.ml](https://imhudson.ml)
-- Github: [@hwhitty99](https://github.com/hwhitty99)
-- LinkedIn: [@hudsonwhittaker](https://linkedin.com/in/hudsonwhittaker)
-- Instagram: [@hudsonwhittaker](https://instagram.com/hudsonwhittaker)
+-   Website: [imhudson.ml](https://imhudson.ml)
+-   Github: [@hwhitty99](https://github.com/hwhitty99)
+-   LinkedIn: [@hudsonwhittaker](https://linkedin.com/in/hudsonwhittaker)
+-   Instagram: [@hudsonwhittaker](https://instagram.com/hudsonwhittaker)

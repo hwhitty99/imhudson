@@ -1,16 +1,16 @@
 ---
-import "@fontsource/poppins";
-import "@fontsource/poppins/600.css";
-import "@fontsource/poppins/700.css";
-import "@fontsource/poppins/800.css";
-import "@fontsource/poppins/900.css";
-import Nav from "../layouts/Nav.astro";
-import Footer from "../layouts/Footer.astro";
-import favicon from "../assets/favicon.svg";
-import "../styles/output.css";
+import '@fontsource/poppins';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import '@fontsource/poppins/900.css';
+import Nav from '../layouts/Nav.astro';
+import Footer from '../layouts/Footer.astro';
+import favicon from '../assets/favicon.svg';
+import '../styles/output.css';
 
 export interface Props {
-  title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
@@ -19,53 +19,53 @@ const devMode = import.meta.env.DEV;
 
 <!doctype html>
 <html
-  lang="en"
-  x-data=`{devMode: ${devMode}}`
-  class="bg-black bg-[url('../img/noise.png')] text-white selection:bg-red-500/50"
+    lang="en"
+    x-data=`{devMode: ${devMode}}`
+    class="bg-black bg-[url('../img/noise.png')] text-white selection:bg-red-500/50"
 >
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
 
-    <link rel="icon" type="image/svg+xml" href={favicon} />
+        <link rel="icon" type="image/svg+xml" href={favicon} />
 
-    <script
-      src="https://kit.fontawesome.com/b12c42c201.js"
-      crossorigin="anonymous"></script>
+        <script
+            src="https://kit.fontawesome.com/b12c42c201.js"
+            crossorigin="anonymous"></script>
 
-    <!-- Alpine Plugins -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
-    ></script>
+        <!-- Alpine Plugins -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+        ></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
+        ></script>
 
-    <!-- Alpine Core -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+        <!-- Alpine Core -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
 
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body class="flex min-h-screen flex-col justify-between">
-    <Nav />
-    <slot />
-    <Footer />
-  </body>
-  <b
-    x-show="devMode"
-    class="fixed right-0 top-0 z-10 flex h-12 w-12 items-center justify-center rounded-bl-xl bg-red-500/70 text-center text-white"
-  >
-    <span class="sm:hidden"> xs</span>
-    <span class="hidden sm:inline md:hidden"> sm</span>
-    <span class="hidden md:inline lg:hidden"> md</span>
-    <span class="hidden lg:inline xl:hidden"> lg</span>
-    <span class="hidden xl:inline 2xl:hidden"> xl</span>
-    <span class="hidden 2xl:inline"> 2xl</span>
-  </b>
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="flex min-h-screen flex-col justify-between">
+        <Nav />
+        <slot />
+        <Footer />
+    </body>
+    <b
+        x-show="devMode"
+        class="fixed lg:text-blue-200 right-0 top-0 z-10 flex h-12 w-12 items-center justify-center rounded-bl-xl bg-red-500/70 text-center text-white"
+    >
+        <span class="sm:hidden"> xs</span>
+        <span class="hidden sm:inline md:hidden"> sm</span>
+        <span class="hidden md:inline lg:hidden"> md</span>
+        <span class="hidden lg:inline xl:hidden"> lg</span>
+        <span class="hidden xl:inline 2xl:hidden"> xl</span>
+        <span class="hidden 2xl:inline"> 2xl</span>
+    </b>
 </html>
