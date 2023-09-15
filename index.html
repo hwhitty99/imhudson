@@ -1,183 +1,78 @@
-<!DOCTYPE html>
-<html lang="en" x-data="{devMode: false}" class="bg-black text-white bg-[url('../img/noise.png')] selection:bg-red-500/50">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.edc8c107.svg">
-
-    <script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script>
-
-    <!-- Alpine Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Alpine Core -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <meta name="generator" content="Astro v1.7.1">
-    <title>Hudson Whittaker&#39;s Portfolio Website</title>
-  <link rel="stylesheet" href="/assets/404.eda882f8.css" /></head>
-  <body class="min-h-screen flex flex-col justify-between">
-    <nav class="z-10 fixed flex flex-col-reverse bottom-2 items-end right-2 rounded-xl bg-black-800 text-white h-auto w-auto transition md:block md:p-2 md:h-32 md:inset-0 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black" x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }" @click.outside="open = false">
-  <div @click="open = !open" class="cursor-pointer items-center justify-center flex h-20 w-20 bottom-0 right-0 md:hidden">
-    <i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i>
-  </div>
-  <ul x-cloak x-show="open" class="p-4 pb-0 text-xl font-semibold space-y-2 left-4 top-4 md:w-full md:p-2 md:max-w-screen-lg md:justify-end md:text-base md:!h-auto md:!flex md:!overflow-auto md:space-y-0 md:space-x-2 md:inset-0 md:mx-auto" role="menubar" x-collapse>
-    <li role="menuitem">
-      <a href="/" class="py-2 px-4 rounded-xl transition-colors block" :class="active == '' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a>
-    </li>
-    <li role="menuitem">
-      <a href="/webdev" class="py-2 px-4 rounded-xl transition-colors block" :class="active == 'webdev' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'webdev' ? 'page' : 'false'">Web Dev</a>
-    </li>
-    <li role="menuitem">
-      <a href="/film" class="py-2 px-4 rounded-xl transition-colors block" :class="active == 'film' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'film' ? 'page' : 'false'">Film</a>
-    </li>
-    <li role="menuitem">
-      <a href="/free-clout" class="py-2 px-4 rounded-xl transition-colors block" :class="active == 'free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'free-clout' ? 'page' : 'false'">Free Clout</a>
-    </li>
-  </ul>
-</nav>
-    <div class="container p-6 pt-0 flex flex-col mx-auto lg:p-0">
-    <div class="h-screen flex flex-col justify-center">
-      <h1 class="font-bold text-2xl mb-2">Hudson Whittaker</h1>
-      <h2>
-        I'm a frontend web developer. Scroll this page to get an idea of what
-        I'm about or use the <code>nav</code> to skip to your favorite <code>href</code>.
-      </h2>
-    </div>
-    <div class="grid grid-cols-1 gap-16 xl:grid-cols-3 mb-16 lg:mb-32">
-      <section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]">
-  <div class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800" x-show="shown" x-transition.duration.700ms>
-    <h2 class="text-xl font-bold">Web Development</h2>
-    <p>
-          I have a degree in software engineering from Olivet Nazarene
-          University. To earn that piece of paper I wrote a lot of Java, a
-          little bit of C++, and spent way too much time writing papers about
-          thermofluids that never got graded (I'm still salty, <a href="https://www.ratemyprofessors.com/professor?tid=1554171" target="_blank">Schroeder</a>). Those were all boring so, instead of trying my senior year, I did
-          graphic design and web development on the side. Somehow, shortly after
-          graduating, I got a job at <a href="https://mir.us" target="_blank">Mirus Research</a> and I've been conning them for the past two years. 🤫
-        </p>
-    <a href="/webdev" class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
-    </a>
-  </div>
-</section>
-      <section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]">
-  <div class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800" x-show="shown" x-transition.duration.700ms>
-    <h2 class="text-xl font-bold">Film Photography</h2>
-    <p>
-          This interest has only developed (get it?) recently. In May 2022 I
-          went to Iceland for a week and my friend let my shoot a roll in his
-          Cannon A-1. Obviously I was hooked. I got my own Nikon FE and have
-          been shooting everywhere I go since.
-        </p>
-    <a href="/film" class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
-    </a>
-  </div>
-</section>
-      <section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]">
-  <div class="flex flex-col gap-4 rounded-2xl p-6 bg-black-800" x-show="shown" x-transition.duration.700ms>
-    <h2 class="text-xl font-bold">Free Clout</h2>
-    <p>
-          There are a lot of people, software, and resources that I have found
-          over the years that I don't hate. I've decided to curate and organize
-          them here. Definitely check this list out because there's nothing
-          there for you.
-        </p>
-    <a href="/free-clout" class="inline-block font-bold group hover:text-red-500 transition-colors mt-auto">Learn more <i class="fa-solid fa-arrow-right pl-1 group-hover:translate-x-1 transition-transform"></i>
-    </a>
-  </div>
-</section>
-    </div>
-    <section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]">
-  <div class="flex flex-col w-full max-w-sm mx-auto" x-show="shown" x-transition.duration.700ms>
-    <h2 class="text-lg font-bold mb-4">Contact Form</h2>
-    <p>If you made it this far, then we'd probably get along. Let's chat.</p>
-    <form id="contact-form" action="https://formspree.io/f/xyyowvan" method="POST" @submit.prevent="submitData" x-data="contactForm()" class="mt-8">
-      <div class="space-y-8">
-        <div class="relative">
-          <input type="text" id="name" name="name" placeholder="Name:" autocomplete="name" x-model="formData.name" class="form-field-input peer">
-          <label for="name" class="form-field-label">Name:</label>
-        </div>
-
-        <div class="relative">
-          <input type="email" id="email" name="email" placeholder="Email:" autocomplete="email" x-model="formData.email" class="form-field-input peer">
-          <label for="email" class="form-field-label">Email:</label>
-        </div>
-
-        <div class="relative">
-          <textarea type="text" rows="5" id="message" name="message" placeholder="Write a message..." x-model="formData.message" class="w-full resize-none form-field-input peer"></textarea>
-          <label for="message" class="form-field-label">Message:</label>
-        </div>
-      </div>
-      <!-- "catches" the bots -->
-      <input type="text" name="_honey" class="hidden">
-
-      <button class="w-full rounded-full bg-white text-black p-3 uppercase font-bold mt-4 hover:bg-red-500 hover:scale-105 active:scale-100 transition" x-text="submitLabel"></button>
-    </form>
-  </div>
-</section>
-
-<script>
-  function contactForm() {
-    return {
-      formData: {
-        name: "",
-        email: "",
-        message: "",
-      },
-      submitting: false,
-      submitLabel: "Send",
-
-      submitData() {
-        var form = document.getElementById("contact-form");
-        this.submitLabel = "Sending...";
-        (this.submitting = true),
-          fetch(event.target.action, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
+<!DOCTYPE html><html lang="en" x-data="{devMode: false}" class="bg-black bg-[url('../img/noise.png')] text-white selection:bg-red-500/50"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="[object Object]"><script src="https://kit.fontawesome.com/b12c42c201.js" crossorigin="anonymous"></script><!-- Alpine Plugins --><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script><!-- Alpine Core --><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script><meta name="generator" content="Astro v3.1.0"><title>Hudson Whittaker&#39;s Portfolio Website</title><link rel="stylesheet" href="/_astro/404.ed478ce0.css" /></head><body class="flex min-h-screen flex-col justify-between"><nav class="fixed bottom-2 right-2 z-10 flex h-auto w-auto flex-col-reverse items-end rounded-xl bg-black-800 text-white transition md:inset-0 md:block md:h-32 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black md:p-2" x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }" @click.outside="open = false"><div @click="open = !open" class="bottom-0 right-0 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"><i class="fa-solid fa-caret-up fa-2x transition-transform" :class="open ? 'rotate-180' : 'rotate-0'"></i></div><ul x-cloak x-show="open" class="left-4 top-4 space-y-2 p-4 pb-0 text-xl font-semibold md:inset-0 md:mx-auto md:!flex md:!h-auto md:w-full md:max-w-screen-lg md:justify-end md:space-x-2 md:space-y-0 md:!overflow-auto md:p-2 md:text-base" role="menubar" x-collapse><li role="menuitem"><a href="/" class="block rounded-xl px-4 py-2 transition-colors" :class="active == '' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == '/' ? 'page' : 'false'">Home</a></li><li role="menuitem"><a href="/webdev" class="block rounded-xl px-4 py-2 transition-colors" :class="active == 'webdev' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'webdev' ? 'page' : 'false'">Web Dev</a></li><li role="menuitem"><a href="/film" class="block rounded-xl px-4 py-2 transition-colors" :class="active == 'film' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'film' ? 'page' : 'false'">Film</a></li><li role="menuitem"><a href="/free-clout" class="block rounded-xl px-4 py-2 transition-colors" :class="active == 'free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'" :aria-current="active == 'free-clout' ? 'page' : 'false'">Free Clout</a></li></ul></nav><div class="container mx-auto flex flex-col p-6 pt-0 lg:p-0"><div class="flex h-screen flex-col justify-center px-4"><h1 class="mb-2 text-2xl font-bold">Hudson Whittaker</h1><h2>
+I'm a frontend web developer. Scroll this page to get an idea of
+                what I'm about or use the <code>nav</code> to skip to your
+                favorite
+<code>href</code>.
+</h2></div><div class="mb-16 grid grid-cols-1 gap-16 lg:mb-32 xl:grid-cols-3"><section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]"><div class="flex flex-col gap-4 rounded-2xl bg-black-800 p-6" x-show="shown" x-transition.duration.700ms><h2 class="text-xl font-bold">Web Development</h2><p>
+I have a degree in software engineering from Olivet Nazarene
+                    University. To earn that piece of paper I wrote a lot of
+                    Java, a little bit of C++, and spent way too much time
+                    writing papers about thermofluids that never got graded (I'm
+                    still salty,
+<a href="https://www.ratemyprofessors.com/professor?tid=1554171" target="_blank">Schroeder</a>). Those were all boring so, instead of trying my senior
+                    year, I did graphic design and web development on the side.
+                    Somehow, shortly after graduating, I got a job at
+<a href="https://mir.us" target="_blank">Mirus Research</a>
+and I've been conning them for the past two years. 🤫
+</p><a href="/webdev" class="group mt-auto inline-block font-bold transition-colors hover:text-red-500">Learn more <i class="fa-solid fa-arrow-right pl-1 transition-transform group-hover:translate-x-1"></i></a></div></section><section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]"><div class="flex flex-col gap-4 rounded-2xl bg-black-800 p-6" x-show="shown" x-transition.duration.700ms><h2 class="text-xl font-bold">Film Photography</h2><p>
+This interest has only developed (get it?) recently. In May
+                    2022 I went to Iceland for a week and my friend let my shoot
+                    a roll in his Cannon A-1. Obviously I was hooked. I got my
+                    own Nikon FE and have been shooting everywhere I go since.
+</p><a href="/film" class="group mt-auto inline-block font-bold transition-colors hover:text-red-500">Learn more <i class="fa-solid fa-arrow-right pl-1 transition-transform group-hover:translate-x-1"></i></a></div></section><section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]"><div class="flex flex-col gap-4 rounded-2xl bg-black-800 p-6" x-show="shown" x-transition.duration.700ms><h2 class="text-xl font-bold">Free Clout</h2><p>
+There are a lot of people, software, and resources that I
+                    have found over the years that I don't hate. I've decided to
+                    curate and organize them here. Definitely check this list
+                    out because there's nothing there for you.
+</p><a href="/free-clout" class="group mt-auto inline-block font-bold transition-colors hover:text-red-500">Learn more <i class="fa-solid fa-arrow-right pl-1 transition-transform group-hover:translate-x-1"></i></a></div></section></div><section x-data="{ shown: false }" x-intersect.once.full="shown = true" class="min-h-[100px]"><div class="mx-auto flex w-full max-w-sm flex-col" x-show="shown" x-transition.duration.700ms><h2 class="mb-4 text-lg font-bold">Contact Form</h2><p>
+If you made it this far, then we'd probably get along. Let's
+                chat.
+</p><form id="contact-form" action="https://formspree.io/f/xyyowvan" method="POST" @submit.prevent="submitData" x-data="contactForm()" class="mt-8"><div class="space-y-8"><div class="relative"><input type="text" id="name" name="name" placeholder="Name:" autocomplete="name" x-model="formData.name" class="form-field-input peer"><label for="name" class="form-field-label">Name:</label></div><div class="relative"><input type="email" id="email" name="email" placeholder="Email:" autocomplete="email" x-model="formData.email" class="form-field-input peer"><label for="email" class="form-field-label">Email:</label></div><div class="relative"><textarea type="text" rows="5" id="message" name="message" placeholder="Write a message..." x-model="formData.message" class="form-field-input peer w-full resize-none"></textarea><label for="message" class="form-field-label">Message:</label></div></div><!-- "catches" the bots --><input type="text" name="_honey" class="hidden"><button class="mt-4 w-full rounded-full bg-white p-3 font-bold uppercase text-black transition hover:scale-105 hover:bg-red-500 active:scale-100" x-text="submitLabel"></button></form></div></section><script>
+    function contactForm() {
+        return {
+            formData: {
+                name: '',
+                email: '',
+                message: '',
             },
-            body: JSON.stringify(this.formData),
-          })
-            .then((res) => {
-              if (res.ok) {
-                this.submitLabel = "Got it, thanks!";
-                form.reset();
-              } else {
-                res.json().then((data) => {
-                  if (Object.hasOwn(data, "errors")) {
-                    this.submitLabel = data["errors"]
-                      .map((error) => error["message"])
-                      .join(", ");
-                  } else {
-                    this.submitLabel = "Ope...try again";
-                  }
-                });
-              }
-            })
-            .catch((error) => {
-              this.submitLabel = "Ope...try again";
-            })
-            .finally(() => {
-              this.submitting = false;
-            });
-      },
-    };
-  }
-</script>
-  </div>
-    <div class="w-full flex justify-between text-sm p-4 mt-8 mb-24 bg-black-800 md:mb-0 md:mt-16 lg:mt-24 xl:mt-32">
-  <a href="https://youtu.be/wpV-gGA4PSk"><strong>free bitcoin</strong></a>
-  <span>powered by <em>caffeine</em></span>
-</div>
-  <b x-show="devMode" class="z-10 fixed top-0 right-0 flex items-center justify-center w-12 h-12 text-center text-white bg-red-500/70 rounded-bl-xl">
-    <span class="sm:hidden"> xs</span>
-    <span class="hidden sm:inline md:hidden"> sm</span>
-    <span class="hidden md:inline lg:hidden"> md</span>
-    <span class="hidden lg:inline xl:hidden"> lg</span>
-    <span class="hidden xl:inline 2xl:hidden"> xl</span>
-    <span class="hidden 2xl:inline"> 2xl</span>
-  </b>
-</body></html>
+            submitting: false,
+            submitLabel: 'Send',
+
+            submitData() {
+                var form = document.getElementById('contact-form');
+                this.submitLabel = 'Sending...';
+                (this.submitting = true),
+                    fetch(event.target.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Accept: 'application/json',
+                        },
+                        body: JSON.stringify(this.formData),
+                    })
+                        .then((res) => {
+                            if (res.ok) {
+                                this.submitLabel = 'Got it, thanks!';
+                                form.reset();
+                            } else {
+                                res.json().then((data) => {
+                                    if (Object.hasOwn(data, 'errors')) {
+                                        this.submitLabel = data['errors']
+                                            .map((error) => error['message'])
+                                            .join(', ');
+                                    } else {
+                                        this.submitLabel = 'Ope...try again';
+                                    }
+                                });
+                            }
+                        })
+                        .catch((error) => {
+                            this.submitLabel = 'Ope...try again';
+                        })
+                        .finally(() => {
+                            this.submitting = false;
+                        });
+            },
+        };
+    }
+</script></div><div class="mb-24 mt-8 flex w-full justify-between bg-black-800 p-4 text-sm md:mb-0 md:mt-16 lg:mt-24 xl:mt-32"><a href="https://youtu.be/wpV-gGA4PSk"><strong>free bitcoin</strong></a><span>powered by <em>caffeine</em></span></div><b x-show="devMode" class="fixed right-0 top-0 z-10 flex h-12 w-12 items-center justify-center rounded-bl-xl bg-red-500/70 text-center text-white"><span class="sm:hidden"> xs</span><span class="hidden sm:inline md:hidden"> sm</span><span class="hidden md:inline lg:hidden"> md</span><span class="hidden lg:inline xl:hidden"> lg</span><span class="hidden xl:inline 2xl:hidden"> xl</span><span class="hidden 2xl:inline"> 2xl</span></b></body></html>
