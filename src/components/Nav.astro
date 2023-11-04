@@ -1,80 +1,47 @@
 ---
 import { Icon } from 'astro-icon';
+import NavItem from './NavItem.astro';
 ---
 
-<nav
-    class="fixed z-10 flex h-auto w-auto flex-col-reverse items-end rounded-xl bg-black-900 text-white transition max-md:bottom-2 max-md:right-2 md:top-4 md:left-4 md:right-4 md:block md:bg-black/5 md:p-2 md:backdrop-blur md:z-10"
-    x-data="{ open: false, activePage: window.location.pathname.replaceAll('/',''), pageBeingHovered: window.location.pathname.replaceAll('/','') }"
-    @click.outside="open = false"
+<section
+    x-data="{ open: false, activePage: window.location.pathname.replaceAll('/','') || 'home', isActive(page) { return page == this.activePage }, pageBeingHovered: window.location.pathname.replaceAll('/','') || 'home', atTop: true }"
 >
-    <div class="relative">
-        <div
-            @click="open = !open"
-            class="bottom-0 right-0 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"
-        >
-            <Icon
-                name="octicon:triangle-up-24"
-                class="w-8 transition-transform"
-                :class="open ? 'rotate-180' : 'rotate-0'"
-            />
+    <nav
+        class="fixed z-10 flex h-auto w-auto flex-col-reverse items-end text-neutral-400 transition-all max-md:bottom-2 max-md:right-2 max-md:rounded-xl max-md:bg-black-900 md:inset-x-0 md:z-10 md:block md:p-4"
+        :class="atTop ? 'backdrop-opacity-0' : 'md:backdrop-blur md:bg-white/10'"
+        @scroll.window="atTop = !window.scrollY"
+    >
+        <div class="relative">
+            <span
+                class="absolute -z-10 h-full rounded-xl bg-black/50 transition-all duration-200 ease-in-out max-md:hidden"
+                :style="{ width: `${$refs[pageBeingHovered]?.offsetWidth || $refs.home.offsetWidth}px`, left: `${$refs[pageBeingHovered]?.offsetLeft || $refs.home.offsetLeft}px` }"
+            ></span>
+            <div
+                x-show="open"
+                class="md:mx-auto md:!flex md:!h-auto md:max-w-screen-2xl md:items-center"
+                x-collapse
+            >
+                <Icon name="favicon" class="h-8 max-md:hidden" />
+                <ul
+                    class="left-4 top-4 flex flex-col gap-2 p-4 text-xl font-semibold max-md:pb-16 md:inset-0 md:!flex md:!h-auto md:w-full md:flex-row md:justify-end md:!overflow-auto md:p-0 md:text-base"
+                    role="menubar"
+                >
+                    <NavItem href="/webdev" page="webdev" />
+                    <NavItem href="/film" page="film" />
+                    <NavItem href="/free-clout" page="free-clout" />
+                    <NavItem href="/" page="home" />
+                </ul>
+            </div>
         </div>
-        <span class="max-md:hidden h-full bg-white absolute -z-10 transition-all rounded-xl" :style="{ width: `${$refs[pageBeingHovered]?.offsetWidth || $refs.home.offsetWidth}px`, left: `${$refs[pageBeingHovered]?.offsetLeft || $refs.home.offsetLeft}px` }"></span>
-        <ul
-            x-cloak
-            x-show="open"
-            class="left-4 top-4 flex flex-col gap-2 p-4 pb-0 text-xl font-semibold md:inset-0 md:mx-auto md:!flex md:flex-row md:!h-auto md:w-full md:max-w-screen-lg md:justify-end md:!overflow-auto md:p-0 md:text-base"
-            role="menubar"
-            x-collapse
-        >
-            <li role="menuitem">
-                <a
-                    href="/"
-                    x-ref="home"
-                    @click="open = false"
-                    @mouseover="pageBeingHovered = ''"
-                    @mouseleave="pageBeingHovered = activePage"
-                    class="block rounded-xl px-4 py-2 transition-colors"
-                    :class="{ 'text-black': activePage == '' && pageBeingHovered == '', 'text-white/60': activePage == '' && pageBeingHovered != '', 'hover:text-black': activePage != '' }"
-                    :aria-current="activePage == '/' ? 'page' : 'false'">Home</a
-                >
-            </li>
-            <li role="menuitem">
-                <a
-                    href="/webdev"
-                    x-ref="webdev"
-                    @click="open = false"
-                    @mouseover="pageBeingHovered = 'webdev'"
-                    @mouseleave="pageBeingHovered = activePage"
-                    class="block rounded-xl px-4 py-2 transition-colors"
-                    :class="{ 'text-black': activePage == 'webdev' && pageBeingHovered == 'webdev', 'text-white/60': activePage == 'webdev' && pageBeingHovered != 'webdev', 'hover:text-black': activePage != 'webdev' }"
-                    :aria-current="activePage == 'webdev' ? 'page' : 'false'">Web Dev</a
-                >
-            </li>
-            <li role="menuitem">
-                <a
-                    href="/film"
-                    x-ref="film"
-                    @click="open = false"
-                    @mouseover="pageBeingHovered = 'film'"
-                    @mouseleave="pageBeingHovered = activePage"
-                    class="block rounded-xl px-4 py-2 transition-colors"
-                    :class="{ 'text-black': activePage == 'film' && pageBeingHovered == 'film', 'text-white/60': activePage == 'film' && pageBeingHovered != 'film', 'hover:text-black': activePage != 'film' }"
-                    :aria-current="activePage == 'film' ? 'page' : 'false'">Film</a
-                >
-            </li>
-            <li role="menuitem">
-                <a
-                    href="/free-clout"
-                    x-ref="free-clout"
-                    @click="open = false"
-                    @mouseover="pageBeingHovered = 'free-clout'"
-                    @mouseleave="pageBeingHovered = activePage"
-                    class="block rounded-xl px-4 py-2 transition-colors"
-                    :class="{ 'text-black': activePage == 'free-clout' && pageBeingHovered == 'free-clout', 'text-white/60': activePage == 'free-clout' && pageBeingHovered != 'free-clout', 'hover:text-black': activePage != 'free-clout' }"
-                    :aria-current="activePage == 'free-clout' ? 'page' : 'false'"
-                    >Free Clout</a
-                >
-            </li>
-        </ul>
+    </nav>
+    <div
+        @click="open = !open"
+        class="fixed bottom-0 right-0 z-10 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"
+    >
+        <Icon
+            name="octicon:triangle-up-24"
+            class="w-8 transition-transform duration-300"
+            :class="open ? 'rotate-180' : 'rotate-0'"
+        />
     </div>
-</nav>
+</section>

@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../layouts/Footer.astro';
 import favicon from '../assets/favicon.svg';
 import { ViewTransitions } from 'astro:transitions';
-import "../styles/tailwind.css"
+import '../styles/tailwind.css';
 
 export interface Props {
     title: string;
@@ -19,6 +19,7 @@ const devMode = import.meta.env.DEV;
     lang="en"
     x-data=`{devMode: ${devMode}}`
     class="bg-black text-white selection:bg-red-500/50"
+    transition:animate="none"
 >
     <head>
         <meta charset="UTF-8" />
@@ -32,7 +33,9 @@ const devMode = import.meta.env.DEV;
     </head>
     <body class="flex min-h-screen flex-col justify-between">
         <Nav />
-        <slot />
+        <main transition:animate="fade">
+            <slot />
+        </main>
         <Footer />
         <script>
             import intersect from '@alpinejs/intersect';

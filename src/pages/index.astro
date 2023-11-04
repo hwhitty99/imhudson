@@ -63,23 +63,39 @@ import ContactForm from '../components/ContactForm.astro';
     is:inline
     src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
 ></script>
-<script
+<!-- <script
     is:inline
-    src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
+    src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script> -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"
+></script>
 <script is:inline>
-    VANTA.CLOUDS({
+    // VANTA.CLOUDS({
+    //     el: '#hero-section',
+    //     mouseControls: true,
+    //     touchControls: true,
+    //     gyroControls: false,
+    //     minHeight: 200.0,
+    //     minWidth: 200.0,
+    //     skyColor: 0x0,
+    //     cloudColor: 0x0,
+    //     cloudShadowColor: 0x0,
+    //     sunColor: 0xff0000,
+    //     sunGlareColor: 0xff0000,
+    //     sunlightColor: 0xffffff,
+    //     speed: 0.3,
+    // });
+    VANTA.FOG({
         el: '#hero-section',
         mouseControls: true,
         touchControls: true,
         gyroControls: false,
         minHeight: 200.0,
         minWidth: 200.0,
-        skyColor: 0x0,
-        cloudColor: 0x0,
-        cloudShadowColor: 0x0,
-        sunColor: 0xff0000,
-        sunGlareColor: 0xff0000,
-        sunlightColor: 0xffffff,
-        speed: 0.3,
+        highlightColor: 0xffffff,
+        midtoneColor: 0x0,
+        lowlightColor: 0x0,
+        baseColor: 0x0,
+        blurFactor: 0.74,
+        zoom: 0.5,
     });
 </script>
