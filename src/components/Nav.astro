@@ -1,6 +1,7 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon';
 ---
+
 <nav
     class="fixed bottom-2 right-2 z-10 flex h-auto w-auto flex-col-reverse items-end rounded-xl bg-black-900 text-white transition md:inset-0 md:block md:h-32 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black md:p-2"
     x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }"
@@ -10,7 +11,11 @@ import { Icon } from 'astro-icon'
         @click="open = !open"
         class="bottom-0 right-0 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"
     >
-        <Icon name="octicon:triangle-up-24" class="transition-transform w-8" :class="open ? 'rotate-180' : 'rotate-0'" />
+        <Icon
+            name="octicon:triangle-up-24"
+            class="w-8 transition-transform"
+            :class="open ? 'rotate-180' : 'rotate-0'"
+        />
     </div>
     <ul
         x-cloak
