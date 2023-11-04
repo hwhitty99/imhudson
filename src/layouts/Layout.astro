@@ -1,14 +1,10 @@
 ---
-import '@fontsource/poppins';
-import '@fontsource/poppins/600.css';
-import '@fontsource/poppins/700.css';
-import '@fontsource/poppins/800.css';
-import '@fontsource/poppins/900.css';
+import '@fontsource-variable/azeret-mono';
 import Nav from '../components/Nav.astro';
 import Footer from '../layouts/Footer.astro';
 import favicon from '../assets/favicon.svg';
-import '../styles/output.css';
 import { ViewTransitions } from 'astro:transitions';
+import "../styles/tailwind.css"
 
 export interface Props {
     title: string;
@@ -29,10 +25,6 @@ const devMode = import.meta.env.DEV;
         <meta name="viewport" content="width=device-width" />
 
         <link rel="icon" type="image/svg+xml" href={favicon.src} />
-
-        <script
-            src="https://kit.fontawesome.com/b12c42c201.js"
-            crossorigin="anonymous"></script>
 
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
