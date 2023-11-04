@@ -6,7 +6,10 @@ import ContactForm from '../components/ContactForm.astro';
 
 <Layout title="Hudson Whittaker's Portfolio Website">
     <div class="container mx-auto flex flex-col p-6 pt-0 lg:p-0">
-        <div class="flex h-screen flex-col justify-center px-4">
+        <div
+            class="flex h-screen flex-col justify-center px-4"
+            id="hero-section"
+        >
             <h1 class="mb-2 text-2xl font-bold">Hudson Whittaker</h1>
             <h2>
                 I'm a frontend web developer. Scroll this page to get an idea of
@@ -58,3 +61,20 @@ import ContactForm from '../components/ContactForm.astro';
         </ContactForm>
     </div>
 </Layout>
+<!-- <script>
+    VANTA.CLOUDS({
+    el: "#hero-section",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    skyColor: 0x0,
+    cloudColor: 0x0,
+    sunColor: 0xff1818,
+    sunGlareColor: 0xff4830,
+    sunlightColor: 0xff3030,
+    speed: 0.50
+})
+</script> -->
+

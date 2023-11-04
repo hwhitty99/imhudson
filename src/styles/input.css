@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 @layer base {
-  code {
-    @apply rounded bg-red-500/10 px-1.5 py-0.5 text-red-500;
-  }
-  a[target="_blank"] {
-    @apply underline hover:text-red-500;
-  }
-  [x-cloak] {
-    display: none !important;
-  }
+    code {
+        @apply rounded bg-red-500/10 px-1.5 py-0.5 text-red-500;
+    }
+    a[target='_blank'] {
+        @apply underline hover:text-red-500;
+    }
+    [x-cloak] {
+        display: none !important;
+    }
 }
 
 @layer components {
-  .form-field-input {
-    @apply w-full rounded-lg bg-black-800 px-4 py-2 placeholder-transparent transition focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 dark:ring-white/50 dark:ring-offset-black;
-  }
-  .form-field-label {
-    @apply absolute -top-6 left-0 text-sm font-semibold text-black transition-all duration-200 ease-out peer-placeholder-shown:left-4 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-opacity-70 peer-focus:-top-6 peer-focus:left-0 peer-focus:text-sm peer-focus:font-semibold peer-focus:text-black dark:text-white dark:peer-focus:text-white;
-  }
-  .btn-primary {
-    @apply flex w-full items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-blue-400 px-6 py-3 font-bold uppercase text-white shadow-lg shadow-blue-200 ring-slate-800 transition-all ease-out hover:scale-105 hover:shadow-xl hover:shadow-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-2 active:scale-95 dark:from-slate-900 dark:to-slate-800 dark:shadow-xl dark:ring-offset-slate-700  dark:focus:ring-slate-900;
-  }
+    .form-field-input {
+        @apply w-full rounded-lg bg-black-800 px-4 py-2 placeholder-transparent transition focus:outline-none focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 dark:ring-white/50 dark:ring-offset-black;
+    }
+    .form-field-label {
+        @apply absolute -top-6 left-0 text-sm font-semibold text-black transition-all duration-200 ease-out peer-placeholder-shown:left-4 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-opacity-70 peer-focus:-top-6 peer-focus:left-0 peer-focus:text-sm peer-focus:font-semibold peer-focus:text-black dark:text-white dark:peer-focus:text-white;
+    }
+    .btn-primary {
+        @apply flex w-full items-center justify-center rounded-full bg-gradient-to-tr from-blue-500 to-blue-400 px-6 py-3 font-bold uppercase text-white shadow-lg shadow-blue-200 ring-slate-800 transition-all ease-out hover:scale-105 hover:shadow-xl hover:shadow-blue-200/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-2 active:scale-95 dark:from-slate-900 dark:to-slate-800 dark:shadow-xl dark:ring-offset-slate-700  dark:focus:ring-slate-900;
+    }
 
-  .bg-slate-stars {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23000' fill-opacity='0.1'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
-  }
+    .bg-slate-stars {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23000' fill-opacity='0.1'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+    }
 }

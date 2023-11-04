@@ -1,5 +1,8 @@
+---
+import { Icon } from 'astro-icon'
+---
 <nav
-    class="fixed bottom-2 right-2 z-10 flex h-auto w-auto flex-col-reverse items-end rounded-xl bg-black-800 text-white transition md:inset-0 md:block md:h-32 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black md:p-2"
+    class="fixed bottom-2 right-2 z-10 flex h-auto w-auto flex-col-reverse items-end rounded-xl bg-black-900 text-white transition md:inset-0 md:block md:h-32 md:w-screen md:rounded-none md:bg-transparent md:bg-gradient-to-b md:from-black md:p-2"
     x-data="{ open: false, active: window.location.pathname.replaceAll('/','') }"
     @click.outside="open = false"
 >
@@ -7,9 +10,7 @@
         @click="open = !open"
         class="bottom-0 right-0 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"
     >
-        <i
-            class="fa-solid fa-caret-up fa-2x transition-transform"
-            :class="open ? 'rotate-180' : 'rotate-0'"></i>
+        <Icon name="octicon:triangle-up-24" class="transition-transform w-8" :class="open ? 'rotate-180' : 'rotate-0'" />
     </div>
     <ul
         x-cloak
@@ -21,6 +22,7 @@
         <li role="menuitem">
             <a
                 href="/"
+                @click="open = false"
                 class="block rounded-xl px-4 py-2 transition-colors"
                 :class="active == '' ? 'bg-white text-black' : 'hover:bg-white/10'"
                 :aria-current="active == '/' ? 'page' : 'false'">Home</a
@@ -29,6 +31,7 @@
         <li role="menuitem">
             <a
                 href="/webdev"
+                @click="open = false"
                 class="block rounded-xl px-4 py-2 transition-colors"
                 :class="active == 'webdev' ? 'bg-white text-black' : 'hover:bg-white/10'"
                 :aria-current="active == 'webdev' ? 'page' : 'false'">Web Dev</a
@@ -37,6 +40,7 @@
         <li role="menuitem">
             <a
                 href="/film"
+                @click="open = false"
                 class="block rounded-xl px-4 py-2 transition-colors"
                 :class="active == 'film' ? 'bg-white text-black' : 'hover:bg-white/10'"
                 :aria-current="active == 'film' ? 'page' : 'false'">Film</a
@@ -45,6 +49,7 @@
         <li role="menuitem">
             <a
                 href="/free-clout"
+                @click="open = false"
                 class="block rounded-xl px-4 py-2 transition-colors"
                 :class="active == 'free-clout' ? 'bg-white text-black' : 'hover:bg-white/10'"
                 :aria-current="active == 'free-clout' ? 'page' : 'false'"
