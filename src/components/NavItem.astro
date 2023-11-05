@@ -7,10 +7,10 @@ const { page, href } = Astro.props;
         href={href}
         x-ref={page}
         @click="open = false"
-        @mouseover=`pageBeingHovered = '${page}'`
-        @mouseleave="pageBeingHovered = activePage"
+        @mouseover=`hoveredNavItem = '${page}'`
+        @mouseleave="hoveredNavItem = activePage"
         class="block rounded-xl px-4 py-2 capitalize transition-colors"
-        :class=`{ 'max-md:bg-white max-md:text-black': isActive('${page}'), 'text-white': isActive('${page}') && pageBeingHovered == '${page}', 'text-white': isActive('${page}') && pageBeingHovered != '${page}', 'md:hover:text-white': !isActive('${page}') }`
+        :class=`{ 'max-md:bg-white max-md:text-black': isActive('${page}'), 'text-black': isActive('${page}') && hoveredNavItem == '${page}', 'md:hover:text-black': !isActive('${page}') }`
         :aria-current=`isActive('${page}') ? 'page' : 'false'`
     >
         {page}

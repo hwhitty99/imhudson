@@ -33,7 +33,7 @@ const devMode = import.meta.env.DEV;
     </head>
     <body class="flex min-h-screen flex-col justify-between">
         <Nav />
-        <main transition:animate="fade">
+        <main>
             <slot />
         </main>
         <Footer />
@@ -46,7 +46,7 @@ const devMode = import.meta.env.DEV;
         </script>
         <b
             x-show="devMode"
-            class="fixed right-0 top-0 z-10 flex h-12 w-12 items-center justify-center rounded-bl-xl bg-red-500/70 text-center text-white"
+            class="fixed bottom-0 left-0 z-10 flex h-12 w-12 items-center justify-center rounded-tr-xl bg-red-500/70 text-center text-white"
         >
             <span class="sm:hidden"> xs</span>
             <span class="hidden sm:inline md:hidden"> sm</span>

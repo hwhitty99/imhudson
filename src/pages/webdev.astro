@@ -3,13 +3,18 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Hudson Whittaker's Web Development">
-    <div class="flex min-h-screen items-center justify-center">
+    <div
+        class="flex min-h-screen items-center justify-center"
+        id="hero-section"
+    >
         <div class="flex flex-col items-center">
             <h1 class="text-xl font-bold">Web Development</h1>
             <h2 class="font-medium">I'm passionate about it</h2>
         </div>
     </div>
-    <div class="container mx-auto columns-sm gap-8 space-y-4 px-4 xl:gap-16">
+    <div
+        class="container mx-auto mt-16 columns-sm gap-8 space-y-4 px-8 lg:mt-20 xl:mt-24 xl:gap-16"
+    >
         <p>
             It all started in 1999. I was born. That's also when my mom started
             telling me that I should become and engineer. And rightly so. I
@@ -184,3 +189,28 @@ import Layout from '../layouts/Layout.astro';
         </p>
     </div>
 </Layout>
+<script
+    is:inline
+    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+></script>
+<script
+    is:inline
+    src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.dots.min.js"></script>
+<script is:inline>
+    VANTA.DOTS({
+        el: '#hero-section',
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0xff0000,
+        color2: 0xffffff,
+        backgroundColor: 0x0,
+        size: 1.9,
+        spacing: 17.0,
+        showLines: false,
+    });
+</script>
