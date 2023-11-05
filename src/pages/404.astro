@@ -5,14 +5,14 @@ import obiWan from '../assets/obi-wave.gif';
 
 <Layout title="404">
     <div
-        class="my-auto flex h-full flex-col items-center justify-center space-y-4"
+        class="mx-auto my-auto flex h-full max-w-screen-sm flex-col items-center justify-center space-y-4 px-4"
     >
         <h1 class="text-2xl font-black">Error 404</h1>
-        <p>This is not the page you're looking for.</p>
         <img
             src={obiWan.src}
             alt="Obi Wan Kenobi waving at you"
-            class="w-1/2 max-w-xs pt-2"
+            class="max-w-full pt-2"
         />
+        <p>This is not the page you're looking for.</p>
     </div>
 </Layout>

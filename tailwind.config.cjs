@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Azeret Mono Variable', 'mono'],
+                sans: ['Azeret Mono Variable', 'andale mono', 'monospace'],
             },
             colors: {
                 black: {
