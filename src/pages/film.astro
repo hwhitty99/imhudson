@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+const images = await Astro.glob('/src/assets/film/*').then((files) => {
+    return files
+        .map((file) => ({ sort: Math.random(), image: file.default }))
+        .sort((a, b) => a.sort - b.sort)
+        .map((a) => a.image);
+});
+const rndBgImg = images[Math.floor(Math.random() * images.length)];
+---
+
+<Layout title="film">
+    <section x-data="{ expandImage: false, imgSrc: null, loading: false }">
+        <Image
+            src={rndBgImg}
+            widths={[150, 300, 600, 1200, 2400]}
+            alt=""
+            class="absolute top-0 -z-10 h-screen object-cover opacity-0 transition-opacity duration-1000"
+            @load="$event.target.classList.remove('opacity-0')"
+        />
+        <div
+            class="flex min-h-screen flex-col items-center justify-center bg-black/80 backdrop-blur"
+        >
+            <h1 class="text-xl font-bold">My faves</h1>
+            <h2 class="font-medium">
+                <a
+                    href="https://instagram.com/mediocre_exposures"
+                    target="_blank"
+                    class="hover:text-red-500">@mediocre_exposures</a
+                >
+            </h2>
+        </div>
+        <div
+            class="columns-2 gap-2 space-y-2 pt-2 sm:columns-3 md:columns-4 2xl:columns-5"
+        >
+            {
+                images.map((image) => (
+                    <Image
+                        src={image}
+                        widths={[200, 300, 500]}
+                        sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
+                        alt=""
+                        quality={'mid'}
+                        class="cursor-pointer opacity-0 transition-opacity duration-500"
+                        @load="$event.target.classList.remove('opacity-0')"
+                        @click={`loading = true; imgSrc = "${image.src}"; expandImage = true`}
+                    />
+                ))
+            }
+        </div>
+        <div
+            class="fixed inset-0 z-10 flex items-center justify-center overflow-hidden bg-black p-8"
+            @click="expandImage = false; loading = false"
+            x-show="expandImage"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            x-trap.noscroll="expandImage"
+            x-cloak
+        >
+            <span
+                class="absolute m-auto transition-opacity"
+                x-transition:enter="transition delay-1000"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                x-show="loading"
+            >
+                <span class="animate-pulse">Loading...</span>
+            </span>
+            <img
+                :src="imgSrc"
+                alt=""
+                class="h-full object-contain transition-opacity duration-300"
+                @load="loading = false"
+                x-show="!loading"
+                x-transition:enter="transition duration-500 delay-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+            />
+        </div>
+    </section>
+</Layout>

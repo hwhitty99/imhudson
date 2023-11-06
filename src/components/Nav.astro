@@ -8,7 +8,7 @@ import NavItem from './NavItem.astro';
     @scroll.window="atTop = !window.scrollY"
 >
     <nav
-        class="fixed z-10 flex h-auto w-auto flex-col-reverse items-end text-neutral-400 transition-all max-md:bottom-2 max-md:right-2 max-md:rounded-xl max-md:bg-black-900 md:inset-x-0 md:z-10 md:block md:p-4"
+        class="fixed z-10 flex h-auto w-auto flex-col-reverse items-end text-neutral-100 transition-all max-md:bottom-2 max-md:right-2 max-md:rounded-xl max-md:bg-black-900 md:inset-x-0 md:z-10 md:block md:p-4"
         :class="atTop ? 'backdrop-opacity-0' : 'md:backdrop-blur md:bg-black/10'"
     >
         <div class="relative">
@@ -20,6 +20,7 @@ import NavItem from './NavItem.astro';
                 x-show="open"
                 class="md:mx-auto md:!flex md:!h-auto md:max-w-screen-2xl md:items-center"
                 x-collapse
+                x-cloak
             >
                 <a href="/">
                     <Icon name="favicon" class="h-8 max-md:hidden" />

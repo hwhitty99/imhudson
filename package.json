@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@alpinejs/collapse": "^3.13.2",
+    "@alpinejs/focus": "^3.13.2",
     "@alpinejs/intersect": "^3.13.2",
     "@astrojs/alpinejs": "^0.3.1",
     "@astrojs/tailwind": "^5.0.0",

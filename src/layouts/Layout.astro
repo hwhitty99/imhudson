@@ -37,9 +37,11 @@ const devMode = import.meta.env.DEV;
         <script>
             import intersect from '@alpinejs/intersect';
             import collapse from '@alpinejs/collapse';
+            import focus from '@alpinejs/focus';
             import Alpine from 'alpinejs';
             Alpine.plugin(intersect);
             Alpine.plugin(collapse);
+            Alpine.plugin(focus);
         </script>
         <b
             x-show="devMode"
