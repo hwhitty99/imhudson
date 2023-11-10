@@ -11,13 +11,12 @@ const rndBgImg = images[Math.floor(Math.random() * images.length)];
 ---
 
 <Layout title="film">
-    <section x-data="{ expandImage: false, imgSrc: null, loading: false }">
+    <section x-data="{ expandImage: false, imgSrc: null, loadingHiRes: false }">
         <Image
             src={rndBgImg}
             widths={[150, 300, 600, 1200, 2400]}
             alt=""
-            class="absolute top-0 -z-10 h-screen object-cover opacity-0 transition-opacity duration-1000"
-            @load="$event.target.classList.remove('opacity-0')"
+            class="absolute top-0 -z-10 h-screen object-cover"
         />
         <div
             class="flex min-h-screen flex-col items-center justify-center bg-black/80 backdrop-blur"
@@ -42,16 +41,15 @@ const rndBgImg = images[Math.floor(Math.random() * images.length)];
                         sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
                         alt=""
                         quality={'mid'}
-                        class="cursor-pointer opacity-0 transition-opacity duration-500"
-                        @load="$event.target.classList.remove('opacity-0')"
-                        @click={`loading = true; imgSrc = "${image.src}"; expandImage = true`}
+                        class="cursor-pointer"
+                        @click={`loadingHiRes = true; imgSrc = "${image.src}"; expandImage = true`}
                     />
                 ))
             }
         </div>
         <div
             class="fixed inset-0 z-10 flex items-center justify-center overflow-hidden bg-black p-8"
-            @click="expandImage = false; loading = false"
+            @click="expandImage = false; loadingHiRes = false"
             x-show="expandImage"
             x-transition:enter="transition duration-300"
             x-transition:enter-start="opacity-0"
@@ -70,16 +68,18 @@ const rndBgImg = images[Math.floor(Math.random() * images.length)];
                 x-transition:leave="transition"
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                x-show="loading"
+                x-show="loadingHiRes"
             >
-                <span class="animate-pulse">Loading...</span>
+                <span class="animate-pulse"
+                    >loading full resolution image...</span
+                >
             </span>
             <img
                 :src="imgSrc"
                 alt=""
                 class="h-full object-contain transition-opacity duration-300"
-                @load="loading = false"
-                x-show="!loading"
+                @load="loadingHiRes = false"
+                x-show="!loadingHiRes"
                 x-transition:enter="transition duration-500 delay-300"
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
