@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" x-data="{devMode: false}" class="bg-black text-white selection:bg-red-500/50"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/_astro/favicon.edc8c107.svg"><meta name="generator" content="Astro v3.4.3"><title>Hudson Whittaker&#39;s Web Development</title><link rel="stylesheet" href="/_astro/film.7dce31d0.css" /><script type="module" src="/_astro/hoisted.19a2af00.js"></script>
+<!DOCTYPE html><html lang="en" x-data="{devMode: false}" class="bg-black text-white selection:bg-red-500/50"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/_astro/favicon.edc8c107.svg"><meta name="generator" content="Astro v3.4.3"><title>HW | Web Development</title><link rel="stylesheet" href="/_astro/film.16766584.css" /><script type="module" src="/_astro/hoisted.19a2af00.js"></script>
 <script type="module" src="/_astro/page.f7804623.js"></script></head><body class="flex min-h-screen flex-col justify-between"><section x-data="{ open: false, activePage: window.location.pathname.replaceAll('/','') || 'home', isActive(page) { return page == this.activePage }, hoveredNavItem: window.location.pathname.replaceAll('/','') || 'home', atTop: true }" @scroll.window="atTop = !window.scrollY"><nav class="fixed z-10 flex h-auto w-auto flex-col-reverse items-end text-neutral-100 transition-all max-md:bottom-2 max-md:right-2 max-md:rounded-xl max-md:bg-black-900 md:inset-x-0 md:z-10 md:block md:p-4" :class="atTop ? 'backdrop-opacity-0' : 'md:backdrop-blur md:bg-black/10'"><div x-show="open" x-ref="nav-container" class="relative md:mx-auto md:!flex md:!h-auto md:max-w-screen-2xl md:items-center" x-collapse x-cloak><span class="absolute -z-10 h-full rounded-xl bg-white/80 backdrop-blur transition-all duration-200 ease-in-out max-md:hidden" :style="{width: `${$refs[hoveredNavItem].offsetWidth}px`, right: `${$refs['nav-container'].offsetWidth - $refs[hoveredNavItem].offsetLeft - $refs[hoveredNavItem].offsetWidth}px`}"></span><a href="/"><svg xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" clip-rule="evenodd" viewBox="175 200 700 700" class="h-8 max-md:hidden" astro-icon="favicon"><g fill="red"><path d="M877.826 326.901H748.037L611.568 793.45h129.789l136.469-466.549ZM604.901 326.901H475.112L338.643 793.45h129.789l136.469-466.549Z"/></g><g fill="#fff"><path d="M475.099 326.901h129.789L741.357 793.45H611.568L475.099 326.901ZM202.174 326.901h129.789L468.432 793.45H338.643L202.174 326.901Z"/><path d="M611.568 495.281V625.07H338.63V495.281h272.938Z"/></g></svg></a><ul class="left-4 top-4 flex flex-col p-4 text-xl font-semibold max-md:gap-2 max-md:pb-16 md:inset-0 md:!flex md:!h-auto md:w-full md:flex-row md:justify-end md:!overflow-auto md:p-0 md:text-base" role="menubar"><li role="menuitem"><a href="/webdev" x-ref="webdev" @mouseover="hoveredNavItem = 'webdev'" @mouseleave="hoveredNavItem = activePage" class="block rounded-xl px-4 py-2 capitalize transition-colors" :class="{ 'max-md:bg-white max-md:text-black': isActive('webdev'), 'text-black': isActive('webdev') &#38;&#38; hoveredNavItem == 'webdev', 'md:hover:text-black': !isActive('webdev') }" :aria-current="isActive('webdev') ? 'page' : 'false'">webdev</a></li><li role="menuitem"><a href="/film" x-ref="film" @mouseover="hoveredNavItem = 'film'" @mouseleave="hoveredNavItem = activePage" class="block rounded-xl px-4 py-2 capitalize transition-colors" :class="{ 'max-md:bg-white max-md:text-black': isActive('film'), 'text-black': isActive('film') &#38;&#38; hoveredNavItem == 'film', 'md:hover:text-black': !isActive('film') }" :aria-current="isActive('film') ? 'page' : 'false'">film</a></li><li role="menuitem"><a href="/free-clout" x-ref="free-clout" @mouseover="hoveredNavItem = 'free-clout'" @mouseleave="hoveredNavItem = activePage" class="block rounded-xl px-4 py-2 capitalize transition-colors" :class="{ 'max-md:bg-white max-md:text-black': isActive('free-clout'), 'text-black': isActive('free-clout') &#38;&#38; hoveredNavItem == 'free-clout', 'md:hover:text-black': !isActive('free-clout') }" :aria-current="isActive('free-clout') ? 'page' : 'false'">free-clout</a></li><li role="menuitem"><a href="/" x-ref="home" @mouseover="hoveredNavItem = 'home'" @mouseleave="hoveredNavItem = activePage" class="block rounded-xl px-4 py-2 capitalize transition-colors" :class="{ 'max-md:bg-white max-md:text-black': isActive('home'), 'text-black': isActive('home') &#38;&#38; hoveredNavItem == 'home', 'md:hover:text-black': !isActive('home') }" :aria-current="isActive('home') ? 'page' : 'false'">home</a></li></ul></div></nav><div @click="open = !open" class="fixed bottom-0 right-0 z-10 flex h-20 w-20 cursor-pointer items-center justify-center md:hidden"><svg viewBox="0 0 24 24" :class="open ? 'rotate-180' : 'rotate-0'" class="w-8 transition-transform duration-300" astro-icon="octicon:triangle-up-24"><path fill="currentColor" d="m12.354 8.854 5.792 5.792a.5.5 0 0 1-.353.854H6.207a.5.5 0 0 1-.353-.854l5.792-5.792a.5.5 0 0 1 .708 0z"/></svg></div></section><main><div class="flex min-h-screen items-center justify-center" id="hero-section"><div class="flex flex-col items-center"><h1 class="text-xl font-bold">Web Development</h1><h2 class="font-medium">I'm passionate about it</h2></div></div><div class="container mx-auto mt-16 columns-sm gap-8 space-y-4 px-8 lg:mt-20 xl:mt-24 xl:gap-16"><p>
 It all started in 1999. I was born. That's also when my mom started
             telling me that I should become and engineer. And rightly so. I
@@ -10,14 +10,18 @@ It all started in 1999. I was born. That's also when my mom started
 I didn't write a single line of code in highschool. So, when it came
             to picking a major, the only reason I even considered a CS degree
             was because I was technologically inclined and my favorite class up
-            to that point had been my highschool's "technology" class (which was
-            essentially Photoshop and Excel for beginners). I had rooted (and
-            bricked and then revived) multiple Androids at that point and would
-            spend ridiculous amounts of time designing my personal mobile
-            software experience through launchers, icon packs, and custom ROMs.
-            I was a UI/UX designer before I knew what that meant, but still
-            thought I was for sure going to be an engineer.
-</p><p>
+            to that point had been my highschool's "technology" class, which was
+            essentially Photoshop and Excel for beginners. Material UI was all
+            the rage in 2016, so once I learned the basics of PS,
+<a href="/_astro/FOR FUN.3bff6e9a.jpg" class="font-semibold text-red-500 hover:underline">I designed this UI</a><i> for fun</i>. I had rooted (and bricked and then revived)
+            multiple Androids at that point and would spend ridiculous amounts
+            of time designing my personal mobile software experience through
+            launchers, icon packs, and custom ROMs.
+<b>
+I was a UI/UX designer at age 17, but because I didn't know that
+                was a thing, I was still convinced I was going to be an
+                engineer.
+</b></p><p>
 So did I pick a CS degree or an engineering degree? Yes. Software
             Engineering.
 </p><p>
@@ -27,15 +31,14 @@ Software Engineering at ONU, as a major, split ENGR and CSIS courses
             what that says about the major but if it says anything it's probably
             not positive. The engineering half of my college education was
             arguably useless and the computer science half prepared me to work
-            on microcontrollers and write java...which did not excite me.
+            on microcontrollers and write Java...which did not excite me.
 </p><p>
-What did excite me? For my year-long sophomore java course we
-            programmed NXT robots to replicate the Simon game. I completed the
-            project in record time. Then I spent about twice as long designing
-            the monochromatic pixel art that displayed the player's level, their
-            high score, and the navigation menu. That was not required work I
-            just got really passionate about it for some reason. In my Android
-            app development course, I discovered <a href="https://medium.com/google-design/designing-adaptive-icons-515af294c783" target="_blank">adaptive icons</a>. Fun fact, on Andoird O and later, every app icon can be multiple
+What did excite me? For my year-long sophomore Java course we had to
+            replicate the class Simon game with <a href="https://cdn.sanity.io/images/7p2whiua/production/fbc71c08c5e80094d71e416b14ee3085ed390345-2048x1536.jpg?w=900&auto=format" class="text-red-500 hover:underline">NXT robots</a>. I completed the project in record time. Then I spent about twice
+            as long designing the monochromatic pixel art that displayed the
+            player's level, their high score, and the navigation menu. That was
+            not required work I just got really passionate about it for some
+            reason. In my Android app development course, I discovered <a href="https://medium.com/google-design/designing-adaptive-icons-515af294c783" target="_blank">adaptive icons</a>. Fun fact, on Andoird O and later, every app icon can be multiple
             layers and they react to your scolling in an elastic-like animation,
             which is so cool and satisfying. Don't believe me? Go try it. It's
             fun. I enjoyed creating those silly little icons more than actually
@@ -51,12 +54,12 @@ Finally, senior year rolled around. I needed some filler classes to
             sell something that we could offer and one to display all our
             projects from the course. I was hooked! The game development didn't
             really speak to me, but I was incredibly excited about app
-            prototyping and web development because they clicked for me. I
-            understood the course material with ease and my projects were miles
-            ahead of my classmates'. Granted, that wasn't a very high bar, but
-            I'm still proud of what I created and it meant a lot to me at the
-            time. I was the guy helping my classmates instead of the guy asking
-            his classmates for help (which was usually the case).
+            prototyping and web development because they clicked. I understood
+            the course material with ease and my projects were miles ahead of my
+            classmates'. Granted, that wasn't a very high bar, but I'm still
+            proud of what I created and it meant a lot to me at the time. I was
+            the guy helping my classmates instead of the guy asking his
+            classmates for help (which was usually the case).
 </p><p>
 The year prior to this class, I went home for spring break and never
             came back, due to COVID. During that whole "stay at home or you'll
@@ -69,7 +72,7 @@ The year prior to this class, I went home for spring break and never
             this point, I still hadn't really written in any web development
             languages because I could do most of what I wanted through Shopify
             or their plugins. But, this was my first taste of HTML, CSS, and
-            javascript because every once in a while they were required to get
+            Javascript because every once in a while they were required to get
             my vision for a page pixel perfect.
 </p><p>
 The rest really is history. Senior year I went deep down the web dev
@@ -78,7 +81,8 @@ The rest really is history. Senior year I went deep down the web dev
             and feel totally incompetnant next to my much more experienced
             coworkers.
 </p><ul class="list-inside list-disc"><span class="font-semibold">Some things I've learned and have used regularly since working
-                at <a href="https://mir.us" target="_blank">Mirus</a>:</span><li><a href="https://tailwindcss.com/" target="_blank">tailwindcss</a></li><li><a href="https://alpinejs.dev/" target="_blank">alpine.js</a></li><li><a href="https://handlebarsjs.com/" target="_blank">handlebars.js</a></li><li>a11y</li><li><a href="https://vuejs.org/" target="_blank">Vue</a></li><li><a href="https://www.python.org/" target="_blank">python</a></li><li>unit tests</li><li><a href="https://www.djangoproject.com/" target="_blank">django</a></li><li><a href="https://cloud.google.com/storage" target="_blank">Google Cloud Storage</a></li><li><a href="https://about.gitlab.com/" target="_blank">GitLab</a></li><li>custom slackmojis</li></ul><p>
+                at <a href="https://mir.us" target="_blank">Mirus</a>:</span><li><a href="https://tailwindcss.com/" target="_blank">tailwindcss</a></li><li><a href="https://alpinejs.dev/" target="_blank">alpine.js</a></li><li><a href="https://handlebarsjs.com/" target="_blank">handlebars.js</a></li><li>a11y</li><li><a href="https://vuejs.org/" target="_blank">Vue</a></li><li><a href="https://www.python.org/" target="_blank">python</a></li><li>unit tests</li><li><a href="https://www.djangoproject.com/" target="_blank">django</a></li><li><a href="https://cloud.google.com/storage" target="_blank">Google Cloud Storage</a></li><li><a href="https://about.gitlab.com/" target="_blank">GitLab</a></li><li>
+custom slackmojis <img src="/_astro/party-parrot.e4553994.gif" class="-mt-3 inline h-6" alt="party parrot"></li></ul><p>
 At this point I'm your average web developer who's obsessed with
             every new framework and plugin he sees but won't actually spend the
             time to learn/use them and I'm your average UI/UX designer who has a
