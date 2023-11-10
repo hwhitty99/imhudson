@@ -1,22 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-const images = await Astro.glob('/src/assets/film/*').then((files) => {
-    return files
-        .map((file) => ({ sort: Math.random(), image: file.default }))
-        .sort((a, b) => a.sort - b.sort)
-        .map((a) => a.image);
+const images = await Astro.glob('/src/assets/film/**/*').then((files) => {
+    return files.map((file) => file.default);
 });
-const rndBgImg = images[Math.floor(Math.random() * images.length)];
+import bgImg from '../assets/film/wyoming/000521640015.jpg';
 ---
 
-<Layout title="film">
-    <section x-data="{ expandImage: false, imgSrc: null, loadingHiRes: false }">
+<Layout title="HW | Film">
+    <section
+        x-data="{ showFullResImage: false, fullResImgIdx: 0, loadingFullRes: false }"
+    >
         <Image
-            src={rndBgImg}
+            src={bgImg}
             widths={[150, 300, 600, 1200, 2400]}
             alt=""
-            class="absolute top-0 -z-10 h-screen object-cover"
+            class="absolute top-0 -z-10 h-screen w-full object-cover"
         />
         <div
             class="flex min-h-screen flex-col items-center justify-center bg-black/80 backdrop-blur"
@@ -31,34 +30,38 @@ const rndBgImg = images[Math.floor(Math.random() * images.length)];
             </h2>
         </div>
         <div
-            class="columns-2 gap-2 space-y-2 pt-2 sm:columns-3 md:columns-4 2xl:columns-5"
+            class="grid grid-cols-2 place-items-center gap-2 p-2 sm:grid-cols-3 sm:gap-4 sm:p-4 md:grid-cols-4 md:gap-8 md:p-8 lg:gap-16 lg:p-16 2xl:grid-cols-5"
         >
             {
-                images.map((image) => (
+                images.map((image, i) => (
                     <Image
+                        x-ref={i}
                         src={image}
                         widths={[200, 300, 500]}
                         sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
                         alt=""
                         quality={'mid'}
                         class="cursor-pointer"
-                        @click={`loadingHiRes = true; imgSrc = "${image.src}"; expandImage = true`}
+                        @click={`loadingFullRes = true; fullResImgIdx = ${i};showFullResImage = true`}
                     />
                 ))
             }
         </div>
         <div
             class="fixed inset-0 z-10 flex items-center justify-center overflow-hidden bg-black p-8"
-            @click="expandImage = false; loadingHiRes = false"
-            x-show="expandImage"
+            x-show="showFullResImage"
             x-transition:enter="transition duration-300"
             x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100"
             x-transition:leave="transition duration-300"
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
-            x-trap.noscroll="expandImage"
+            x-trap.noscroll="showFullResImage"
             x-cloak
+            @click="showFullResImage = false; loadingFullRes = false"
+            @keyup.window.esc="showFullResImage = false; loadingFullRes = false"
+            @keyup.window.left="loadingFullRes = true; --fullResImgIdx"
+            @keyup.window.right="loadingFullRes = true; ++fullResImgIdx"
         >
             <span
                 class="absolute m-auto transition-opacity"
@@ -68,19 +71,19 @@ const rndBgImg = images[Math.floor(Math.random() * images.length)];
                 x-transition:leave="transition"
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                x-show="loadingHiRes"
+                x-show="loadingFullRes"
             >
                 <span class="animate-pulse"
                     >loading full resolution image...</span
                 >
             </span>
             <img
-                :src="imgSrc"
+                :src="$refs[fullResImgIdx].getAttribute('src')"
                 alt=""
                 class="h-full object-contain transition-opacity duration-300"
-                @load="loadingHiRes = false"
-                x-show="!loadingHiRes"
-                x-transition:enter="transition duration-500 delay-300"
+                @load="loadingFullRes = false"
+                x-show="!loadingFullRes"
+                x-transition:enter="transition duration-500"
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
             />

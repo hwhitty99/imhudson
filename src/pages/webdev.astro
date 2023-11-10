@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import forFun from '../assets/FOR FUN.jpg';
+import partyParrot from '../assets/party-parrot.gif';
 ---
 
-<Layout title="Hudson Whittaker's Web Development">
+<Layout title="HW | Web Development">
     <div
         class="flex min-h-screen items-center justify-center"
         id="hero-section"
@@ -27,13 +29,22 @@ import Layout from '../layouts/Layout.astro';
             I didn't write a single line of code in highschool. So, when it came
             to picking a major, the only reason I even considered a CS degree
             was because I was technologically inclined and my favorite class up
-            to that point had been my highschool's "technology" class (which was
-            essentially Photoshop and Excel for beginners). I had rooted (and
-            bricked and then revived) multiple Androids at that point and would
-            spend ridiculous amounts of time designing my personal mobile
-            software experience through launchers, icon packs, and custom ROMs.
-            I was a UI/UX designer before I knew what that meant, but still
-            thought I was for sure going to be an engineer.
+            to that point had been my highschool's "technology" class, which was
+            essentially Photoshop and Excel for beginners. Material UI was all
+            the rage in 2016, so once I learned the basics of PS,
+            <a
+                href={forFun.src}
+                class="font-semibold text-red-500 hover:underline"
+                >I designed this UI</a
+            ><i> for fun</i>. I had rooted (and bricked and then revived)
+            multiple Androids at that point and would spend ridiculous amounts
+            of time designing my personal mobile software experience through
+            launchers, icon packs, and custom ROMs.
+            <b>
+                I was a UI/UX designer at age 17, but because I didn't know that
+                was a thing, I was still convinced I was going to be an
+                engineer.
+            </b>
         </p>
         <p>
             So did I pick a CS degree or an engineering degree? Yes. Software
@@ -46,16 +57,18 @@ import Layout from '../layouts/Layout.astro';
             what that says about the major but if it says anything it's probably
             not positive. The engineering half of my college education was
             arguably useless and the computer science half prepared me to work
-            on microcontrollers and write java...which did not excite me.
+            on microcontrollers and write Java...which did not excite me.
         </p>
         <p>
-            What did excite me? For my year-long sophomore java course we
-            programmed NXT robots to replicate the Simon game. I completed the
-            project in record time. Then I spent about twice as long designing
-            the monochromatic pixel art that displayed the player's level, their
-            high score, and the navigation menu. That was not required work I
-            just got really passionate about it for some reason. In my Android
-            app development course, I discovered <a
+            What did excite me? For my year-long sophomore Java course we had to
+            replicate the class Simon game with <a
+                href="https://cdn.sanity.io/images/7p2whiua/production/fbc71c08c5e80094d71e416b14ee3085ed390345-2048x1536.jpg?w=900&auto=format"
+                class="text-red-500 hover:underline">NXT robots</a
+            >. I completed the project in record time. Then I spent about twice
+            as long designing the monochromatic pixel art that displayed the
+            player's level, their high score, and the navigation menu. That was
+            not required work I just got really passionate about it for some
+            reason. In my Android app development course, I discovered <a
                 href="https://medium.com/google-design/designing-adaptive-icons-515af294c783"
                 target="_blank">adaptive icons</a
             >. Fun fact, on Andoird O and later, every app icon can be multiple
@@ -75,12 +88,12 @@ import Layout from '../layouts/Layout.astro';
             sell something that we could offer and one to display all our
             projects from the course. I was hooked! The game development didn't
             really speak to me, but I was incredibly excited about app
-            prototyping and web development because they clicked for me. I
-            understood the course material with ease and my projects were miles
-            ahead of my classmates'. Granted, that wasn't a very high bar, but
-            I'm still proud of what I created and it meant a lot to me at the
-            time. I was the guy helping my classmates instead of the guy asking
-            his classmates for help (which was usually the case).
+            prototyping and web development because they clicked. I understood
+            the course material with ease and my projects were miles ahead of my
+            classmates'. Granted, that wasn't a very high bar, but I'm still
+            proud of what I created and it meant a lot to me at the time. I was
+            the guy helping my classmates instead of the guy asking his
+            classmates for help (which was usually the case).
         </p>
         <p>
             The year prior to this class, I went home for spring break and never
@@ -94,7 +107,7 @@ import Layout from '../layouts/Layout.astro';
             this point, I still hadn't really written in any web development
             languages because I could do most of what I wanted through Shopify
             or their plugins. But, this was my first taste of HTML, CSS, and
-            javascript because every once in a while they were required to get
+            Javascript because every once in a while they were required to get
             my vision for a page pixel perfect.
         </p>
         <p>
@@ -141,7 +154,13 @@ import Layout from '../layouts/Layout.astro';
             <li>
                 <a href="https://about.gitlab.com/" target="_blank">GitLab</a>
             </li>
-            <li>custom slackmojis</li>
+            <li>
+                custom slackmojis <img
+                    src={partyParrot.src}
+                    class="-mt-3 inline h-6"
+                    alt="party parrot"
+                />
+            </li>
         </ul>
         <p>
             At this point I'm your average web developer who's obsessed with
