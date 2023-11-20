@@ -1,0 +1,18 @@
+---
+const { text, color = 'red' } = Astro.props;
+const colorClasses = {
+    red: 'text-red-500 bg-red-900/50',
+    blue: 'text-blue-500 bg-blue-900/50',
+    green: 'text-green-500 bg-green-900/50',
+    yellow: 'text-yellow-500 bg-yellow-900/50',
+}[color];
+---
+
+<div
+    class:list={[
+        'inline w-fit whitespace-nowrap rounded-full px-2 py-1 font-medium',
+        colorClasses,
+    ]}
+>
+    {text}
+</div>

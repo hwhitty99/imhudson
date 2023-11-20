@@ -1,6 +1,14 @@
 ---
 import Icon from 'astro-icon';
-const { title, content, link } = Astro.props;
+import Badge from './Badge.astro';
+
+interface Props {
+    title: string;
+    link: string;
+    badges: { color: [badges: Array<string>] };
+}
+
+const { title, link, badges = {} } = Astro.props;
 ---
 
 <section
@@ -9,11 +17,20 @@ const { title, content, link } = Astro.props;
     class="flex min-h-[100px]"
 >
     <div
-        class="flex flex-col gap-4 rounded-2xl bg-black-900 p-6"
+        class="flex w-full flex-col gap-4 rounded-2xl bg-black-900 p-6 transition-colors hover:bg-black-800"
         x-show="shown"
         x-transition.duration.700ms
     >
         <h2 class="text-xl font-bold">{title}</h2>
+        <div class="flex flex-wrap gap-2">
+            {
+                Object.entries(badges).map(([color, badgeTexts]) =>
+                    badgeTexts.map((badge) => (
+                        <Badge text={badge} color={color} />
+                    ))
+                )
+            }
+        </div>
         <slot />
         <a
             href={link}
