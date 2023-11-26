@@ -5,10 +5,11 @@ import Badge from './Badge.astro';
 interface Props {
     title: string;
     link: string;
+    external: boolean;
     badges: { color: [badges: Array<string>] };
 }
 
-const { title, link, badges = {} } = Astro.props;
+const { title, link, external, badges = {} } = Astro.props;
 ---
 
 <section
@@ -17,11 +18,24 @@ const { title, link, badges = {} } = Astro.props;
     class="flex min-h-[100px]"
 >
     <div
-        class="flex w-full flex-col gap-4 rounded-2xl bg-black-900 p-6 transition-colors hover:bg-black-800"
+        class="flex w-full cursor-pointer flex-col gap-4 rounded-2xl bg-black-900 p-6 transition-colors hover:bg-black-800"
         x-show="shown"
         x-transition.duration.700ms
+        @click={external
+            ? `window.open('${link}', '_blank')`
+            : `window.location.pathname='${link}'`}
     >
-        <h2 class="text-xl font-bold">{title}</h2>
+        <a
+            href={link}
+            target={external && '_blank'}
+            class="group flex w-fit items-center"
+        >
+            <h2 class="text-xl font-bold">{title}</h2>
+            <Icon
+                name="ic:round-arrow-right"
+                class="h-8 transition-transform group-hover:translate-x-1"
+            />
+        </a>
         <div class="flex flex-wrap gap-2">
             {
                 Object.entries(badges).map(([color, badgeTexts]) =>
@@ -32,14 +46,5 @@ const { title, link, badges = {} } = Astro.props;
             }
         </div>
         <slot />
-        <a
-            href={link}
-            class="group mt-auto inline-flex items-center font-bold transition-colors hover:text-red-500"
-        >
-            Learn more<Icon
-                name="ic:round-arrow-right"
-                class="inline h-8 transition-transform group-hover:translate-x-1"
-            />
-        </a>
     </div>
 </section>

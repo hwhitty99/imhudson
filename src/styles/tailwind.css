@@ -7,7 +7,7 @@
         @apply rounded bg-red-500/10 px-1.5 py-0.5 text-red-500;
     }
     a[target='_blank'] {
-        @apply underline hover:text-red-500;
+        @apply underline transition-colors hover:text-red-500;
     }
     [x-cloak] {
         display: none !important;
