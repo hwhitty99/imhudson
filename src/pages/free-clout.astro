@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Free Clout">
+    <div
+        class="lg:lx8 flex min-h-[100svh] items-center justify-center px-4 xl:px-16"
+    >
+        <h2 class="w-full max-w-screen-xl text-center text-2xl font-bold">
+            Some stuff I like
+        </h2>
+    </div>
+    <div class="container mx-auto grid gap-4 px-4 md:grid-cols-2 md:gap-8">
+        <Card
+            title="tailwindcss"
+            link="https://tailwindcss.com"
+            badges={{ red: ['webdev'] }}
+        >
+            love it gotta have it
+        </Card>
+        <Card
+            title="alpinejs"
+            link="https://alpinejs.dev"
+            badges={{ red: ['webdev'] }}
+        >
+            would this list be complete without a javascript framework?
+        </Card>
+        <Card
+            title="old book illustrations"
+            link="https://www.oldbookillustrations.com/"
+            badges={{ green: ['design'] }}
+        >
+            these have actually come in handy several times for design projects.
+            use them as inspiration or straight up use them as is because
+            there's no copyright claims!
+        </Card>
+        <Card
+            title="arc browser"
+            link="https://arc.net"
+            badges={{ blue: ['MacOS'] }}
+        >
+            finally someone actually put some thought and effort in the browser
+            UX. it's amazing what the browser company have done with this
+            product. it's changed the way I browse. and I browse a lot. so
+            really, it's changed my life.
+        </Card>
+        <Card
+            title="amethyst"
+            link="https://ianyh.com/amethyst/"
+            badges={{ blue: ['MacOS'] }}
+        >
+            I used to hate managing windows in MacOS and wish you could move
+            them around the same way you can in Windows. Now I wish I could move
+            windows around in Windows like I can with amethyst.
+        </Card>
+        <Card
+            title="MyGesture"
+            link="https://play.google.com/store/apps/details?id=me.hisn.mygesture&pcampaignid=web_share"
+            badges={{ yellow: ['android'] }}
+        >
+            I use this to adjust my volume and brightness by swiping up and down
+            on the right edge of my screen. I can't live without it.
+        </Card>
+        <Card
+            title="Power Toys"
+            link="https://learn.microsoft.com/en-us/windows/powertoys/"
+            badges={{
+                blue: ['Windows'],
+            }}
+        >
+            this was better when it was gatekept.
+        </Card>
+        <Card
+            title="Marco Polo"
+            link="https://www.marcopolo.me/"
+            badges={{
+                yellow: ['android', 'iOS'],
+            }}
+        >
+            this app has single handedly kept alive two of the best friendships
+            I've ever had.
+        </Card>
+        <Card
+            title="Nova Launcher"
+            link="https://play.google.com/store/apps/details?id=com.teslacoilsw.launcher&hl=en&gl=US"
+            badges={{
+                yellow: ['android'],
+            }}
+        >
+            I don't use it anymore, but this was by far my favorite app from
+            about 2017 to 2020.
+        </Card>
+        <Card
+            title="YNAB"
+            link="https://ynab.com"
+            badges={{
+                green: ['budgeting'],
+            }}
+        >
+            Tried a few budgeting softwares before this one. This is the only
+            one that's stuck. It's easy to start using, but can get really
+            complicated if you want it to. YouTube is your best friend.
+        </Card>
+    </div>
+</Layout>
