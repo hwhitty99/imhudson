@@ -29,6 +29,7 @@ const { title, link, external, badges = {} } = Astro.props;
             href={link}
             target={external && '_blank'}
             class="group flex w-fit items-center"
+            @click.stop
         >
             <h2 class="text-xl font-bold">{title}</h2>
             <Icon
