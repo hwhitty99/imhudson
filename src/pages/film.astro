@@ -5,22 +5,29 @@ const images = await Astro.glob('/src/assets/film/**/*').then((files) => {
     return files.map((file) => file.default);
 });
 import bgImg from '../assets/film/wyoming/000521640015.jpg';
+const fullResImgLoaded = new Array(images.length).fill(false);
 ---
 
 <Layout title="HW | Film">
     <section
-        x-data="{ showFullResImage: false, fullResImgIdx: 0, loadingFullRes: false }"
+        x-data={`{
+                showFullResImage: false,
+                fullResImgIdx: 0,
+                fullResImgLoaded: ${JSON.stringify(fullResImgLoaded)},
+                prevImg() { if(this.fullResImgIdx > 0) --this.fullResImgIdx },
+                nextImg() { if(this.fullResImgIdx < ${images.length - 1}) ++this.fullResImgIdx }
+            }`}
     >
         <Image
             src={bgImg}
             widths={[150, 300, 600, 1200, 2400]}
             alt=""
-            class="absolute top-0 -z-10 h-screen w-full object-cover"
+            class="absolute top-0 -z-10 h-[100svh] w-full object-cover"
         />
         <div
             class="flex min-h-[100svh] flex-col items-center justify-center bg-black/80 backdrop-blur"
         >
-            <h1 class="text-xl font-bold">My faves</h1>
+            <h1 class="text-xl font-bold">My favorite moments I've captured on film</h1>
             <h2 class="font-medium">
                 <a
                     href="https://instagram.com/mediocre_exposures"
@@ -42,13 +49,14 @@ import bgImg from '../assets/film/wyoming/000521640015.jpg';
                         alt=""
                         quality={'mid'}
                         class="cursor-pointer"
-                        @click={`loadingFullRes = true; fullResImgIdx = ${i};showFullResImage = true`}
+                        @click={`fullResImgIdx = ${i}; showFullResImage = true;`}
                     />
                 ))
             }
         </div>
         <div
             class="fixed inset-0 z-10 flex items-center justify-center overflow-hidden bg-black p-8"
+            x-data="swiper()"
             x-show="showFullResImage"
             x-transition:enter="transition duration-300"
             x-transition:enter-start="opacity-0"
@@ -57,36 +65,72 @@ import bgImg from '../assets/film/wyoming/000521640015.jpg';
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
             x-trap.noscroll="showFullResImage"
+            @click="showFullResImage = false"
+            @keyup.window.esc="showFullResImage = false"
+            @keyup.window.left="prevImg()"
+            @keyup.window.right="nextImg()"
+            @swipe-right="prevImg()"
+            @swipe-left="nextImg()"
             x-cloak
-            @click="showFullResImage = false; loadingFullRes = false"
-            @keyup.window.esc="showFullResImage = false; loadingFullRes = false"
-            @keyup.window.left="loadingFullRes = true; --fullResImgIdx"
-            @keyup.window.right="loadingFullRes = true; ++fullResImgIdx"
         >
             <span
-                class="absolute m-auto transition-opacity"
-                x-transition:enter="transition delay-1000"
+                class="absolute m-auto"
+                x-transition:enter="transition-opacity delay-1000"
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
-                x-transition:leave="transition"
+                x-transition:leave="transition-opacity"
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
-                x-show="loadingFullRes"
+                x-show="!fullResImgLoaded[fullResImgIdx]"
             >
-                <span class="animate-pulse"
-                    >loading full resolution image...</span
-                >
+                <span class="animate-pulse">loading full resolution (<span x-text="$refs[`fullResImg${fullResImgIdx}`].getAttribute('width')"></span>px x <span x-text="$refs[`fullResImg${fullResImgIdx}`].getAttribute('height')"></span>px) image...</span>
             </span>
-            <img
-                :src="$refs[fullResImgIdx].getAttribute('src')"
-                alt=""
-                class="h-full object-contain transition-opacity duration-300"
-                @load="loadingFullRes = false"
-                x-show="!loadingFullRes"
-                x-transition:enter="transition duration-500"
-                x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100"
-            />
+            {
+                images.map((image, i) => (
+                    <Image
+                        src={image}
+                        alt=""
+                        x-ref={`fullResImg${i}`}
+                        class="max-h-full w-auto object-contain transition-opacity duration-500"
+                        @load={`fullResImgLoaded[${i}] = true`}
+                        @error="console.log('could not load the image')"
+                        @click.stop
+                        x-show={`fullResImgIdx == ${i} || fullResImgIdx == ${i} - 1 || fullResImgIdx == ${i} + 1`}
+                        :class={`[fullResImgIdx == ${i} && fullResImgLoaded[${i}] ? 'opacity-100' : 'opacity-0', fullResImgIdx == ${i} || 'h-0 w-0']`}
+                        x-bind="swipeable"
+                    />
+                ))
+            }
         </div>
     </section>
 </Layout>
+
+<script>
+    import Alpine from 'alpinejs'
+
+    Alpine.data('swiper', () => ({
+        touchstartX: 0,
+        touchexdX: 0,
+
+        checkDirection() {
+            if (this.touchendX < this.touchstartX) this.$dispatch('swipe-left')
+            if (this.touchendX > this.touchstartX) this.$dispatch('swipe-right')
+        },
+    
+        swipeable: {
+            ['@touchstart'](e) {
+                this.touchstartX = e.changedTouches[0].screenX
+            },
+            ['@touchend'](e) {
+                this.touchendX = e.changedTouches[0].screenX
+                this.checkDirection()
+            },
+        },
+    
+        dialogue: {
+            ['x-show']() {
+                return this.open
+            },
+        },
+    }))
+</script>
