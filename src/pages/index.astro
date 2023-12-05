@@ -7,19 +7,23 @@ import ContactForm from '../components/ContactForm.astro';
 <Layout title="Homepage">
     <div id="hero-section" class="flex min-h-[100svh] px-4 lg:px-8 xl:px-16">
         <div class="m-auto w-full max-w-screen-xl">
-            <h1 class="mb-2 text-2xl font-bold lg:text-3xl xl:text-4xl">
-                Hudson Whittaker
-            </h1>
-            <h2 class="max-w-lg">
-                I'm a frontend web developer. Scroll this page to get an idea of
-                what I'm about or use the <code>nav</code> to skip to your
-                favorite
-                <code>href</code>.
-            </h2>
+            <div class="max-w-lg">
+                <h1 class="mb-2 text-5xl font-bold lg:text-8xl xl:text-9xl">
+                    Hudson Whittaker
+                </h1>
+                <h2>
+                    I'm a frontend web developer. Scroll this page to get an
+                    idea of what I'm about or use the <code>nav</code> to skip
+                    to your favorite
+                    <code>href</code>.
+                </h2>
+            </div>
         </div>
     </div>
-    <div class="container mx-auto flex flex-col p-6 pt-0">
-        <div class="my-16 grid grid-cols-1 gap-16 lg:mb-32 xl:grid-cols-3">
+    <div
+        class="container mx-auto grid items-center gap-16 p-6 pt-0 xl:grid-cols-2 xl:gap-32"
+    >
+        <div class="grid grid-cols-1 items-start gap-16">
             <Card title="Web Development" link="/webdev">
                 <p>
                     I have a software engineering degree. And yet, I've been
@@ -48,52 +52,9 @@ import ContactForm from '../components/ContactForm.astro';
         </div>
         <ContactForm title="Contact Form">
             <p>
-                If you made it this far, then we'd probably get along. Let's
-                chat.
+                I'm not sure why you'd want to contact me, but if you do, this
+                is the place to do it. I might get back to you; I might not.
             </p>
         </ContactForm>
     </div>
 </Layout>
-<script
-    is:inline
-    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
-></script>
-
-<!-- <script is:inline src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"
-></script>
-    <script is:inline>
-    VANTA.FOG({
-        el: '#hero-section',
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        highlightColor: 0xffffff,
-        midtoneColor: 0x0,
-        lowlightColor: 0x0,
-        baseColor: 0x0,
-        blurFactor: 0.74,
-        zoom: 0.5,
-    });
-</script> -->
-<script
-    is:inline
-    src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.clouds.min.js"></script>
-<script is:inline>
-    VANTA.CLOUDS({
-        el: '#hero-section',
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        skyColor: 0x0,
-        cloudColor: 0x0,
-        cloudShadowColor: 0x0,
-        sunColor: 0xff0000,
-        sunGlareColor: 0xff0000,
-        sunlightColor: 0xffffff,
-        speed: 0.3,
-    });
-</script>
