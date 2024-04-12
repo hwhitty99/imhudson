@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from 'astro-icon';
+
 import { Image } from 'astro:assets';
 const images = await Astro.glob('/src/assets/film/**/*').then((files) => {
     return files.map((file) => file.default);
@@ -14,8 +16,8 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                 showFullResImage: false,
                 fullResImgIdx: 0,
                 fullResImgLoaded: ${JSON.stringify(fullResImgLoaded)},
-                prevImg() { if(this.fullResImgIdx > 0) --this.fullResImgIdx },
-                nextImg() { if(this.fullResImgIdx < ${images.length - 1}) ++this.fullResImgIdx }
+                prevImg() { if(this.fullResImgIdx <= 0) { this.fullResImgIdx = ${images.length - 1} } else { --this.fullResImgIdx } },
+                nextImg() { if(this.fullResImgIdx >= ${images.length - 1}) { this.fullResImgIdx = 0 } else { ++this.fullResImgIdx } }
             }`}
     >
         <Image
@@ -41,34 +43,29 @@ const fullResImgLoaded = new Array(images.length).fill(false);
         >
             {
                 images.map((image, i) => (
-                    <Image
-                        x-ref={i}
-                        src={image}
-                        widths={[200, 300, 500]}
-                        sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
-                        alt=""
-                        quality={'mid'}
-                        class="cursor-pointer"
-                        @click={`fullResImgIdx = ${i}; showFullResImage = true;`}
-                    />
+                    <button aria-label="view full resolution image" @click={`fullResImgIdx = ${i}; showFullResImage = true;`} class="overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out focus-within:scale-105 focus-within:rounded-3xl focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 hover:scale-105 hover:rounded-3xl active:-translate-y-1">
+                        <Image
+                            x-ref={i}
+                            src={image}
+                            widths={[200, 300, 500]}
+                            sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
+                            alt=""
+                            quality={'mid'}
+                        />
+                    </button>
                 ))
             }
         </div>
         <div
-            class="fixed inset-0 z-10 flex items-center justify-center overflow-hidden bg-black p-8"
+            class="fixed inset-0 z-10 flex flex-col items-center justify-center overflow-hidden bg-black p-8 pb-16"
             x-data="swiper()"
             x-show="showFullResImage"
-            x-transition:enter="transition duration-300"
-            x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100"
-            x-transition:leave="transition duration-300"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0"
-            x-trap.noscroll="showFullResImage"
+            x-transition.opacity.duration.500ms
+            x-trap="showFullResImage"
             @click="showFullResImage = false"
             @keyup.window.esc="showFullResImage = false"
-            @keyup.window.left="prevImg()"
-            @keyup.window.right="nextImg()"
+            @keyup.window.left.prevent="prevImg()"
+            @keyup.window.right.prevent="nextImg()"
             @swipe-right="prevImg()"
             @swipe-left="nextImg()"
             x-cloak
@@ -91,16 +88,27 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                         src={image}
                         alt=""
                         x-ref={`fullResImg${i}`}
-                        class="max-h-full w-auto object-contain transition-opacity duration-500"
-                        @load={`fullResImgLoaded[${i}] = true`}
+                        class="max-h-full w-auto object-contain transition-all duration-500 ease-out"
+                        @load={`setTimeout(() => { fullResImgLoaded[${i}] = true; }, 2000)`}
                         @error="console.log('could not load the image')"
                         @click.stop
                         x-show={`fullResImgIdx == ${i} || fullResImgIdx == ${i} - 1 || fullResImgIdx == ${i} + 1`}
-                        :class={`[fullResImgIdx == ${i} && fullResImgLoaded[${i}] ? 'opacity-100' : 'opacity-0', fullResImgIdx == ${i} || 'h-0 w-0']`}
+                        :class={`[fullResImgIdx == ${i} && fullResImgLoaded[${i}] ? 'scale-100 opacity-100' : 'scale-[.98] opacity-0', fullResImgIdx == ${i} || 'h-0 w-0']`}
                         x-bind="swipeable"
                     />
                 ))
             }
+            <button aria-label="close full resolution preview" type="button" class="absolute right-8 top-8 h-16 w-16 rounded-2xl outline-none ring-0 ring-white transition focus-within:ring-2 hover:bg-white/10">
+                x
+            </button>
+            <div class="grid grid-cols-2 gap-4 absolute bottom-2">
+                <button type="button" @click.stop.capture="prevImg()" class="flex items-center justify-center rounded-2xl p-2 pr-4 outline-none ring-0 ring-white transition focus-within:ring-2 hover:bg-white/10">
+                    <Icon name="ic:round-arrow-left" class="h-8 transition-transform group-hover:translate-x-1" /> previous
+                </button>
+                <button type="button" @click.stop="nextImg()" class="flex items-center justify-center rounded-2xl p-2 pl-4 outline-none ring-0 ring-white transition focus-within:ring-2 hover:bg-white/10">
+                    next <Icon name="ic:round-arrow-right" class="h-8 transition-transform group-hover:translate-x-1" />
+                </button>
+            </div>
         </div>
     </section>
 </Layout>
@@ -116,17 +124,17 @@ const fullResImgLoaded = new Array(images.length).fill(false);
             if (this.touchendX < this.touchstartX) this.$dispatch('swipe-left')
             if (this.touchendX > this.touchstartX) this.$dispatch('swipe-right')
         },
-    
+
         swipeable: {
-            ['@touchstart'](e) {
+            ['@touchstart.passive'](e) {
                 this.touchstartX = e.changedTouches[0].screenX
             },
-            ['@touchend'](e) {
+            ['@touchend.passive'](e) {
                 this.touchendX = e.changedTouches[0].screenX
                 this.checkDirection()
             },
         },
-    
+
         dialogue: {
             ['x-show']() {
                 return this.open

@@ -18,9 +18,9 @@ const { title, link, external, badges = {} } = Astro.props;
     class="flex min-h-[100px]"
 >
     <div
-        class="flex w-full cursor-pointer flex-col gap-4 rounded-2xl bg-black-900 p-6 transition-colors hover:bg-black-800"
+        class="flex w-full cursor-pointer flex-col gap-4 rounded-2xl bg-black-900 p-6 hover:bg-black-800"
         x-show="shown"
-        x-transition.duration.700ms
+        x-transition.origin.bottom.duration.700ms
         @click={external
             ? `window.open('${link}', '_blank')`
             : `window.location.pathname='${link}'`}

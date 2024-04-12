@@ -8,8 +8,10 @@ const { page, href } = Astro.props;
         x-ref={page}
         @mouseover=`hoveredNavItem = '${page}'`
         @mouseleave="hoveredNavItem = activePage"
-        class="block rounded-xl px-4 py-2 capitalize transition-colors"
-        :class=`{ 'max-md:bg-white max-md:text-black': isActive('${page}'), 'text-black': isActive('${page}') && hoveredNavItem == '${page}', 'md:hover:text-black': !isActive('${page}') }`
+        @focusin=`hoveredNavItem = '${page}'`
+        @focusout="hoveredNavItem = activePage"
+        class="block rounded-xl px-4 py-2 capitalize outline-none transition-colors duration-500 focus-within:underline"
+        :class=`{ 'max-md:bg-white max-md:text-black': isActive('${page}'), 'text-black': isActive('${page}') && hoveredNavItem == '${page}', 'md:text-black': !isActive('${page}') && hoveredNavItem == '${page}' }`
         :aria-current=`isActive('${page}') ? 'page' : 'false'`
     >
         {page}
