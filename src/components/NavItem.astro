@@ -1,5 +1,5 @@
 ---
-const { page, href } = Astro.props;
+const { page, href, class: className } = Astro.props;
 ---
 
 <li role="menuitem">
@@ -10,7 +10,10 @@ const { page, href } = Astro.props;
         @mouseleave="hoveredNavItem = activePage"
         @focusin=`hoveredNavItem = '${page}'`
         @focusout="hoveredNavItem = activePage"
-        class="block rounded-xl px-4 py-2 capitalize outline-none transition-colors duration-500 focus-within:underline"
+        class:list={[
+            'block rounded-xl px-4 py-2 capitalize outline-none transition-colors duration-500 focus-visible:underline',
+            className,
+        ]}
         :class=`{ 'max-md:bg-white max-md:text-black': isActive('${page}'), 'text-black': isActive('${page}') && hoveredNavItem == '${page}', 'md:text-black': !isActive('${page}') && hoveredNavItem == '${page}' }`
         :aria-current=`isActive('${page}') ? 'page' : 'false'`
     >

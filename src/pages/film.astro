@@ -43,7 +43,7 @@ const fullResImgLoaded = new Array(images.length).fill(false);
         >
             {
                 images.map((image, i) => (
-                    <button aria-label="view full resolution image" @click={`fullResImgIdx = ${i}; showFullResImage = true;`} class="overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out focus-within:scale-105 focus-within:rounded-3xl focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 hover:scale-105 hover:rounded-3xl active:-translate-y-1">
+                    <button aria-label="view full resolution image" @click={`fullResImgIdx = ${i}; showFullResImage = true;`} class="overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 hover:scale-105 hover:rounded-3xl">
                         <Image
                             x-ref={i}
                             src={image}
@@ -98,14 +98,14 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                     />
                 ))
             }
-            <button aria-label="close full resolution preview" type="button" class="absolute right-8 top-8 h-16 w-16 rounded-2xl outline-none ring-0 ring-white transition focus-within:ring-2 hover:bg-white/10">
+            <button aria-label="close full resolution preview" type="button" class="absolute right-8 top-8 h-16 w-16 rounded-2xl outline-none ring-0 ring-white transition focus-visible:ring-2 hover:bg-white/10">
                 x
             </button>
             <div class="grid grid-cols-2 gap-4 absolute bottom-2">
-                <button type="button" @click.stop.capture="prevImg()" class="flex items-center justify-center rounded-2xl p-2 pr-4 outline-none ring-0 ring-white transition focus-within:ring-2 hover:bg-white/10">
+                <button type="button" @click.stop.capture="prevImg()" class="flex items-center justify-center rounded-2xl p-2 pr-4 outline-none ring-0 ring-white transition focus-visible:ring-2 hover:bg-white/10">
                     <Icon name="ic:round-arrow-left" class="h-8 transition-transform group-hover:translate-x-1" /> previous
                 </button>
-                <button type="button" @click.stop="nextImg()" class="flex items-center justify-center rounded-2xl p-2 pl-4 outline-none ring-0 ring-white transition focus-within:ring-2 hover:bg-white/10">
+                <button type="button" @click.stop="nextImg()" class="flex items-center justify-center rounded-2xl p-2 pl-4 outline-none ring-0 ring-white transition focus-visible:ring-2 hover:bg-white/10">
                     next <Icon name="ic:round-arrow-right" class="h-8 transition-transform group-hover:translate-x-1" />
                 </button>
             </div>

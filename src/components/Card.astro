@@ -5,11 +5,11 @@ import Badge from './Badge.astro';
 interface Props {
     title: string;
     link: string;
-    external: boolean;
-    badges: { color: [badges: Array<string>] };
+    external?: boolean;
+    badges?: { [color: string]: string[] };
 }
 
-const { title, link, external, badges = {} } = Astro.props;
+const { title, link, external = false, badges = {} } = Astro.props as Props;
 ---
 
 <section

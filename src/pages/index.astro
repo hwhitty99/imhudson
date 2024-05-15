@@ -8,8 +8,20 @@ import ContactForm from '../components/ContactForm.astro';
     <div id="hero-section" class="flex min-h-[100svh] px-4 lg:px-8 xl:px-16">
         <div class="m-auto w-full max-w-screen-xl">
             <div class="max-w-lg">
-                <h1 class="mb-2 text-5xl font-bold lg:text-8xl xl:text-9xl">
-                    Hudson Whittaker
+                <h1
+                    class="mb-2 text-5xl font-bold lg:text-8xl xl:text-9xl"
+                    data-animate="[&>span>span]:to:y-0|stagger-0.25"
+                >
+                    <span class="relative inline-block overflow-hidden">
+                        <span class="inline-block translate-y-full">
+                            Hudson
+                        </span>
+                    </span>
+                    <span class="relative inline-block overflow-hidden">
+                        <span class="inline-block translate-y-full">
+                            Whittaker
+                        </span>
+                    </span>
                 </h1>
                 <h2>
                     I'm a frontend web developer. Scroll this page to get an
@@ -27,9 +39,9 @@ import ContactForm from '../components/ContactForm.astro';
             <Card title="Web Development" link="/webdev">
                 <p>
                     I have a software engineering degree. And yet, I've been
-                    conning <a href="https://mir.us" target="_blank"
-                        >Mirus Research</a
-                    > into thinking I'm a web developer for the past two years.
+                    conning
+                    <a href="https://mir.us" target="_blank"> Mirus Research</a>
+                     into thinking I'm a web developer for the past two years.
                     🤫 How did I get here? Well, this is how.
                 </p>
             </Card>
@@ -58,3 +70,25 @@ import ContactForm from '../components/ContactForm.astro';
         </ContactForm>
     </div>
 </Layout>
+<script>
+    import gsap from 'gsap';
+    import glaze from 'glazejs';
+
+    glaze({
+        lib: {
+            gsap: {
+                core: gsap,
+            },
+        },
+        // the root element which will be searched for elements
+        // element: document,
+        // the attribute to search for
+        dataAttribute: 'data-animate',
+        // custom breakpoints
+        breakpoints: {
+            // default: '(min-width: 1px)',
+        },
+        // watch elements for changes and restart animations with new settings
+        watch: true,
+    });
+</script>

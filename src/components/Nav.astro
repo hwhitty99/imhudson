@@ -20,19 +20,19 @@ import NavItem from './NavItem.astro';
         >
             <span
                 class="absolute -z-10 h-full rounded-xl bg-white/80 backdrop-blur transition-all duration-500 ease-in-out max-md:hidden"
-                :style="{width: `${$refs[hoveredNavItem].offsetWidth}px`, right: `${$refs['nav-container'].offsetWidth - $refs[hoveredNavItem].offsetLeft - $refs[hoveredNavItem].offsetWidth}px`}"
+                :style="{ width: `${hoveredNavItem === 'home' ? 0 : $refs[hoveredNavItem].offsetWidth}px`, right: `${hoveredNavItem === 'home' ? 0 : ($refs['nav-container'].offsetWidth - $refs[hoveredNavItem].offsetLeft - $refs[hoveredNavItem].offsetWidth)}px` }"
             ></span>
             <a href="/" aria-label="homepage">
                 <Icon name="favicon" class="h-8 max-md:hidden" />
             </a>
             <ul
-                class="left-4 top-4 flex flex-col p-4 text-xl font-semibold max-md:gap-2 max-md:pb-16 md:inset-0 md:!flex md:!h-auto md:w-full md:flex-row md:justify-end md:!overflow-visible md:p-0 md:text-base"
+                class="left-4 top-4 flex flex-col overflow-hidden p-4 text-xl font-semibold max-md:gap-2 max-md:pb-16 md:inset-0 md:!flex md:!h-auto md:w-full md:flex-row md:justify-end md:!overflow-visible md:p-0 md:text-base"
                 role="menubar"
             >
                 <NavItem href="/webdev" page="webdev" />
                 <NavItem href="/film" page="film" />
                 <NavItem href="/free-clout" page="free-clout" />
-                <NavItem href="/" page="home" />
+                <NavItem href="/" page="home" class="md:hidden" />
             </ul>
         </div>
     </nav>
