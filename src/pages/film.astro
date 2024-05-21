@@ -1,8 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Icon from 'astro-icon';
-
+import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
+// import cloudinary from 'cloudinary';
+
+// cloudinary.v2.config({
+//   cloud_name: 'dhdlwivmk',
+//   api_key: '161795145131657',
+//   api_secret: 'NBkXZvDm1jCfWWkvP5jLb8yilgk',
+//   secure: true,
+// });
+
+// const { resources } = await cloudinary.api.resources({
+//   prefix: 'film/',
+// });
+
+// const images = resources.map(resource => {
+//   const optimizedUrl = cloudinary.url(resource.public_id, {
+//     quality: 'auto',
+//     fetch_format: 'auto',
+//     dpr: 'auto'
+//   });
+
+//   return {
+//     url: optimizedUrl,
+//     width: resource.width,
+//     height: resource.height
+//   }
+// });;
 const images = await Astro.glob('/src/assets/film/**/*').then((files) => {
     return files.map((file) => file.default);
 });
@@ -43,7 +68,7 @@ const fullResImgLoaded = new Array(images.length).fill(false);
         >
             {
                 images.map((image, i) => (
-                    <button aria-label="view full resolution image" @click={`fullResImgIdx = ${i}; showFullResImage = true;`} class="overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 hover:scale-105 hover:rounded-3xl">
+                    <button aria-label="view full resolution image" @click={`fullResImgIdx = ${i}; showFullResImage = true;`} class="w-full overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out hover:scale-105 hover:rounded-3xl focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2">
                         <Image
                             x-ref={i}
                             src={image}
@@ -80,33 +105,37 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                 x-transition:leave-end="opacity-0"
                 x-show="!fullResImgLoaded[fullResImgIdx]"
             >
-                <span class="animate-pulse">loading full resolution (<span x-text="$refs[`fullResImg${fullResImgIdx}`].getAttribute('width')"></span>px x <span x-text="$refs[`fullResImg${fullResImgIdx}`].getAttribute('height')"></span>px) image...</span>
+                <div class="animate-pulse px-4 text-center">
+                    <div>loading full resolution image</div>
+                    <div x-text="'(' + $refs[`fullResImg${fullResImgIdx}`].getAttribute('width') + 'px x ' + $refs[`fullResImg${fullResImgIdx}`].getAttribute('height') + 'px)'"></div>
+                </div>
             </span>
             {
                 images.map((image, i) => (
+                    <!-- prettier-ignore -->
                     <Image
                         src={image}
                         alt=""
                         x-ref={`fullResImg${i}`}
                         class="max-h-full w-auto object-contain transition-all duration-500 ease-out"
+                        :class={`[fullResImgIdx == ${i} && fullResImgLoaded[${i}] ? 'scale-100 opacity-100' : 'scale-[.98] opacity-0', fullResImgIdx == ${i} || 'h-0 w-0']`}
                         @load={`setTimeout(() => { fullResImgLoaded[${i}] = true; }, 2000)`}
                         @error="console.log('could not load the image')"
                         @click.stop
                         x-show={`fullResImgIdx == ${i} || fullResImgIdx == ${i} - 1 || fullResImgIdx == ${i} + 1`}
-                        :class={`[fullResImgIdx == ${i} && fullResImgLoaded[${i}] ? 'scale-100 opacity-100' : 'scale-[.98] opacity-0', fullResImgIdx == ${i} || 'h-0 w-0']`}
                         x-bind="swipeable"
                     />
                 ))
             }
-            <button aria-label="close full resolution preview" type="button" class="absolute right-8 top-8 h-16 w-16 rounded-2xl outline-none ring-0 ring-white transition focus-visible:ring-2 hover:bg-white/10">
+            <button aria-label="close full resolution preview" type="button" class="absolute right-2 top-2 h-16 w-16 rounded-2xl outline-none ring-0 ring-white transition hover:bg-white/10 focus-visible:ring-2 lg:right-8 lg:top-8">
                 x
             </button>
             <div class="grid grid-cols-2 gap-4 absolute bottom-2">
                 <button type="button" @click.stop.capture="prevImg()" class="flex items-center justify-center rounded-2xl p-2 pr-4 outline-none ring-0 ring-white transition focus-visible:ring-2 hover:bg-white/10">
-                    <Icon name="ic:round-arrow-left" class="h-8 transition-transform group-hover:translate-x-1" /> previous
+                    <Icon name="ic:round-arrow-left" class="h-8 text-2xl transition-transform group-hover:translate-x-1" /> previous
                 </button>
                 <button type="button" @click.stop="nextImg()" class="flex items-center justify-center rounded-2xl p-2 pl-4 outline-none ring-0 ring-white transition focus-visible:ring-2 hover:bg-white/10">
-                    next <Icon name="ic:round-arrow-right" class="h-8 transition-transform group-hover:translate-x-1" />
+                    next <Icon name="ic:round-arrow-right" class="h-8 text-2xl transition-transform group-hover:translate-x-1" />
                 </button>
             </div>
         </div>
