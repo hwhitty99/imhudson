@@ -19,11 +19,30 @@ import NavItem from './NavItem.astro';
             x-cloak
         >
             <span
-                class="absolute -z-10 h-full rounded-xl bg-white/80 backdrop-blur transition-all duration-500 ease-in-out max-md:hidden"
-                :style="{ width: `${hoveredNavItem === 'home' ? 0 : $refs[hoveredNavItem].offsetWidth}px`, right: `${hoveredNavItem === 'home' ? 0 : ($refs['nav-container'].offsetWidth - $refs[hoveredNavItem].offsetLeft - $refs[hoveredNavItem].offsetWidth)}px` }"
+                class="absolute -z-10 h-full rounded-xl bg-white/80 backdrop-blur transition-all ease-in-out max-md:hidden"
+                :style="{
+                    width: `${hoveredNavItem === 'home' ? 0 : $refs[hoveredNavItem].offsetWidth}px`,
+                    right: `${hoveredNavItem === 'home'
+                        ? 0
+                        : ($refs['nav-container'].offsetWidth - $refs[hoveredNavItem].offsetLeft - $refs[hoveredNavItem].offsetWidth)}px`
+                }"
             ></span>
-            <a href="/" aria-label="homepage">
-                <Icon name="favicon" class="h-8 max-md:hidden" />
+            <a href="/" aria-label="homepage" class="max-md:hidden">
+                <svg
+                    height="32"
+                    width="32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="200 325 680 470"
+                >
+                    <path
+                        fill="#808080"
+                        d="M877.83 326.9H748.04L611.57 793.45h129.79L877.83 326.9m-272.93 0H475.1L338.63 793.45h129.79L604.9 326.9"
+                    ></path>
+                    <path
+                        fill="#fff"
+                        d="M475.1 326.9h129.79l136.47 466.55H611.57L475.1 326.9m-272.93 0h129.79l136.47 466.55H338.63L202.17 326.9m409.4 168.38v129.79H338.63V495.28h272.94"
+                    ></path>
+                </svg>
             </a>
             <ul
                 class="left-4 top-4 flex flex-col overflow-hidden p-4 text-xl font-semibold max-md:gap-2 max-md:pb-16 md:inset-0 md:!flex md:!h-auto md:w-full md:flex-row md:justify-end md:!overflow-visible md:p-0 md:text-base"
