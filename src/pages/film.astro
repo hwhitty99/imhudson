@@ -64,7 +64,7 @@ const fullResImgLoaded = new Array(images.length).fill(false);
             </h2>
         </div>
         <div
-            class="grid grid-flow-dense grid-cols-2 place-items-center gap-2 p-2 sm:grid-cols-3 sm:gap-4 sm:p-4 md:grid-cols-4 md:gap-8 md:p-8 lg:gap-16 lg:p-16 2xl:grid-cols-5"
+            class="grid grid-flow-dense grid-cols-2 place-items-center gap-2 p-2 sm:grid-cols-3 sm:gap-4 sm:p-4 md:grid-cols-4 md:gap-8 md:p-8 lg:p-16 2xl:grid-cols-5 2xl:gap-16"
         >
             {
                 images.map((image, i) => (
@@ -73,7 +73,7 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                         x-intersect.once.threshold.50="shown = true"
                         aria-label="view full resolution image"
                         @click={`fullResImgIdx = ${i}; showFullResImage = true;`}
-                        class="h-full w-full overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out hover:scale-105 hover:rounded-3xl focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+                        class="h-full w-full overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out xl:hover:scale-105 xl:hover:rounded-3xl focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
                         class:list={[{'col-span-2': image.default.width > image.default.height}]}
                     >
                         <Image
