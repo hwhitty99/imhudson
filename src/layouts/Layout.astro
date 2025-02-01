@@ -14,11 +14,7 @@ const devMode = import.meta.env.DEV;
 ---
 
 <!doctype html>
-<html
-    lang="en"
-    x-data=`{devMode: ${devMode}}`
-    class="bg-black text-white selection:bg-red-500/50"
->
+<html lang="en" x-data=`{devMode: ${devMode}}`>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -28,7 +24,9 @@ const devMode = import.meta.env.DEV;
         <meta name="generator" content={Astro.generator} />
         <title>{title} | Hudson Whittaker</title>
     </head>
-    <body class="flex min-h-[100svh] flex-col justify-between">
+    <body
+        class="flex min-h-[100svh] flex-col justify-between bg-black text-white selection:bg-red-500/50"
+    >
         <Nav />
         <main>
             <slot />

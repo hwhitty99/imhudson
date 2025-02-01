@@ -40,7 +40,13 @@ import ContactForm from '../components/ContactForm.astro';
                 <p>
                     I have a software engineering degree. And yet, I've been
                     conning
-                    <a href="https://mir.us" target="_blank"> Mirus Research</a>
+                    <a
+                        href="https://mir.us"
+                        target="_blank"
+                        @click.prevent.stop="window.open('https://mir.us', '_blank')"
+                    >
+                        Mirus Research</a
+                    >
                     into thinking I'm a web developer for the past two years. 🤫
                     How did I get here? Well, this is how.
                 </p>
