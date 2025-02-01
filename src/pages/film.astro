@@ -57,8 +57,10 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                 <a
                     href="https://instagram.com/mediocre_exposures"
                     target="_blank"
-                    class="hover:text-red-500">@mediocre_exposures</a
+                    class="hover:text-red-500"
                 >
+                    @mediocre_exposures
+                </a>
             </h2>
         </div>
         <div
@@ -67,6 +69,8 @@ const fullResImgLoaded = new Array(images.length).fill(false);
             {
                 images.map((image, i) => (
                     <button
+                        x-data="{ shown: false }"
+                        x-intersect.once.threshold.50="shown = true"
                         aria-label="view full resolution image"
                         @click={`fullResImgIdx = ${i}; showFullResImage = true;`}
                         class="h-full w-full overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out hover:scale-105 hover:rounded-3xl focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
@@ -79,7 +83,8 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                             sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
                             alt=""
                             quality={'high'}
-                            class="h-full object-cover"
+                            class="h-full object-cover transition-all duration-700"
+                            :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'"
                         />
                     </button>
                 ))
