@@ -28,9 +28,7 @@ import { Image } from 'astro:assets';
 //     height: resource.height
 //   }
 // });;
-const images = await Astro.glob('/src/assets/film/**/*').then((files) => {
-    return files.map((file) => file.default);
-});
+const images = await Astro.glob('/src/assets/film/**/*');
 import bgImg from '../assets/film/wyoming/000521640015.jpg';
 const fullResImgLoaded = new Array(images.length).fill(false);
 ---
@@ -64,18 +62,24 @@ const fullResImgLoaded = new Array(images.length).fill(false);
             </h2>
         </div>
         <div
-            class="grid grid-cols-2 place-items-center gap-2 p-2 sm:grid-cols-3 sm:gap-4 sm:p-4 md:grid-cols-4 md:gap-8 md:p-8 lg:gap-16 lg:p-16 2xl:grid-cols-5"
+            class="grid grid-flow-dense grid-cols-2 place-items-center gap-2 p-2 sm:grid-cols-3 sm:gap-4 sm:p-4 md:grid-cols-4 md:gap-8 md:p-8 lg:gap-16 lg:p-16 2xl:grid-cols-5"
         >
             {
                 images.map((image, i) => (
-                    <button aria-label="view full resolution image" @click={`fullResImgIdx = ${i}; showFullResImage = true;`} class="w-full overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out hover:scale-105 hover:rounded-3xl focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2">
+                    <button
+                        aria-label="view full resolution image"
+                        @click={`fullResImgIdx = ${i}; showFullResImage = true;`}
+                        class="h-full w-full overflow-clip rounded outline-none ring-0 ring-offset-black transition-all duration-500 ease-out hover:scale-105 hover:rounded-3xl focus-visible:scale-105 focus-visible:rounded-3xl focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+                        class:list={[{'col-span-2': image.default.width > image.default.height}]}
+                    >
                         <Image
                             x-ref={i}
-                            src={image}
-                            widths={[200, 300, 500]}
+                            src={image.default}
+                            widths={[200, 300, 900]}
                             sizes="(max-width:640px) 50vw, (max-width:640px) 33vw, (max-width:768px) 25vw, (min-width:1536px) 20vw"
                             alt=""
-                            quality={'mid'}
+                            quality={'high'}
+                            class="h-full object-cover"
                         />
                     </button>
                 ))
@@ -114,7 +118,7 @@ const fullResImgLoaded = new Array(images.length).fill(false);
                 images.map((image, i) => (
                     <!-- prettier-ignore -->
                     <Image
-                        src={image}
+                        src={image.default}
                         alt=""
                         x-ref={`fullResImg${i}`}
                         class="max-h-full w-auto object-contain transition-all duration-500 ease-out"
