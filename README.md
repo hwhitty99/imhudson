@@ -20,7 +20,7 @@
 
 👤 **Hudson Whittaker**
 
--   Website: [imhudson.ml](https://imhudson.ml)
+-   Website: [hudsonwhittaker.com](https://wudson.dev)
 -   Github: [@hwhitty99](https://github.com/hwhitty99)
 -   LinkedIn: [@hudsonwhittaker](https://linkedin.com/in/hudsonwhittaker)
 -   Instagram: [@hudsonwhittaker](https://instagram.com/hudsonwhittaker)
